@@ -1,49 +1,58 @@
-import { Cormorant_Garamond, DM_Sans, DM_Mono } from "next/font/google";
+import { Playfair_Display, Outfit, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-const cormorant = Cormorant_Garamond({
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-cormorant",
+  variable: "--font-heading",
   display: "swap",
-});
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-dm-sans",
-  display: "swap",
 });
 
-const dmMono = DM_Mono({
+const outfit = Outfit({
   subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-dm-mono",
+  variable: "--font-body",
   display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+  weight: ["400", "500"],
 });
 
 export const metadata = {
   title: "Infinity Aesthetics | Skin, Laser & Hair Clinic — Ajmer",
-  description:
-    "Infinity Aesthetics — Skin, Laser & Hair Clinic in Ajmer. Clinical facials, laser treatments, hair care, acne programs, and advanced skin therapies. Rated 4.9★ on Google.",
+  description: "Ajmer's leading skin and laser clinic offering personalized aesthetic treatments.",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html 
-      lang="en" 
-      className={`${cormorant.variable} ${dmSans.variable} ${dmMono.variable}`}
-      data-theme="light"
-    >
+    <html lang="en" className={`${playfair.variable} ${outfit.variable} ${jetbrains.variable}`} suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var localTheme = localStorage.getItem('theme');
+                  var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  if (localTheme === 'dark' || (!localTheme && systemDark)) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
       <body>
         <Navbar />
-        {children}
+        <main>{children}</main>
         <Footer />
-        <a href="tel:+919460991160" className="ia-mobile-cta" aria-label="Call to book">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        </a>
       </body>
     </html>
   );

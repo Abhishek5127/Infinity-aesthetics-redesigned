@@ -23,11 +23,13 @@ export default function Hero() {
           <div className="ia-hero-glow" />
           <p className="ia-hero-eyebrow">Infinity Aesthetics — Ajmer</p>
           <h1 className="ia-hero-title">
-            <span className="ia-hero-word">Repair.</span>
-            <span className="ia-hero-word">Refine.</span>
-            <span className="ia-hero-word">Radiate.</span>
+            <span className="ia-hero-word">Reveal</span>
+            <span className="ia-hero-word">Your Natural</span>
+            <span className="ia-hero-word">Radiance.</span>
           </h1>
-          <p className="ia-hero-subtitle">Personalized skin and hair treatments at Ajmer's most trusted clinic.</p>
+          <p className="ia-hero-subtitle">
+            Where medical expertise meets aesthetic artistry. Discover personalized skin and hair treatments tailored to your unique beauty.
+          </p>
 
           <div className="ia-hero-ctas">
             <Link href="/contact" className="ia-btn ia-btn-gold">

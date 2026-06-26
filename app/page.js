@@ -13,9 +13,7 @@ export default function Home() {
       {/* TRUST BAR */}
       <section className="ia-trust-bar">
         <div className="ia-container">
-          <p className="ia-trust-headline">
-            <strong>4.9 ★</strong> across <strong>113 Google Reviews</strong> — Ajmer’s highest-rated skin clinic
-          </p>
+          <p className="ia-trust-headline">Flawless Beauty, Fearless Confidence. <strong>Ajmer's most trusted medical aesthetics team.</strong></p>
           <div className="ia-trust-row ia-stagger">
             <div className="ia-trust-item ia-reveal">
               <div className="ia-trust-icon">
@@ -49,10 +47,10 @@ export default function Home() {
       <section className="ia-services ia-section-pad" id="services">
         <div className="ia-container">
           <div className="ia-services-header ia-reveal">
-            <div className="ia-eyebrow">Treatments</div>
-            <h2 className="ia-section-title">Clinical Skin Services</h2>
+            <span className="ia-eyebrow">Our Treatments</span>
+            <h2 className="ia-section-title">Precision Care, Beautiful Results</h2>
             <p className="ia-section-text">
-              Evidence-informed treatments for glow, clarity, texture, acne care, hair restoration, and long-term skin health.
+              Explore our curated selection of advanced dermatological and aesthetic procedures.
             </p>
           </div>
 
@@ -60,13 +58,13 @@ export default function Home() {
             {clinicServices.map((service, index) => (
               <Link href={`/services#${service.slug}`} className={`ia-service-card ia-svc-${index + 1} ia-reveal`} key={service.slug}>
                 <div className="ia-placeholder" />
-                <div className="ia-service-name">{service.shortTitle}</div>
+                <div className="ia-service-name">{service.name}</div>
                 <div className="ia-service-overlay">
-                  <h3>{service.shortTitle}</h3>
-                  <p>{service.text}</p>
+                  <h3>{service.name}</h3>
+                  <p>{service.description}</p>
                   <div className="ia-svc-meta">
-                    <span>{service.fees?.[0]?.duration || "45 min"}</span>
-                    <span>{service.fees?.[0]?.price || "₹1,500+"}</span>
+                    <span>{service.duration}</span>
+                    <span>{service.recovery}</span>
                   </div>
                   <span className="ia-svc-link">Learn More →</span>
                 </div>
@@ -81,10 +79,10 @@ export default function Home() {
         <div className="ia-container">
           <div className="ia-about-grid">
             <div className="ia-about-content ia-reveal">
-              <div className="ia-eyebrow">Our Approach</div>
-              <h2 className="ia-section-title">Spa-level comfort, clinical planning.</h2>
+              <span className="ia-eyebrow">About the Clinic</span>
+              <h2 className="ia-section-title">Your Skin, Our Passion.</h2>
               <p className="ia-section-text">
-                We avoid one-size-fits-all protocols and instead tune every visit to your skin's response, downtime tolerance, and the result you actually want — so progress feels measured, personal, and sustainable.
+                Tired of the daily routine of masking skin issues? We offer a patient-first approach, focusing on progressive visible change without over-stripping your skin or making you look 'overdone'. Experience spa-level comfort with clinical-grade planning.
               </p>
               <div className="ia-about-stats">
                 <div className="ia-stat-pill">
@@ -101,7 +99,7 @@ export default function Home() {
             </div>
             
             <div className="ia-about-image ia-reveal">
-              <div className="ia-placeholder" style={{backgroundImage: 'url("https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=900&q=82")', backgroundSize: 'cover', backgroundPosition: 'center'}} />
+              <div className="ia-placeholder" role="img" aria-label="Aesthetic clinic interior showing modern equipment and premium skincare products" style={{backgroundImage: 'url("https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=900&q=82")', backgroundSize: 'cover', backgroundPosition: 'center'}} />
             </div>
           </div>
         </div>
