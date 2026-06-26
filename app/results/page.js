@@ -3,9 +3,9 @@ import { resultStats, testimonials } from "../../lib/content";
 import styles from "../page.module.css";
 
 export const metadata = {
-  title: "Results | Luneva Skin Clinic",
+  title: "Results | Infinity Aesthetics — Ajmer",
   description:
-    "Visible change with realistic expectations. Treatment frequency, downtime, and home care are planned around your skin response.",
+    "Visible change with realistic expectations. Treatment frequency, downtime, and home care are planned around your skin response at Infinity Aesthetics.",
 };
 
 export default function ResultsPage() {

@@ -13,12 +13,12 @@ export function generateMetadata({ params }) {
 
   if (!service) {
     return {
-      title: "Service Not Found | Luneva Skin Clinic",
+      title: "Service Not Found | Infinity Aesthetics",
     };
   }
 
   return {
-    title: `${service.title} | Luneva Skin Clinic`,
+    title: `${service.title} | Infinity Aesthetics`,
     description: service.text,
   };
 }

@@ -1,40 +1,49 @@
-import { Inter, Playfair_Display } from "next/font/google";
+import { Cormorant_Garamond, DM_Sans, DM_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import styles from "./page.module.css";
 
-const inter = Inter({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400", "600", "700"],
+  variable: "--font-cormorant",
   display: "swap",
 });
 
-const playfair = Playfair_Display({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-dm-sans",
+  display: "swap",
+});
+
+const dmMono = DM_Mono({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-dm-mono",
   display: "swap",
 });
 
 export const metadata = {
-  title: "Luneva Skin Clinic | Clinical Skin & Renewal",
+  title: "Infinity Aesthetics | Skin, Laser & Hair Clinic — Ajmer",
   description:
-    "A skin care clinic landing page with treatment services, results, process, and transparent fee structures.",
+    "Infinity Aesthetics — Skin, Laser & Hair Clinic in Ajmer. Clinical facials, laser treatments, hair care, acne programs, and advanced skin therapies. Rated 4.9★ on Google.",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+    <html 
+      lang="en" 
+      className={`${cormorant.variable} ${dmSans.variable} ${dmMono.variable}`}
+      data-theme="light"
+    >
       <body>
-        <div className={styles.page}>
-          <div className={styles.backgroundShapeTop} />
-          <div className={styles.backgroundShapeLeft} />
-          <div className={styles.canvas}>
-            <Navbar />
-            {children}
-            <Footer />
-          </div>
-        </div>
+        <Navbar />
+        {children}
+        <Footer />
+        <a href="tel:+919460991160" className="ia-mobile-cta" aria-label="Call to book">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </a>
       </body>
     </html>
   );

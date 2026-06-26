@@ -4,9 +4,9 @@ import PageHero from "../../components/PageHero";
 import styles from "../page.module.css";
 
 export const metadata = {
-  title: "About | Luneva Skin Clinic",
+  title: "About | Infinity Aesthetics — Ajmer",
   description:
-    "Luneva combines spa-level comfort with clinical planning, focused on barrier health and sustainable skin renewal.",
+    "Infinity Aesthetics combines clinical planning with patient comfort, focused on skin health, laser treatments, and hair care in Ajmer.",
 };
 
 export default function AboutPage() {
@@ -23,7 +23,7 @@ export default function AboutPage() {
           <p className={styles.kicker}>Our approach</p>
           <h2 className={styles.sectionTitle}>Spa-level comfort, clinical planning.</h2>
           <p className={styles.richText}>
-            Luneva combines spa-level comfort with clinical planning. We avoid one-size-fits-all
+            Infinity Aesthetics combines clinical precision with patient comfort. We avoid one-size-fits-all
             protocols and instead tune every visit to your skin&apos;s response, downtime tolerance,
             and the result you actually want.
           </p>

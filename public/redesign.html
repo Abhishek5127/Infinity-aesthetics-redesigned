@@ -1,0 +1,2307 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infinity Aesthetics | Skin, Laser & Hair Clinic — Ajmer</title>
+  <meta name="description" content="Infinity Aesthetics — Skin, Laser & Hair Clinic in Ajmer. Clinical facials, laser treatments, hair care, acne programs, and advanced skin therapies. Rated 4.9★ on Google.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Mono:wght@400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== RESET ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { min-height: 100vh; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+button { border: none; background: none; cursor: pointer; font: inherit; color: inherit; }
+ul, ol { list-style: none; }
+img { max-width: 100%; display: block; }
+input, select, textarea { font: inherit; color: inherit; }
+
+/* ===== THEME VARIABLES ===== */
+:root {
+  --bg-primary: #F6F4F0;
+  --bg-secondary: #EDEAE3;
+  --bg-dark: #1A3028;
+  --text-primary: #1A2420;
+  --text-muted: #6B7B74;
+  --accent-green: #2D6A4F;
+  --accent-gold: #C8973F;
+  --accent-blush: #E8C5B0;
+  --border: rgba(42,80,60,0.12);
+  --card-bg: rgba(255,255,255,0.7);
+  --card-border: rgba(42,80,60,0.08);
+  --nav-bg: rgba(246,244,240,0.85);
+  --overlay-dark: rgba(26,48,40,0.92);
+  --shadow-sm: 0 2px 8px rgba(26,48,40,0.06);
+  --shadow-md: 0 8px 32px rgba(26,48,40,0.08);
+  --shadow-lg: 0 16px 56px rgba(26,48,40,0.12);
+}
+
+:root[data-theme="dark"] {
+  --bg-primary: #111A16;
+  --bg-secondary: #1A2820;
+  --bg-dark: #0D1410;
+  --text-primary: #EDE8E0;
+  --text-muted: #8A9E95;
+  --accent-green: #4CAF82;
+  --accent-gold: #D4A855;
+  --accent-blush: #C49580;
+  --border: rgba(200,220,210,0.10);
+  --card-bg: rgba(255,255,255,0.04);
+  --card-border: rgba(200,220,210,0.08);
+  --nav-bg: rgba(17,26,22,0.88);
+  --overlay-dark: rgba(13,20,16,0.95);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.2);
+  --shadow-md: 0 8px 32px rgba(0,0,0,0.25);
+  --shadow-lg: 0 16px 56px rgba(0,0,0,0.3);
+}
+
+.theme-transition,
+.theme-transition *,
+.theme-transition *::before,
+.theme-transition *::after {
+  transition: background-color 0.3s ease, color 0.3s ease,
+              border-color 0.3s ease, box-shadow 0.3s ease,
+              fill 0.3s ease, stroke 0.3s ease !important;
+}
+
+/* ===== BASE TYPOGRAPHY ===== */
+body {
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.label, .stat-number, .price {
+  font-family: 'DM Mono', monospace;
+  font-weight: 400;
+}
+
+.text-muted { color: var(--text-muted); }
+.text-gold { color: var(--accent-gold); }
+.text-green { color: var(--accent-green); }
+
+/* ===== LAYOUT UTILITIES ===== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-pad {
+  padding: 100px 0;
+}
+
+.eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-green);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 3px;
+  height: 18px;
+  background: var(--accent-gold);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-size: clamp(32px, 5vw, 42px);
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  max-width: 560px;
+}
+
+.section-text {
+  font-size: 16px;
+  color: var(--text-muted);
+  max-width: 520px;
+  line-height: 1.7;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  transform: scale(1.02);
+}
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, var(--accent-gold), #D4A855);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(200,151,63,0.3);
+}
+.btn-gold:hover {
+  box-shadow: 0 12px 32px rgba(200,151,63,0.4), 0 0 0 4px rgba(200,151,63,0.12);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1.5px solid var(--border);
+}
+.btn-ghost:hover {
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+  box-shadow: 0 0 0 4px rgba(45,106,79,0.06);
+}
+
+.btn-submit {
+  width: 100%;
+  background: linear-gradient(135deg, var(--accent-gold), #D4A855);
+  color: #fff;
+  padding: 16px 32px;
+  font-size: 16px;
+  box-shadow: 0 8px 24px rgba(200,151,63,0.25);
+}
+.btn-submit:hover {
+  box-shadow: 0 12px 32px rgba(200,151,63,0.35);
+}
+
+/* ===== SCROLL REVEAL ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* stagger children */
+.stagger > .reveal:nth-child(1) { transition-delay: 0ms; }
+.stagger > .reveal:nth-child(2) { transition-delay: 80ms; }
+.stagger > .reveal:nth-child(3) { transition-delay: 160ms; }
+.stagger > .reveal:nth-child(4) { transition-delay: 240ms; }
+.stagger > .reveal:nth-child(5) { transition-delay: 320ms; }
+.stagger > .reveal:nth-child(6) { transition-delay: 400ms; }
+.stagger > .reveal:nth-child(7) { transition-delay: 480ms; }
+.stagger > .reveal:nth-child(8) { transition-delay: 560ms; }
+
+/* ===== IMAGE PLACEHOLDER ===== */
+.img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, var(--accent-blush), rgba(45,106,79,0.25));
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 16px;
+  user-select: none;
+}
+
+
+/* =============================================
+   SECTION: Navigation
+   ============================================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 20px 0;
+  transition: padding 0.3s ease, background 0.3s ease, box-shadow 0.3s ease,
+              backdrop-filter 0.3s ease;
+}
+
+.navbar.scrolled {
+  padding: 12px 0;
+  background: var(--nav-bg);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  box-shadow: 0 1px 0 var(--border), var(--shadow-sm);
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 10;
+}
+
+.nav-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--accent-green);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  flex-shrink: 0;
+}
+
+.nav-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-brand-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.nav-brand-tagline {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3vw, 40px);
+}
+
+.nav-links a {
+  position: relative;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  padding: 6px 0;
+  transition: color 0.2s ease;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+  height: 2px;
+  background: var(--accent-gold);
+  border-radius: 1px;
+  transition: left 0.3s ease, right 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  left: 0;
+  right: 0;
+}
+
+.nav-links a:hover {
+  color: var(--accent-green);
+}
+
+.nav-links a.active {
+  color: var(--accent-green);
+  font-weight: 600;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 10;
+}
+
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.theme-toggle:hover {
+  transform: scale(1.08);
+  box-shadow: var(--shadow-sm);
+}
+.theme-toggle svg { width: 18px; height: 18px; }
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+.nav-cta {
+  padding: 10px 24px;
+  font-size: 14px;
+}
+
+.mobile-menu-btn {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  z-index: 10;
+}
+.mobile-menu-btn span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.mobile-menu-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.mobile-menu-btn.open span:nth-child(2) { opacity: 0; }
+.mobile-menu-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile Drawer */
+.mobile-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 90;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.mobile-drawer-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(320px, 85vw);
+  background: var(--bg-primary);
+  z-index: 95;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  padding: 80px 32px 32px;
+  box-shadow: -8px 0 32px rgba(0,0,0,0.1);
+}
+.mobile-drawer.open {
+  transform: translateX(0);
+}
+
+.mobile-drawer-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  display: grid;
+  place-items: center;
+}
+.mobile-drawer-close svg { width: 18px; height: 18px; }
+
+.mobile-drawer a {
+  display: block;
+  padding: 16px 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border);
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+.mobile-drawer a:hover {
+  color: var(--accent-green);
+  padding-left: 8px;
+}
+.mobile-drawer .btn {
+  margin-top: 24px;
+  width: 100%;
+}
+
+
+/* =============================================
+   SECTION: Hero
+   ============================================= */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+.hero .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Breathing glow */
+.hero-content::before {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(45,106,79,0.18) 0%,
+    rgba(232,197,176,0.14) 40%,
+    transparent 70%
+  );
+  animation: pulse-glow 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hero-eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-green);
+  margin-bottom: 20px;
+}
+
+.hero-title {
+  font-size: clamp(48px, 7vw, 72px);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 0.95;
+  margin-bottom: 24px;
+  letter-spacing: -0.03em;
+}
+
+.hero-title span {
+  display: block;
+}
+
+.hero-subtitle {
+  font-size: clamp(17px, 2vw, 20px);
+  color: var(--text-muted);
+  max-width: 440px;
+  line-height: 1.6;
+  margin-bottom: 36px;
+}
+
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  filter: blur(4px);
+  animation: badge-enter 0.6s ease forwards;
+}
+.hero-badge:nth-child(1) { animation-delay: 0.8s; }
+.hero-badge:nth-child(2) { animation-delay: 0.9s; }
+.hero-badge:nth-child(3) { animation-delay: 1.0s; }
+
+.hero-badge svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+.hero-visual {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-image-blob {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+  border-radius: 62% 38% 44% 56% / 52% 54% 46% 48%;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.hero-image-blob .img-placeholder {
+  background: linear-gradient(145deg, 
+    rgba(232,197,176,0.6), 
+    rgba(45,106,79,0.3), 
+    rgba(200,151,63,0.2)
+  );
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  animation: bounce 2s ease-in-out infinite;
+  transition: opacity 0.5s ease;
+  z-index: 5;
+}
+.scroll-indicator svg {
+  width: 20px;
+  height: 20px;
+}
+.scroll-indicator.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+/* =============================================
+   SECTION: Trust Bar
+   ============================================= */
+.trust-bar {
+  background: var(--bg-dark);
+  padding: 40px 0;
+  overflow: hidden;
+}
+
+.trust-bar-headline {
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(237,232,224,0.9);
+  margin-bottom: 32px;
+}
+
+.trust-bar-headline strong {
+  color: var(--accent-gold);
+  font-weight: 700;
+}
+
+.trust-badges-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.trust-badge-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(237,232,224,0.85);
+  white-space: nowrap;
+}
+
+.trust-badge-item svg { width: 18px; height: 18px; flex-shrink: 0; }
+.trust-badge-item .badge-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+
+/* =============================================
+   SECTION: Services
+   ============================================= */
+.services-section {
+  background: var(--bg-secondary);
+}
+
+.services-header {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 56px;
+}
+
+.services-header .eyebrow {
+  justify-content: center;
+}
+
+.services-header .section-title {
+  margin: 0 auto 16px;
+}
+
+.services-header .section-text {
+  margin: 0 auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.service-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 3/4;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.service-card .img-placeholder {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.4s ease, filter 0.3s ease;
+}
+
+.service-card:hover .img-placeholder {
+  transform: scale(1.03);
+  filter: brightness(0.6);
+}
+
+.service-card-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(26,48,40,0.7), transparent);
+  color: #fff;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  transition: opacity 0.3s ease;
+}
+
+.service-card:hover .service-card-name {
+  opacity: 0;
+}
+
+.service-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  background: linear-gradient(to top, rgba(26,48,40,0.92) 0%, rgba(26,48,40,0.6) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.service-card:hover .service-overlay {
+  opacity: 1;
+}
+
+.service-overlay h3 {
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.service-overlay p {
+  color: rgba(255,255,255,0.75);
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.service-meta {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.service-meta span {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--accent-gold);
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(200,151,63,0.15);
+  border: 1px solid rgba(200,151,63,0.2);
+}
+
+.service-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-gold);
+  transition: letter-spacing 0.2s ease;
+}
+
+.service-link:hover {
+  letter-spacing: 1px;
+}
+
+
+/* =============================================
+   SECTION: About
+   ============================================= */
+.about-section {
+  background: var(--bg-primary);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.about-content .section-text {
+  margin-bottom: 32px;
+}
+
+.about-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.stat-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.stat-pill .stat-number {
+  color: var(--accent-green);
+  font-weight: 400;
+}
+
+.about-image {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  box-shadow: var(--shadow-lg);
+}
+
+
+/* =============================================
+   SECTION: Social Proof
+   ============================================= */
+.social-proof {
+  background: var(--bg-dark);
+}
+
+.social-proof .eyebrow {
+  color: var(--accent-gold);
+}
+.social-proof .eyebrow::before {
+  background: var(--accent-gold);
+}
+
+.social-proof-header {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 56px;
+}
+
+.social-proof-header .eyebrow {
+  justify-content: center;
+}
+
+.social-proof-header .section-title {
+  color: #EDE8E0;
+  margin: 0 auto 12px;
+}
+
+.social-proof-header .section-text {
+  color: rgba(237,232,224,0.65);
+  margin: 0 auto;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.testimonial-card {
+  padding: 32px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+}
+
+/* Stagger card heights for visual interest */
+.testimonial-card:nth-child(2) {
+  transform: translateY(24px);
+}
+.testimonial-card:nth-child(2):hover {
+  transform: translateY(20px);
+}
+
+.testimonial-stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.testimonial-stars svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--accent-gold);
+}
+
+.testimonial-quote {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(237,232,224,0.85);
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
+.testimonial-author {
+  font-weight: 600;
+  color: #EDE8E0;
+  margin-bottom: 4px;
+}
+
+.testimonial-treatment {
+  font-size: 13px;
+  color: var(--accent-gold);
+  margin-bottom: 12px;
+}
+
+.testimonial-verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: rgba(237,232,224,0.45);
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.04);
+}
+
+.testimonial-verified svg { width: 12px; height: 12px; }
+
+
+/* =============================================
+   SECTION: Contact
+   ============================================= */
+.contact-section {
+  background: var(--bg-primary);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.contact-info {
+  padding-top: 16px;
+}
+
+.contact-clinic-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.contact-clinic-hindi {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.contact-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: var(--accent-green);
+}
+.contact-icon svg { width: 18px; height: 18px; }
+
+.contact-item-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.contact-item-value {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.contact-item a {
+  transition: color 0.2s ease;
+}
+.contact-item a:hover {
+  color: var(--accent-green);
+}
+
+.contact-phone-value {
+  font-family: 'DM Mono', monospace;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--text-primary);
+  letter-spacing: 1px;
+}
+
+.hours-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hours-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4CAF50;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.rating-stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 4px;
+}
+.rating-stars svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--accent-gold);
+}
+
+.lgbtq-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(255,0,0,0.08), rgba(255,127,0,0.08), rgba(255,255,0,0.08), rgba(0,128,0,0.08), rgba(0,0,255,0.08), rgba(128,0,128,0.08));
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 8px;
+}
+
+/* Consultation Card */
+.consult-card {
+  border: 2px solid var(--accent-gold);
+  border-radius: 20px;
+  padding: 28px;
+  margin-bottom: 32px;
+  background: var(--card-bg);
+  text-align: center;
+}
+
+.consult-price {
+  font-family: 'DM Mono', monospace;
+  font-size: 48px;
+  color: var(--accent-gold);
+  line-height: 1;
+  margin: 8px 0;
+}
+
+.consult-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.consult-note {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Contact Form */
+.contact-form-wrap {
+  position: relative;
+}
+
+.form-field {
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: 16px 0 10px;
+  border: none;
+  border-bottom: 2px solid var(--border);
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-field select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B7B74' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0 center;
+  padding-right: 24px;
+}
+
+.form-field label {
+  position: absolute;
+  left: 0;
+  top: 16px;
+  color: var(--text-muted);
+  font-size: 16px;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: left top;
+}
+
+.form-field input:focus + label,
+.form-field input:not(:placeholder-shown) + label,
+.form-field textarea:focus + label,
+.form-field textarea:not(:placeholder-shown) + label {
+  transform: translateY(-26px) scale(0.8);
+  color: var(--accent-green);
+}
+
+/* Select labels — always floated since there's placeholder text */
+.form-field.select-field label {
+  transform: translateY(-26px) scale(0.8);
+  color: var(--text-muted);
+}
+.form-field.select-field select:focus + label {
+  color: var(--accent-green);
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-bottom-color: var(--accent-green);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.form-success {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  background: rgba(45,106,79,0.08);
+  border: 1px solid rgba(45,106,79,0.15);
+  color: var(--accent-green);
+  font-weight: 500;
+  margin-top: 20px;
+}
+.form-success.show { display: flex; }
+.form-success svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+.form-privacy {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+
+/* =============================================
+   SECTION: Footer
+   ============================================= */
+.footer {
+  background: var(--bg-dark);
+  padding: 72px 0 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: 48px;
+  padding-bottom: 48px;
+}
+
+.footer-brand-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #EDE8E0;
+  margin-bottom: 8px;
+}
+
+.footer-tagline {
+  font-size: 15px;
+  color: rgba(237,232,224,0.6);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  display: grid;
+  place-items: center;
+  color: rgba(237,232,224,0.7);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.footer-social-link:hover {
+  background: var(--accent-gold);
+  color: #fff;
+}
+.footer-social-link svg { width: 18px; height: 18px; }
+
+.footer-col-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(237,232,224,0.5);
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  display: block;
+  padding: 6px 0;
+  font-size: 15px;
+  color: rgba(237,232,224,0.7);
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+.footer-links a:hover {
+  color: var(--accent-gold);
+  padding-left: 4px;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 6px 0;
+  font-size: 14px;
+  color: rgba(237,232,224,0.7);
+  line-height: 1.5;
+}
+.footer-contact-item svg {
+  width: 16px;
+  height: 16px;
+  margin-top: 3px;
+  flex-shrink: 0;
+  color: var(--accent-gold);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 13px;
+  color: rgba(237,232,224,0.4);
+}
+
+.footer-bottom a {
+  transition: color 0.2s ease;
+}
+.footer-bottom a:hover {
+  color: var(--accent-gold);
+}
+
+
+/* =============================================
+   Mobile Floating CTA
+   ============================================= */
+.mobile-cta {
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 80;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(200,151,63,0.4);
+  place-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.mobile-cta:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 32px rgba(200,151,63,0.5);
+}
+.mobile-cta svg { width: 24px; height: 24px; }
+
+
+/* =============================================
+   ANIMATIONS / KEYFRAMES
+   ============================================= */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.12; transform: scale(1); }
+  50% { opacity: 0.24; transform: scale(1.05); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+@keyframes badge-enter {
+  to { opacity: 1; filter: blur(0); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+  .hero-badge { opacity: 1; filter: none; }
+}
+
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 1080px) {
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .mobile-menu-btn { display: flex; }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonial-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .testimonial-card:nth-child(3) {
+    grid-column: 1 / -1;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .testimonial-card:nth-child(2) {
+    transform: none;
+  }
+  .testimonial-card:nth-child(2):hover {
+    transform: translateY(-4px);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-pad { padding: 72px 0; }
+
+  .hero .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-subtitle { margin: 0 auto 36px; }
+  .hero-ctas { justify-content: center; }
+  .hero-badges { justify-content: center; }
+
+  .hero-image-blob {
+    max-width: 320px;
+    margin: 0 auto;
+    aspect-ratio: 3/4;
+  }
+
+  .hero-content::before {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 350px;
+    height: 350px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-image {
+    max-width: 400px;
+    margin: 0 auto;
+    aspect-ratio: 4/3;
+  }
+
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+  .testimonial-card:nth-child(3) {
+    max-width: none;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .mobile-cta {
+    display: grid;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+
+  .hero-title {
+    font-size: clamp(40px, 12vw, 56px);
+  }
+
+  .hero-badges {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .trust-badges-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- SECTION: Navigation -->
+<header class="navbar" id="navbar">
+  <div class="container">
+    <a href="#hero" class="nav-brand">
+      <div class="nav-logo">IA</div>
+      <div class="nav-brand-text">
+        <span class="nav-brand-name">Infinity Aesthetics</span>
+        <span class="nav-brand-tagline">Skin, Laser &amp; Hair Clinic</span>
+      </div>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#hero" class="active">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <!-- Moon icon (shown in light mode) -->
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <!-- Sun icon (shown in dark mode) -->
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <a href="#contact" class="btn btn-gold nav-cta">Book Now</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Drawer -->
+<div class="mobile-drawer-overlay" id="drawerOverlay"></div>
+<aside class="mobile-drawer" id="mobileDrawer">
+  <button class="mobile-drawer-close" id="drawerClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="#hero" class="drawer-link">Home</a>
+  <a href="#services" class="drawer-link">Services</a>
+  <a href="#about" class="drawer-link">About</a>
+  <a href="#reviews" class="drawer-link">Reviews</a>
+  <a href="#contact" class="drawer-link">Contact</a>
+  <a href="tel:+919460991160" class="btn btn-gold">Call Now — 094609 91160</a>
+</aside>
+
+
+<!-- SECTION: Hero -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Infinity Aesthetics — Ajmer</p>
+      <h1 class="hero-title">
+        <span>Repair.</span>
+        <span>Refine.</span>
+        <span>Radiate.</span>
+      </h1>
+      <p class="hero-subtitle">Personalized skin and hair treatments at Ajmer's most trusted clinic.</p>
+
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-gold">Book Consultation — ₹85</a>
+        <a href="#reviews" class="btn btn-ghost">See Our Results ↓</a>
+      </div>
+
+      <div class="hero-badges">
+        <div class="hero-badge">
+          <svg viewBox="0 0 24 24" fill="var(--accent-gold)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          4.9★ Google Rated
+        </div>
+        <div class="hero-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          500+ Patients
+        </div>
+        <div class="hero-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Ajmer's #1 Clinic
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-image-blob">
+        <div class="img-placeholder">Hero Portrait — Skincare Treatment</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator" id="scrollIndicator">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
+
+
+<!-- SECTION: Trust Bar -->
+<section class="trust-bar reveal" id="trust">
+  <div class="container">
+    <p class="trust-bar-headline"><strong>4.9 ★</strong> across <strong>113 Google Reviews</strong> — Ajmer's highest-rated skin clinic</p>
+    <div class="trust-badges-row stagger">
+      <div class="trust-badge-item reveal">
+        <div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        IAD Certified
+      </div>
+      <div class="trust-badge-item reveal">
+        <div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
+        Laser Certified
+      </div>
+      <div class="trust-badge-item reveal">
+        <div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        LGBTQ+ Inclusive
+      </div>
+      <div class="trust-badge-item reveal">
+        <div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        ₹85 Consultation
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SECTION: Services -->
+<section class="services-section section-pad" id="services">
+  <div class="container">
+    <div class="services-header reveal">
+      <div class="eyebrow">Treatments</div>
+      <h2 class="section-title" style="max-width:100%">Clinical Skin Services</h2>
+      <p class="section-text">Evidence-informed treatments for glow, clarity, texture, acne care, hair restoration, and long-term skin health.</p>
+    </div>
+
+    <div class="services-grid stagger">
+      <!-- Card 1 -->
+      <div class="service-card reveal">
+        <div class="img-placeholder" style="background:linear-gradient(145deg, #E8C5B0, rgba(45,106,79,0.3))">Clinical Facial</div>
+        <div class="service-card-name">Clinical Facial</div>
+        <div class="service-overlay">
+          <h3>Clinical Facial</h3>
+          <p>Custom facials for dullness, congestion, sensitivity, and barrier repair.</p>
+          <div class="service-meta">
+            <span>45–75 min</span>
+            <span>From ₹2,500</span>
+          </div>
+          <a href="#contact" class="service-link">Learn More →</a>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="service-card reveal">
+        <div class="img-placeholder" style="background:linear-gradient(145deg, rgba(200,151,63,0.4), rgba(45,106,79,0.35))">Chemical Peel</div>
+        <div class="service-card-name">Chemical Peel</div>
+        <div class="service-overlay">
+          <h3>Chemical Peel</h3>
+          <p>Progressive peels for tone, pores, acne marks, and uneven texture.</p>
+          <div class="service-meta">
+            <span>35–45 min</span>
+            <span>From ₹3,000</span>
+          </div>
+          <a href="#contact" class="service-link">Learn More →</a>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="service-card reveal">
+        <div class="img-placeholder" style="background:linear-gradient(145deg, rgba(45,106,79,0.35), #E8C5B0)">Microneedling</div>
+        <div class="service-card-name">Microneedling</div>
+        <div class="service-overlay">
+          <h3>Microneedling</h3>
+          <p>Collagen induction for acne scars, fine lines, pores, and skin firmness.</p>
+          <div class="service-meta">
+            <span>60–90 min</span>
+            <span>From ₹5,000</span>
+          </div>
+          <a href="#contact" class="service-link">Learn More →</a>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="service-card reveal">
+        <div class="img-placeholder" style="background:linear-gradient(145deg, rgba(200,151,63,0.35), rgba(232,197,176,0.6))">Laser Treatment</div>
+        <div class="service-card-name">Laser Treatment</div>
+        <div class="service-overlay">
+          <h3>Laser Treatment</h3>
+          <p>Light-based rejuvenation for redness, pigmentation, and tired-looking skin.</p>
+          <div class="service-meta">
+            <span>30–60 min</span>
+            <span>From ₹4,000</span>
+          </div>
+          <a href="#contact" class="service-link">Learn More →</a>
+        </div>
+      </div>
+      <!-- Card 5 -->
+      <div class="service-card reveal">
+        <div class="img-placeholder" style="background:linear-gradient(145deg, #E8C5B0, rgba(200,151,63,0.3))">Acne Program</div>
+        <div class="service-card-name">Acne Program</div>
+        <div class="service-overlay">
+          <h3>Acne Program</h3>
+          <p>Guided clinic program for active acne, inflammation, and post-acne care.</p>
+          <div class="service-meta">
+            <span>45–55 min</span>
+            <span>From ₹2,000</span>
+          </div>
+          <a href="#contact" class="service-link">Learn More →</a>
+        </div>
+      </div>
+      <!-- Card 6 -->
+      <div class="service-card reveal">
+        <div class="img-placeholder" style="background:linear-gradient(145deg, rgba(45,106,79,0.4), rgba(232,197,176,0.5))">Glow Therapy</div>
+        <div class="service-card-name">Glow Therapy</div>
+        <div class="service-overlay">
+          <h3>Glow Therapy</h3>
+          <p>Full-body exfoliation, brightening, and glow care for radiant skin.</p>
+          <div class="service-meta">
+            <span>45–60 min</span>
+            <span>From ₹3,500</span>
+          </div>
+          <a href="#contact" class="service-link">Learn More →</a>
+        </div>
+      </div>
+      <!-- Card 7 -->
+      <div class="service-card reveal">
+        <div class="img-placeholder" style="background:linear-gradient(145deg, rgba(200,151,63,0.4), rgba(45,106,79,0.3))">Hair Loss Treatment</div>
+        <div class="service-card-name">Hair Loss Treatment</div>
+        <div class="service-overlay">
+          <h3>Hair Loss Treatment</h3>
+          <p>Targeted therapies for thinning, hair fall, and scalp health restoration.</p>
+          <div class="service-meta">
+            <span>30–45 min</span>
+            <span>From ₹3,000</span>
+          </div>
+          <a href="#contact" class="service-link">Learn More →</a>
+        </div>
+      </div>
+      <!-- Card 8 -->
+      <div class="service-card reveal">
+        <div class="img-placeholder" style="background:linear-gradient(145deg, rgba(232,197,176,0.5), rgba(45,106,79,0.35))">PRP Therapy</div>
+        <div class="service-card-name">PRP Therapy</div>
+        <div class="service-overlay">
+          <h3>PRP Therapy</h3>
+          <p>Platelet-rich plasma for skin rejuvenation, scars, and hair regrowth.</p>
+          <div class="service-meta">
+            <span>60–90 min</span>
+            <span>From ₹6,000</span>
+          </div>
+          <a href="#contact" class="service-link">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SECTION: About -->
+<section class="about-section section-pad" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-content reveal">
+        <div class="eyebrow">Our approach</div>
+        <h2 class="section-title">Spa-level comfort, clinical planning.</h2>
+        <p class="section-text">
+          We avoid one-size-fits-all protocols and instead tune every visit to your skin's response, downtime tolerance, and the result you actually want — so progress feels measured, personal, and sustainable.
+        </p>
+        <div class="about-stats stagger">
+          <div class="stat-pill reveal"><span class="stat-number">10+</span> Years</div>
+          <div class="stat-pill reveal"><span class="stat-number">1000+</span> Treatments</div>
+          <div class="stat-pill reveal">Evidence-Based</div>
+        </div>
+        <a href="#contact" class="btn btn-ghost">Book a Consultation</a>
+      </div>
+      <div class="about-image reveal">
+        <div class="img-placeholder" style="aspect-ratio:4/5">Clinic Interior — Treatment Room</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SECTION: Social Proof -->
+<section class="social-proof section-pad" id="reviews">
+  <div class="container">
+    <div class="social-proof-header reveal">
+      <div class="eyebrow">Patient Reviews</div>
+      <h2 class="section-title" style="max-width:100%">What Our Patients Say</h2>
+      <p class="section-text">4.9★ from 113 verified Google reviews</p>
+    </div>
+
+    <div class="testimonial-grid stagger">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testimonial-quote">"I struggled with acne for years. The team at Infinity Aesthetics created a treatment plan that finally worked. My skin has never been this clear — I feel confident again."</p>
+        <p class="testimonial-author">Priya M.</p>
+        <p class="testimonial-treatment">Acne Clarity Program</p>
+        <div class="testimonial-verified">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Verified Google Review
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testimonial-quote">"The laser treatment for pigmentation was gentle yet effective. The staff explains everything clearly and the clinic feels premium yet welcoming. Highly recommend to anyone in Ajmer."</p>
+        <p class="testimonial-author">Rahul S.</p>
+        <p class="testimonial-treatment">Laser Glow Therapy</p>
+        <div class="testimonial-verified">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Verified Google Review
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testimonial-quote">"Best skin clinic in Ajmer! The consultation was thorough and the chemical peel results were visible within a week. The ₹85 consultation fee is amazing value."</p>
+        <p class="testimonial-author">Ananya K.</p>
+        <p class="testimonial-treatment">Chemical Peel Series</p>
+        <div class="testimonial-verified">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Verified Google Review
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SECTION: Contact -->
+<section class="contact-section section-pad" id="contact">
+  <div class="container">
+    <div class="reveal" style="text-align:center; max-width:560px; margin:0 auto 56px;">
+      <div class="eyebrow" style="justify-content:center">Book</div>
+      <h2 class="section-title" style="max-width:100%; margin:0 auto 12px;">We're ready when you are.</h2>
+      <p class="section-text" style="margin:0 auto">Tell us what you want to change, what you've tried, and how much downtime feels realistic.</p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Left: Info -->
+      <div class="contact-info reveal">
+        <h3 class="contact-clinic-name">Infinity Aesthetics</h3>
+        <p class="contact-clinic-hindi">इनफिनिटी एस्थेटिक्स — स्किन, लेजर &amp; हेयर क्लिनिक</p>
+
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <p class="contact-item-label">Phone</p>
+              <a href="tel:+919460991160" class="contact-phone-value">094609 91160</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <p class="contact-item-label">Clinic</p>
+              <p class="contact-item-value"><a href="https://maps.google.com/?q=Ajmer+Tower+Kutchery+Road+Ajmer" target="_blank" rel="noopener">Ajmer Tower, Kutchery Road,<br>Ajmer, Rajasthan 305001</a></p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <p class="contact-item-label">Hours</p>
+              <p class="contact-item-value hours-badge"><span class="hours-dot"></span> Open · Closes 8 PM</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="var(--accent-gold)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div>
+              <p class="contact-item-label">Google Rating</p>
+              <div class="rating-stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <p class="contact-item-value">4.9 · 113 reviews</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div>
+              <p class="contact-item-label">Website</p>
+              <p class="contact-item-value"><a href="https://infinityaestheticsajmer.in" target="_blank" rel="noopener">infinityaestheticsajmer.in</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lgbtq-badge">🏳️‍🌈 LGBTQ+ Friendly</div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="contact-form-wrap reveal">
+        <!-- Consultation Card -->
+        <div class="consult-card">
+          <p class="consult-label">First consultation fee</p>
+          <p class="consult-price">₹85</p>
+          <p class="consult-note">Credited toward your treatment if you book same day</p>
+        </div>
+
+        <form id="contactForm" novalidate>
+          <div class="form-field">
+            <input type="text" id="fullName" name="name" placeholder=" " required>
+            <label for="fullName">Full Name</label>
+          </div>
+
+          <div class="form-field">
+            <input type="tel" id="phone" name="phone" placeholder=" " required>
+            <label for="phone">Phone Number *</label>
+          </div>
+
+          <div class="form-field">
+            <input type="email" id="email" name="email" placeholder=" ">
+            <label for="email">Email Address (optional)</label>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field select-field">
+              <select id="treatment" name="treatment" required>
+                <option value="" disabled selected>Select…</option>
+                <option value="skin-consultation">Skin Consultation</option>
+                <option value="hair-treatment">Hair Treatment</option>
+                <option value="laser">Laser</option>
+                <option value="acne-program">Acne Program</option>
+                <option value="chemical-peel">Chemical Peel</option>
+                <option value="prp-therapy">PRP Therapy</option>
+                <option value="other">Other</option>
+              </select>
+              <label for="treatment">Treatment Interest</label>
+            </div>
+
+            <div class="form-field select-field">
+              <select id="time" name="time">
+                <option value="" disabled selected>Select…</option>
+                <option value="morning">Morning (9–12)</option>
+                <option value="afternoon">Afternoon (12–4)</option>
+                <option value="evening">Evening (4–8)</option>
+              </select>
+              <label for="time">Preferred Time</label>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <textarea id="message" name="message" rows="3" placeholder=" "></textarea>
+            <label for="message">Message / Additional Notes (optional)</label>
+          </div>
+
+          <button type="submit" class="btn btn-submit">Request Appointment →</button>
+
+          <div class="form-success" id="formSuccess">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            We'll call you within 2 hours ✓
+          </div>
+
+          <div class="form-privacy">🔒 Your details stay private. No spam.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SECTION: Footer -->
+<footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Col 1: Brand -->
+      <div>
+        <p class="footer-brand-name">Infinity Aesthetics</p>
+        <p class="footer-tagline">Where science meets skin.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="footer-social-link" aria-label="Google Business">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Quick Links -->
+      <div>
+        <p class="footer-col-title">Quick Links</p>
+        <div class="footer-links">
+          <a href="#hero">Home</a>
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#reviews">Results</a>
+          <a href="#contact">Fees</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+
+      <!-- Col 3: Treatments -->
+      <div>
+        <p class="footer-col-title">Treatments</p>
+        <div class="footer-links">
+          <a href="#services">Clinical Facial</a>
+          <a href="#services">Chemical Peel</a>
+          <a href="#services">Laser Therapy</a>
+          <a href="#services">Hair Treatment</a>
+          <a href="#services">Acne Program</a>
+          <a href="#services">PRP Therapy</a>
+        </div>
+      </div>
+
+      <!-- Col 4: Contact -->
+      <div>
+        <p class="footer-col-title">Contact</p>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Ajmer Tower, Kutchery Road,<br>Ajmer, Rajasthan 305001
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+919460991160">094609 91160</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Open · Closes 8 PM
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 Infinity Aesthetics · Ajmer · <a href="https://infinityaestheticsajmer.in" target="_blank" rel="noopener">infinityaestheticsajmer.in</a></span>
+      <a href="#">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- Mobile Floating CTA -->
+<a href="tel:+919460991160" class="mobile-cta" aria-label="Call to book">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+</a>
+
+
+<script>
+(function() {
+  'use strict';
+
+  /* ===== THEME TOGGLE ===== */
+  const html = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+  const storedTheme = localStorage.getItem('ia-theme');
+
+  if (storedTheme) {
+    html.setAttribute('data-theme', storedTheme);
+  }
+
+  themeToggle.addEventListener('click', function() {
+    html.classList.add('theme-transition');
+    const current = html.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('ia-theme', next);
+    setTimeout(function() {
+      html.classList.remove('theme-transition');
+    }, 350);
+  });
+
+
+  /* ===== NAVBAR SCROLL ===== */
+  const navbar = document.getElementById('navbar');
+  let lastScroll = 0;
+
+  function handleNavScroll() {
+    const y = window.scrollY;
+    if (y > 60) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+    lastScroll = y;
+  }
+
+  window.addEventListener('scroll', handleNavScroll, { passive: true });
+  handleNavScroll();
+
+
+  /* ===== SCROLL INDICATOR ===== */
+  const scrollInd = document.getElementById('scrollIndicator');
+  let scrolledOnce = false;
+
+  window.addEventListener('scroll', function() {
+    if (!scrolledOnce && window.scrollY > 100) {
+      scrolledOnce = true;
+      scrollInd.classList.add('hidden');
+    }
+  }, { passive: true });
+
+
+  /* ===== MOBILE DRAWER ===== */
+  const menuBtn = document.getElementById('mobileMenuBtn');
+  const drawer = document.getElementById('mobileDrawer');
+  const overlay = document.getElementById('drawerOverlay');
+  const drawerClose = document.getElementById('drawerClose');
+  const drawerLinks = drawer.querySelectorAll('a');
+
+  function openDrawer() {
+    drawer.classList.add('open');
+    overlay.classList.add('open');
+    menuBtn.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    overlay.classList.remove('open');
+    menuBtn.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  menuBtn.addEventListener('click', function() {
+    if (drawer.classList.contains('open')) {
+      closeDrawer();
+    } else {
+      openDrawer();
+    }
+  });
+
+  drawerClose.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+  drawerLinks.forEach(function(link) {
+    link.addEventListener('click', closeDrawer);
+  });
+
+
+  /* ===== ACTIVE NAV LINK ===== */
+  const sections = document.querySelectorAll('section[id]');
+  const navAnchors = document.querySelectorAll('.nav-links a');
+
+  const navObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navAnchors.forEach(function(a) {
+          a.classList.remove('active');
+          if (a.getAttribute('href') === '#' + id) {
+            a.classList.add('active');
+          }
+        });
+      }
+    });
+  }, {
+    rootMargin: '-40% 0px -55% 0px',
+    threshold: 0
+  });
+
+  sections.forEach(function(section) {
+    navObserver.observe(section);
+  });
+
+
+  /* ===== SCROLL REVEAL ===== */
+  const revealEls = document.querySelectorAll('.reveal');
+
+  const revealObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    rootMargin: '0px 0px -60px 0px',
+    threshold: 0.1
+  });
+
+  revealEls.forEach(function(el) {
+    revealObserver.observe(el);
+  });
+
+
+  /* ===== CONTACT FORM ===== */
+  const form = document.getElementById('contactForm');
+  const formSuccess = document.getElementById('formSuccess');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Basic validation
+    var name = document.getElementById('fullName').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+    var treatment = document.getElementById('treatment').value;
+
+    if (!name || !phone || !treatment) {
+      alert('Please fill in required fields: Name, Phone, and Treatment Interest.');
+      return;
+    }
+
+    // TODO: Replace with your actual form endpoint (Formspree, FormSubmit, etc.)
+    // Example: fetch('https://formspree.io/f/YOUR_ID', { method: 'POST', body: new FormData(form) })
+    
+    // Simulate success
+    var submitBtn = form.querySelector('.btn-submit');
+    submitBtn.textContent = 'Sending…';
+    submitBtn.disabled = true;
+
+    setTimeout(function() {
+      formSuccess.classList.add('show');
+      submitBtn.textContent = 'Request Appointment →';
+      submitBtn.disabled = false;
+      form.reset();
+
+      setTimeout(function() {
+        formSuccess.classList.remove('show');
+      }, 5000);
+    }, 1200);
+  });
+
+
+  /* ===== SMOOTH SCROLL FOR ANCHOR LINKS ===== */
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        var offset = 80;
+        var top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>

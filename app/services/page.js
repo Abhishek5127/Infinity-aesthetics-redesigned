@@ -4,9 +4,9 @@ import { clinicServices } from "../../lib/services";
 import styles from "../page.module.css";
 
 export const metadata = {
-  title: "Services | Luneva Skin Clinic",
+  title: "Services | Infinity Aesthetics — Ajmer",
   description:
-    "Explore clinical facials, peels, microneedling, laser glow therapy, acne programs, and body polish treatments.",
+    "Explore clinical facials, peels, microneedling, laser glow therapy, acne programs, and body polish treatments at Infinity Aesthetics, Ajmer.",
 };
 
 export default function ServicesPage() {

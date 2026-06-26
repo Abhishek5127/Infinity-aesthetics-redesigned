@@ -4,9 +4,9 @@ import { clinicServices } from "../../lib/services";
 import styles from "../page.module.css";
 
 export const metadata = {
-  title: "Fees | Luneva Skin Clinic",
+  title: "Fees | Infinity Aesthetics — Ajmer",
   description:
-    "Transparent starting prices for every Luneva treatment. Final recommendations are confirmed after consultation.",
+    "Transparent starting prices for every Infinity Aesthetics treatment. Final recommendations are confirmed after consultation.",
 };
 
 export default function FeesPage() {

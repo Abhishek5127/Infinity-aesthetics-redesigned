@@ -3,9 +3,9 @@ import { processSteps } from "../../lib/content";
 import styles from "../page.module.css";
 
 export const metadata = {
-  title: "Process | Luneva Skin Clinic",
+  title: "Process | Infinity Aesthetics — Ajmer",
   description:
-    "How your skin plan works, from skin mapping and treatment planning through clinic treatment and progress reviews.",
+    "How your skin plan works at Infinity Aesthetics — from skin mapping and treatment planning through clinic treatment and progress reviews.",
 };
 
 export default function ProcessPage() {

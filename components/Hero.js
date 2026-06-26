@@ -1,59 +1,73 @@
-import Image from "next/image";
-import styles from "../app/page.module.css";
+"use client";
 
-const leafImage =
-  "https://images.unsplash.com/photo-1512428813834-c702c7702b78?auto=format&fit=crop&w=640&q=80";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
+  const [scrolledOnce, setScrolledOnce] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!scrolledOnce && window.scrollY > 100) {
+        setScrolledOnce(true);
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [scrolledOnce]);
+
   return (
-    <section className={styles.hero} id="home">
-      <div className={styles.heroContent}>
-        <p className={styles.heroEyebrow}>Advanced skin care clinic</p>
-        <h1 className={styles.heroTitle}>
-          <span className={styles.heroTitleLine}>Repair. Refine.</span>
-          <br />
-          Radiate.
-        </h1>
-        <p className={styles.heroSubtitle}>Personalized treatments for healthy, luminous skin</p>
-        <p className={styles.heroText}>
-          Clinical facials, peels, microneedling, acne programs, and glow therapies designed
-          around your skin history, goals, and comfort.
-        </p>
-        <a className={`${styles.button} ${styles.heroButton}`} href="#contact">
-          Book Skin Consultation
-          <span className={styles.buttonLeaf} aria-hidden="true">
-            +
-          </span>
-        </a>
+    <section className="ia-hero" id="home">
+      <div className="ia-container">
+        <div className="ia-hero-content">
+          <div className="ia-hero-glow" />
+          <p className="ia-hero-eyebrow">Infinity Aesthetics — Ajmer</p>
+          <h1 className="ia-hero-title">
+            <span className="ia-hero-word">Repair.</span>
+            <span className="ia-hero-word">Refine.</span>
+            <span className="ia-hero-word">Radiate.</span>
+          </h1>
+          <p className="ia-hero-subtitle">Personalized skin and hair treatments at Ajmer's most trusted clinic.</p>
+
+          <div className="ia-hero-ctas">
+            <Link href="/contact" className="ia-btn ia-btn-gold">
+              Book Consultation — ₹85
+              <div className="ripple" />
+            </Link>
+            <Link href="#reviews" className="ia-btn ia-btn-ghost">
+              See Our Results ↓
+              <div className="ripple" />
+            </Link>
+          </div>
+
+          <div className="ia-hero-badges">
+            <div className="ia-hero-badge">
+              <svg viewBox="0 0 24 24" fill="var(--accent-gold)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              4.9★ Google Rated
+            </div>
+            <div className="ia-hero-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              500+ Patients
+            </div>
+            <div className="ia-hero-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Ajmer's #1 Clinic
+            </div>
+          </div>
+        </div>
+
+        <div className="ia-hero-visual">
+          <div className="ia-hero-blob">
+            <div className="ia-placeholder" />
+          </div>
+          <div className="ia-particle" />
+          <div className="ia-particle" />
+          <div className="ia-particle" />
+        </div>
       </div>
 
-      <div className={styles.heroVisual} aria-label="Skin clinic client surrounded by tropical leaves">
-        <div className={styles.blushCircle} />
-        <div className={styles.leafFan}>
-          <Image src={leafImage} alt="" width={460} height={340} priority />
-        </div>
-        <div className={styles.leaf}>
-          <Image src={leafImage} alt="" width={490} height={420} priority />
-        </div>
-        <div className={styles.leafLarge}>
-          <Image src={leafImage} alt="" width={416} height={640} priority />
-        </div>
-        <div className={styles.heroImageWrap}>
-          <Image
-            className={styles.heroImage}
-            src="https://images.unsplash.com/photo-1544717304-a2db4a7b16ee?auto=format&fit=crop&w=900&q=85"
-            alt="Woman with clean glowing skin in a towel"
-            width={720}
-            height={760}
-            priority
-          />
-        </div>
-        <span className={styles.heroFlower} aria-hidden="true">
-          +
-        </span>
-        <span className={styles.sparkle} aria-hidden="true">
-          +
-        </span>
+      <div className={`ia-scroll-indicator ${scrolledOnce ? 'hidden' : ''}`}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
     </section>
   );

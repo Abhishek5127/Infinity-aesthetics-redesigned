@@ -1,51 +1,239 @@
 import Link from "next/link";
 import Hero from "../components/Hero";
-import ServiceCard from "../components/ServiceCard";
+import ContactForm from "../components/ContactForm";
+import ScrollReveal from "../components/ScrollReveal";
 import { clinicServices } from "../lib/services";
-import styles from "./page.module.css";
 
 export default function Home() {
-  const featured = clinicServices.slice(0, 3);
-
   return (
     <>
+      <ScrollReveal />
       <Hero />
 
-      <section className={styles.services} id="services" aria-labelledby="featured-title">
-        <h2 className={styles.sectionTitle} id="featured-title">
-          Clinical Skin Services
-        </h2>
-        <div className={styles.sectionDivider} aria-hidden="true">
-          +
+      {/* TRUST BAR */}
+      <section className="ia-trust-bar">
+        <div className="ia-container">
+          <p className="ia-trust-headline">
+            <strong>4.9 ★</strong> across <strong>113 Google Reviews</strong> — Ajmer’s highest-rated skin clinic
+          </p>
+          <div className="ia-trust-row ia-stagger">
+            <div className="ia-trust-item ia-reveal">
+              <div className="ia-trust-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              IADVL Certified
+            </div>
+            <div className="ia-trust-item ia-reveal">
+              <div className="ia-trust-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+              </div>
+              Laser Certified
+            </div>
+            <div className="ia-trust-item ia-reveal">
+              <div className="ia-trust-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </div>
+              LGBTQ+ Inclusive
+            </div>
+            <div className="ia-trust-item ia-reveal">
+              <div className="ia-trust-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              ₹85 Consultation
+            </div>
+          </div>
         </div>
-        <p className={styles.sectionText}>
-          Evidence-informed treatments for glow, clarity, texture, acne care, and long-term skin
-          health.
-        </p>
-
-        <div className={styles.serviceGrid}>
-          {featured.map((service) => (
-            <ServiceCard key={service.slug} {...service} title={service.shortTitle} />
-          ))}
-        </div>
-
-        <Link className={styles.sectionCta} href="/services">
-          View all treatments
-        </Link>
       </section>
 
-      <section className={styles.homeCta}>
-        <div>
-          <p className={styles.kicker}>Book</p>
-          <h2 className={styles.sectionTitle}>Start with a skin consultation.</h2>
-          <p className={styles.richText}>
-            Tell us what you want to change, what you have tried, and how much downtime feels
-            realistic. We will recommend a treatment path that respects your skin.
-          </p>
+      {/* SERVICES */}
+      <section className="ia-services ia-section-pad" id="services">
+        <div className="ia-container">
+          <div className="ia-services-header ia-reveal">
+            <div className="ia-eyebrow">Treatments</div>
+            <h2 className="ia-section-title">Clinical Skin Services</h2>
+            <p className="ia-section-text">
+              Evidence-informed treatments for glow, clarity, texture, acne care, hair restoration, and long-term skin health.
+            </p>
+          </div>
+
+          <div className="ia-services-grid ia-stagger">
+            {clinicServices.map((service, index) => (
+              <Link href={`/services#${service.slug}`} className={`ia-service-card ia-svc-${index + 1} ia-reveal`} key={service.slug}>
+                <div className="ia-placeholder" />
+                <div className="ia-service-name">{service.shortTitle}</div>
+                <div className="ia-service-overlay">
+                  <h3>{service.shortTitle}</h3>
+                  <p>{service.text}</p>
+                  <div className="ia-svc-meta">
+                    <span>{service.fees?.[0]?.duration || "45 min"}</span>
+                    <span>{service.fees?.[0]?.price || "₹1,500+"}</span>
+                  </div>
+                  <span className="ia-svc-link">Learn More →</span>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
-        <Link className={styles.navButton} href="/contact">
-          Book Consultation
-        </Link>
+      </section>
+
+      {/* ABOUT */}
+      <section className="ia-about ia-section-pad" id="about">
+        <div className="ia-container">
+          <div className="ia-about-grid">
+            <div className="ia-about-content ia-reveal">
+              <div className="ia-eyebrow">Our Approach</div>
+              <h2 className="ia-section-title">Spa-level comfort, clinical planning.</h2>
+              <p className="ia-section-text">
+                We avoid one-size-fits-all protocols and instead tune every visit to your skin's response, downtime tolerance, and the result you actually want — so progress feels measured, personal, and sustainable.
+              </p>
+              <div className="ia-about-stats">
+                <div className="ia-stat-pill">
+                  <span className="ia-stat-num">10+</span> Years
+                </div>
+                <div className="ia-stat-pill">
+                  <span className="ia-stat-num">1000+</span> Treatments
+                </div>
+                <div className="ia-stat-pill">
+                  Evidence-Based
+                </div>
+              </div>
+              <Link href="/contact" className="ia-btn ia-btn-ghost">Book a Consultation</Link>
+            </div>
+            
+            <div className="ia-about-image ia-reveal">
+              <div className="ia-placeholder" style={{backgroundImage: 'url("https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=900&q=82")', backgroundSize: 'cover', backgroundPosition: 'center'}} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SOCIAL PROOF */}
+      <section className="ia-social-proof ia-section-pad" id="reviews">
+        <div className="ia-container">
+          <div className="ia-sp-header ia-reveal">
+            <div className="ia-eyebrow">Patient Reviews</div>
+            <h2 className="ia-section-title">What Our Patients Say</h2>
+            <p className="ia-section-text">4.9★ from 113 verified Google reviews</p>
+          </div>
+
+          <div className="ia-testimonial-grid ia-stagger">
+            <div className="ia-testimonial-card ia-reveal">
+              <div className="ia-stars">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+              <p className="ia-testi-quote">"I struggled with acne for years. The team at Infinity Aesthetics created a treatment plan that finally worked. My skin has never been this clear — I feel confident again."</p>
+              <p className="ia-testi-author">Priya M.</p>
+              <p className="ia-testi-treatment">Acne Clarity Program</p>
+              <div className="ia-testi-verified">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Verified Google Review
+              </div>
+            </div>
+
+            <div className="ia-testimonial-card ia-reveal">
+              <div className="ia-stars">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+              <p className="ia-testi-quote">"The laser treatment for pigmentation was gentle yet effective. The staff explains everything clearly and the clinic feels premium yet welcoming. Highly recommend to anyone in Ajmer."</p>
+              <p className="ia-testi-author">Rahul S.</p>
+              <p className="ia-testi-treatment">Laser Glow Therapy</p>
+              <div className="ia-testi-verified">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Verified Google Review
+              </div>
+            </div>
+
+            <div className="ia-testimonial-card ia-reveal">
+              <div className="ia-stars">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+              <p className="ia-testi-quote">"Best skin clinic in Ajmer! The consultation was thorough and the chemical peel results were visible within a week. The ₹85 consultation fee is amazing value."</p>
+              <p className="ia-testi-author">Ananya K.</p>
+              <p className="ia-testi-treatment">Chemical Peel Series</p>
+              <div className="ia-testi-verified">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Verified Google Review
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section className="ia-contact ia-section-pad" id="contact">
+        <div className="ia-container">
+          <div className="ia-contact-header ia-reveal">
+            <div className="ia-eyebrow">Start Your Journey</div>
+            <h2 className="ia-section-title">Book your consultation.</h2>
+            <p className="ia-section-text">
+              Tell us what you want to change, and we'll recommend a treatment path that respects your skin and your budget.
+            </p>
+          </div>
+
+          <div className="ia-contact-grid">
+            <div className="ia-contact-info ia-reveal">
+              <h3 className="ia-clinic-name">Infinity Aesthetics</h3>
+              <p className="ia-clinic-hindi">इनफिनिटी एस्थेटिक्स- स्किन, लेजर & हेयर क्लिनिक</p>
+              
+              <div className="ia-contact-details">
+                <div className="ia-contact-item">
+                  <div className="ia-contact-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  </div>
+                  <div>
+                    <div className="ia-ci-label">Call to Book</div>
+                    <div className="ia-ci-value ia-phone-value"><a href="tel:+919460991160">094609 91160</a></div>
+                  </div>
+                </div>
+
+                <div className="ia-contact-item">
+                  <div className="ia-contact-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  </div>
+                  <div>
+                    <div className="ia-ci-label">Hours</div>
+                    <div className="ia-ci-value">
+                      <div className="ia-hours-badge">
+                        <div className="ia-hours-dot" /> Open · Closes 8 PM
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="ia-contact-item">
+                  <div className="ia-contact-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  </div>
+                  <div>
+                    <div className="ia-ci-label">Location</div>
+                    <div className="ia-ci-value">
+                      Ajmer Tower, Kutchery Road<br/>Ajmer, Rajasthan 305001<br/>
+                      <a href="https://maps.google.com/?q=Infinity+Aesthetics+Ajmer" target="_blank" rel="noopener noreferrer" style={{color: 'var(--accent-gold)', fontSize: '14px', display: 'inline-block', marginTop: '6px'}}>Get Directions →</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="ia-lgbtq-badge ia-reveal">
+                LGBTQ+ friendly clinic
+              </div>
+            </div>
+
+            <ContactForm />
+          </div>
+        </div>
       </section>
     </>
   );
