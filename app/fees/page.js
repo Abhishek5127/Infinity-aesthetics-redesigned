@@ -11,9 +11,9 @@ export const metadata = {
 
 export default function FeesPage() {
   const featuredFees = clinicServices.map((service) => ({
-    title: service.shortTitle,
-    price: service.fees[0].price,
-    duration: service.fees[0].duration,
+    title: service.shortTitle || service.name,
+    price: service.fees?.[0]?.price || "Consultation",
+    duration: service.fees?.[0]?.duration || service.duration,
     slug: service.slug,
   }));
 

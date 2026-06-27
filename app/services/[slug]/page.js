@@ -18,8 +18,8 @@ export function generateMetadata({ params }) {
   }
 
   return {
-    title: `${service.title} | Infinity Aesthetics`,
-    description: service.text,
+    title: `${service.name} | Infinity Aesthetics`,
+    description: service.description,
   };
 }
 
@@ -31,7 +31,7 @@ export default function ServicePage({ params }) {
   }
 
   const relatedServices = clinicServices.filter((item) => item.slug !== service.slug).slice(0, 3);
-  const startingFee = service.fees[0];
+  const startingFee = service.fees?.[0];
 
   return (
     <article className={styles.detailArticle}>
@@ -41,7 +41,7 @@ export default function ServicePage({ params }) {
               Back to all treatments
             </Link>
             <p className={styles.kicker}>{service.category}</p>
-            <h1 className={styles.detailTitle}>{service.title}</h1>
+            <h1 className={styles.detailTitle}>{service.name}</h1>
             <p className={styles.detailLead}>{service.overview}</p>
             <div className={styles.tagList} aria-label="Best for">
               {service.bestFor.map((tag) => (
@@ -63,11 +63,11 @@ export default function ServicePage({ params }) {
             <div className={styles.glanceRows}>
               <div>
                 <span>Starts at</span>
-                <strong>{startingFee.price}</strong>
+                <strong>{startingFee?.price || "Consultation"}</strong>
               </div>
               <div>
                 <span>First visit</span>
-                <strong>{startingFee.duration}</strong>
+                <strong>{startingFee?.duration || service.duration}</strong>
               </div>
               <div>
                 <span>Plan style</span>
@@ -79,7 +79,7 @@ export default function ServicePage({ params }) {
 
         <section className={styles.detailBand} aria-labelledby="results-heading">
           <div className={styles.sectionIntroLeft}>
-            <p className={styles.kicker}>Results</p>
+            <p className={styles.kicker}>Benefits</p>
             <h2 className={styles.sectionTitle} id="results-heading">
               What this treatment is designed to improve.
             </h2>
@@ -88,23 +88,28 @@ export default function ServicePage({ params }) {
               Stronger concerns usually need a series rather than one visit.
             </p>
           </div>
-          <div className={styles.detailGrid}>{service.results.map((result) => (
-            <div className={styles.detailPoint} key={result}>
+          <div className={styles.detailGrid}>{service.benefits.map((benefit) => (
+            <div className={styles.detailPoint} key={benefit}>
               <span>+</span>
-              <p>{result}</p>
+              <p>{benefit}</p>
             </div>
           ))}</div>
         </section>
 
         <section className={styles.detailBandAlt} aria-labelledby="process-heading">
           <div className={styles.sectionIntro}>
-            <p className={styles.kicker}>Process</p>
+            <p className={styles.kicker}>Details</p>
             <h2 className={styles.sectionTitle} id="process-heading">
-              Appointment flow from consult to aftercare.
+              What to expect from your treatment.
             </h2>
           </div>
           <div className={styles.treatmentTimeline}>
-            {service.process.map((step, index) => (
+            {[
+              `Duration: ${service.duration}`,
+              `Recovery: ${service.recovery}`,
+              `Sessions: ${service.sessions}`,
+              `Comfort: ${service.pain}`,
+            ].map((step, index) => (
               <article className={styles.timelineCard} key={step}>
                 <strong>{String(index + 1).padStart(2, "0")}</strong>
                 <p>{step}</p>
@@ -113,6 +118,7 @@ export default function ServicePage({ params }) {
           </div>
         </section>
 
+        {service.fees && service.fees.length > 0 && (
         <section className={styles.detailBand} aria-labelledby="fees-heading">
           <div className={styles.sectionIntroLeft}>
             <p className={styles.kicker}>Fees</p>
@@ -134,6 +140,7 @@ export default function ServicePage({ params }) {
             ))}
           </div>
         </section>
+        )}
 
         <section className={styles.aftercareSection} aria-labelledby="aftercare-heading">
           <div>
@@ -160,8 +167,8 @@ export default function ServicePage({ params }) {
             {relatedServices.map((item) => (
               <Link className={styles.relatedCard} href={`/services/${item.slug}`} key={item.slug}>
                 <span>{item.category}</span>
-                <strong>{item.shortTitle}</strong>
-                <small>{item.text}</small>
+                <strong>{item.name}</strong>
+                <small>{item.description}</small>
               </Link>
             ))}
           </div>

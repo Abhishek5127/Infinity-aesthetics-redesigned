@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import ThreeHeroCanvas from "./ThreeHeroCanvas";
 
 export default function Hero() {
   const [scrolledOnce, setScrolledOnce] = useState(false);
@@ -53,18 +54,13 @@ export default function Hero() {
             </div>
             <div className="ia-hero-badge">
               <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Ajmer's #1 Clinic
+              Ajmer&apos;s #1 Clinic
             </div>
           </div>
         </div>
 
         <div className="ia-hero-visual">
-          <div className="ia-hero-blob">
-            <div className="ia-placeholder" />
-          </div>
-          <div className="ia-particle" />
-          <div className="ia-particle" />
-          <div className="ia-particle" />
+          <ThreeHeroCanvas />
         </div>
       </div>
 
