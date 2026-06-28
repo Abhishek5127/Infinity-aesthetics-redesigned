@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { navLinks } from "../lib/nav";
+import ThreeHeroCanvas from "./ThreeHeroCanvas";
 
 function isActive(pathname, href) {
   if (href === "/") return pathname === "/";
@@ -54,7 +54,15 @@ export default function Navbar() {
       <header className={`ia-navbar ${scrolled ? 'scrolled' : ''}`} id="navbar">
         <div className="ia-container">
           <Link href="/" className="ia-nav-brand">
-            <div className="ia-nav-logo">IA</div>
+            <div className="ia-nav-logo ia-nav-logo-canvas" aria-hidden="true">
+              <ThreeHeroCanvas
+                className="ia-nav-logo-animation"
+                compact
+                interactive={false}
+                particleCount={260}
+                speed={1.5}
+              />
+            </div>
             <div className="ia-nav-brand-text">
               <span className="ia-nav-brand-name">Infinity Aesthetics</span>
               <span className="ia-nav-brand-tag">Skin, Laser &amp; Hair Clinic</span>

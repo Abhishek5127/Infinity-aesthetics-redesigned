@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import ThreeHeroCanvas from "./ThreeHeroCanvas";
 
 export default function Hero() {
   const [scrolledOnce, setScrolledOnce] = useState(false);
@@ -59,9 +58,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="ia-hero-visual">
-          <ThreeHeroCanvas />
-        </div>
+        <div className="ia-hero-visual" aria-hidden="true" />
       </div>
 
       <div className={`ia-scroll-indicator ${scrolledOnce ? 'hidden' : ''}`}>

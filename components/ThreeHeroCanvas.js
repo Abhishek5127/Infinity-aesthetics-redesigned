@@ -3,70 +3,141 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
-/* ── helpers ────────────────────────────────────────────── */
-
-// Brand palette mapped to Three.js colors
 const COLORS = [
-  new THREE.Color("#C8973F"), // accent-gold
-  new THREE.Color("#D4A855"), // gold-light
-  new THREE.Color("#2D6A4F"), // accent-green
-  new THREE.Color("#4CAF82"), // green-light
-  new THREE.Color("#E8C5B0"), // accent-blush
-  new THREE.Color("#F0D5C3"), // blush-light
+  new THREE.Color("#C8973F"),
+  new THREE.Color("#D4A855"),
+  new THREE.Color("#2D6A4F"),
+  new THREE.Color("#4CAF82"),
+  new THREE.Color("#E8C5B0"),
+  new THREE.Color("#F0D5C3"),
 ];
 
-// Infinity (∞) curve parameterisation — lemniscate of Bernoulli
+const DEPTH_RANGE = 2.5;
+const TIMELINE = {
+  infinityHold: 3.5,
+  transitionToHeart: 1.5,
+  heartHold: 2,
+  transitionToDna: 1.5,
+  dnaHold: 2,
+  transitionToInfinity: 1.5,
+};
+const CYCLE_DURATION = Object.values(TIMELINE).reduce((sum, value) => sum + value, 0);
+
 function infinityPoint(t, scale = 1) {
   const a = 2.8 * scale;
   const sint = Math.sin(t);
   const cost = Math.cos(t);
   const denom = 1 + sint * sint;
+
   return {
     x: (a * cost) / denom,
     y: (a * sint * cost) / denom,
   };
 }
 
-// Organic blob shape
-function blobPoint(t, scale = 1) {
-  const r =
-    1.6 * scale +
-    0.35 * scale * Math.sin(3 * t) +
-    0.2 * scale * Math.cos(5 * t + 1.2);
+function heartPoint(t, scale = 1) {
+  const x = 16 * Math.pow(Math.sin(t), 3);
+  const y =
+    13 * Math.cos(t) -
+    5 * Math.cos(2 * t) -
+    2 * Math.cos(3 * t) -
+    Math.cos(4 * t);
+
   return {
-    x: r * Math.cos(t),
-    y: r * Math.sin(t),
+    x: (x / 7.5) * scale,
+    y: ((y / 8) - 0.35) * scale,
   };
 }
 
-const PARTICLE_COUNT = 700;
-const DEPTH_RANGE = 2.5;
+function dnaPoint(index, total, scale = 1) {
+  const strand = index % 2 === 0 ? 0 : Math.PI;
+  const progress = index / Math.max(total - 1, 1);
+  const twist = progress * Math.PI * 5.5;
+  const x = Math.sin(twist + strand) * 0.72 * scale;
+  const y = (1 - progress * 2) * 2.05 * scale;
+  const z = Math.cos(twist + strand) * 0.34 * scale;
 
-export default function ThreeHeroCanvas() {
+  return { x, y, z };
+}
+
+function smoothstep(value) {
+  return value * value * (3 - 2 * value);
+}
+
+function getShapeMix(elapsed) {
+  const t = elapsed % CYCLE_DURATION;
+  let cursor = TIMELINE.infinityHold;
+
+  if (t < cursor) {
+    return { from: "infinity", to: "infinity", progress: 0 };
+  }
+
+  cursor += TIMELINE.transitionToHeart;
+  if (t < cursor) {
+    const raw = (t - TIMELINE.infinityHold) / TIMELINE.transitionToHeart;
+    return { from: "infinity", to: "heart", progress: smoothstep(raw) };
+  }
+
+  cursor += TIMELINE.heartHold;
+  if (t < cursor) {
+    return { from: "heart", to: "heart", progress: 0 };
+  }
+
+  cursor += TIMELINE.transitionToDna;
+  if (t < cursor) {
+    const raw =
+      (t - TIMELINE.infinityHold - TIMELINE.transitionToHeart - TIMELINE.heartHold) /
+      TIMELINE.transitionToDna;
+    return { from: "heart", to: "dna", progress: smoothstep(raw) };
+  }
+
+  cursor += TIMELINE.dnaHold;
+  if (t < cursor) {
+    return { from: "dna", to: "dna", progress: 0 };
+  }
+
+  const raw =
+    (t -
+      TIMELINE.infinityHold -
+      TIMELINE.transitionToHeart -
+      TIMELINE.heartHold -
+      TIMELINE.transitionToDna -
+      TIMELINE.dnaHold) /
+    TIMELINE.transitionToInfinity;
+  return { from: "dna", to: "infinity", progress: smoothstep(raw) };
+}
+
+function pickTarget(targets, shape, index) {
+  return targets[shape][index];
+}
+
+export default function ThreeHeroCanvas({
+  className = "ia-three-canvas",
+  compact = false,
+  interactive = true,
+  particleCount = 700,
+  speed = 1,
+}) {
   const containerRef = useRef(null);
   const mouseRef = useRef({ x: 0, y: 0 });
   const rafRef = useRef(null);
 
   useEffect(() => {
     const container = containerRef.current;
-    if (!container) return;
+    if (!container) return undefined;
 
-    // Check reduced motion
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    if (prefersReducedMotion) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return undefined;
+    }
 
-    /* ── Scene setup ─────────────────────────────────── */
     const scene = new THREE.Scene();
-
     const camera = new THREE.PerspectiveCamera(
       60,
       container.clientWidth / container.clientHeight,
       0.1,
       100
     );
-    camera.position.z = 5;
+    camera.position.z = compact ? 6 : 5;
 
     const renderer = new THREE.WebGLRenderer({
       antialias: true,
@@ -78,41 +149,46 @@ export default function ThreeHeroCanvas() {
     renderer.setClearColor(0x000000, 0);
     container.appendChild(renderer.domElement);
 
-    /* ── Particle geometry ───────────────────────────── */
     const geometry = new THREE.BufferGeometry();
-    const positions = new Float32Array(PARTICLE_COUNT * 3);
-    const colors = new Float32Array(PARTICLE_COUNT * 3);
-    const sizes = new Float32Array(PARTICLE_COUNT);
-    const seeds = new Float32Array(PARTICLE_COUNT); // per-particle randomness
-    const targetA = new Float32Array(PARTICLE_COUNT * 3); // infinity targets
-    const targetB = new Float32Array(PARTICLE_COUNT * 3); // blob targets
+    const positions = new Float32Array(particleCount * 3);
+    const colors = new Float32Array(particleCount * 3);
+    const sizes = new Float32Array(particleCount);
+    const seeds = new Float32Array(particleCount);
+    const targets = {
+      infinity: new Float32Array(particleCount * 3),
+      heart: new Float32Array(particleCount * 3),
+      dna: new Float32Array(particleCount * 3),
+    };
 
-    for (let i = 0; i < PARTICLE_COUNT; i++) {
-      const t = (i / PARTICLE_COUNT) * Math.PI * 2;
+    for (let i = 0; i < particleCount; i += 1) {
+      const t = (i / particleCount) * Math.PI * 2;
       const color = COLORS[i % COLORS.length];
+      const infinity = infinityPoint(t);
+      const heart = heartPoint(t);
+      const dna = dnaPoint(i, particleCount);
+      const i3 = i * 3;
 
-      // Infinity target
-      const inf = infinityPoint(t);
-      targetA[i * 3] = inf.x + (Math.random() - 0.5) * 0.35;
-      targetA[i * 3 + 1] = inf.y + (Math.random() - 0.5) * 0.35;
-      targetA[i * 3 + 2] = (Math.random() - 0.5) * DEPTH_RANGE;
+      targets.infinity[i3] = infinity.x + (Math.random() - 0.5) * 0.35;
+      targets.infinity[i3 + 1] = infinity.y + (Math.random() - 0.5) * 0.35;
+      targets.infinity[i3 + 2] = (Math.random() - 0.5) * DEPTH_RANGE;
 
-      // Blob target
-      const blb = blobPoint(t);
-      targetB[i * 3] = blb.x + (Math.random() - 0.5) * 0.4;
-      targetB[i * 3 + 1] = blb.y + (Math.random() - 0.5) * 0.4;
-      targetB[i * 3 + 2] = (Math.random() - 0.5) * DEPTH_RANGE;
+      targets.heart[i3] = heart.x + (Math.random() - 0.5) * 0.32;
+      targets.heart[i3 + 1] = heart.y + (Math.random() - 0.5) * 0.32;
+      targets.heart[i3 + 2] = (Math.random() - 0.5) * DEPTH_RANGE;
 
-      // Start scattered
-      positions[i * 3] = (Math.random() - 0.5) * 8;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 8;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * DEPTH_RANGE;
+      targets.dna[i3] = dna.x + (Math.random() - 0.5) * 0.18;
+      targets.dna[i3 + 1] = dna.y + (Math.random() - 0.5) * 0.12;
+      targets.dna[i3 + 2] = dna.z + (Math.random() - 0.5) * 0.3;
 
-      colors[i * 3] = color.r;
-      colors[i * 3 + 1] = color.g;
-      colors[i * 3 + 2] = color.b;
+      positions[i3] = targets.infinity[i3];
+      positions[i3 + 1] = targets.infinity[i3 + 1];
+      positions[i3 + 2] = targets.infinity[i3 + 2];
 
-      sizes[i] = Math.random() * 6 + 3;
+      colors[i3] = color.r;
+      colors[i3 + 1] = color.g;
+      colors[i3 + 2] = color.b;
+
+      sizes[i] = compact ? Math.random() * 3 + 2 : Math.random() * 6 + 3;
       seeds[i] = Math.random() * Math.PI * 2;
     }
 
@@ -120,16 +196,13 @@ export default function ThreeHeroCanvas() {
     geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
     geometry.setAttribute("size", new THREE.BufferAttribute(sizes, 1));
 
-    /* ── Shader material ─────────────────────────────── */
     const material = new THREE.ShaderMaterial({
       uniforms: {
-        uTime: { value: 0 },
         uPixelRatio: { value: Math.min(window.devicePixelRatio, 2) },
       },
       vertexShader: `
         attribute float size;
         varying vec3 vColor;
-        uniform float uTime;
         uniform float uPixelRatio;
 
         void main() {
@@ -146,7 +219,7 @@ export default function ThreeHeroCanvas() {
           float d = length(gl_PointCoord - vec2(0.5));
           if (d > 0.5) discard;
           float alpha = 1.0 - smoothstep(0.15, 0.5, d);
-          alpha *= 0.7;
+          alpha *= 0.75;
           gl_FragColor = vec4(vColor, alpha);
         }
       `,
@@ -159,108 +232,85 @@ export default function ThreeHeroCanvas() {
     const particles = new THREE.Points(geometry, material);
     scene.add(particles);
 
-    /* ── Animation loop ──────────────────────────────── */
-    let morphPhase = 0;
     const clock = new THREE.Clock();
 
     function animate() {
       rafRef.current = requestAnimationFrame(animate);
 
       const elapsed = clock.getElapsedTime();
-      material.uniforms.uTime.value = elapsed;
-
-      // Morph between infinity ↔ blob every ~8 seconds (smooth sinusoidal)
-      morphPhase = (Math.sin(elapsed * 0.25) + 1) * 0.5; // 0 → 1 → 0
-
+      const motionTime = elapsed * speed;
+      const shapeMix = getShapeMix(elapsed);
       const posArr = geometry.attributes.position.array;
       const mx = mouseRef.current.x;
       const my = mouseRef.current.y;
+      const ease = Math.min(0.06, 0.025 * speed);
 
-      for (let i = 0; i < PARTICLE_COUNT; i++) {
+      for (let i = 0; i < particleCount; i += 1) {
         const i3 = i * 3;
         const seed = seeds[i];
-
-        // Lerp target between infinity and blob
         const tx =
-          targetA[i3] * (1 - morphPhase) + targetB[i3] * morphPhase;
+          pickTarget(targets, shapeMix.from, i3) * (1 - shapeMix.progress) +
+          pickTarget(targets, shapeMix.to, i3) * shapeMix.progress;
         const ty =
-          targetA[i3 + 1] * (1 - morphPhase) +
-          targetB[i3 + 1] * morphPhase;
+          pickTarget(targets, shapeMix.from, i3 + 1) * (1 - shapeMix.progress) +
+          pickTarget(targets, shapeMix.to, i3 + 1) * shapeMix.progress;
         const tz =
-          targetA[i3 + 2] * (1 - morphPhase) +
-          targetB[i3 + 2] * morphPhase;
-
-        // Add gentle organic motion
-        const floatX = Math.sin(elapsed * 0.4 + seed * 3.0) * 0.12;
-        const floatY = Math.cos(elapsed * 0.35 + seed * 2.5) * 0.12;
-        const floatZ = Math.sin(elapsed * 0.3 + seed * 4.0) * 0.06;
-
-        // Mouse repulsion
+          pickTarget(targets, shapeMix.from, i3 + 2) * (1 - shapeMix.progress) +
+          pickTarget(targets, shapeMix.to, i3 + 2) * shapeMix.progress;
+        const floatX = Math.sin(motionTime * 0.4 + seed * 3) * 0.08;
+        const floatY = Math.cos(motionTime * 0.35 + seed * 2.5) * 0.08;
+        const floatZ = Math.sin(motionTime * 0.3 + seed * 4) * 0.04;
         const dx = posArr[i3] - mx * 3.5;
         const dy = posArr[i3 + 1] - my * 3.5;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        const repulsion = Math.max(0, 1.2 - dist) * 0.6;
+        const repulsion = interactive ? Math.max(0, 1.2 - dist) * 0.6 : 0;
         const repX = dist > 0.01 ? (dx / dist) * repulsion : 0;
         const repY = dist > 0.01 ? (dy / dist) * repulsion : 0;
 
-        // Smooth approach to target
-        posArr[i3] += ((tx + floatX + repX - posArr[i3]) * 0.025);
-        posArr[i3 + 1] += ((ty + floatY + repY - posArr[i3 + 1]) * 0.025);
-        posArr[i3 + 2] += ((tz + floatZ - posArr[i3 + 2]) * 0.025);
+        posArr[i3] += (tx + floatX + repX - posArr[i3]) * ease;
+        posArr[i3 + 1] += (ty + floatY + repY - posArr[i3 + 1]) * ease;
+        posArr[i3 + 2] += (tz + floatZ - posArr[i3 + 2]) * ease;
       }
 
       geometry.attributes.position.needsUpdate = true;
-
-      // Subtle camera sway
-      camera.position.x = Math.sin(elapsed * 0.15) * 0.15;
-      camera.position.y = Math.cos(elapsed * 0.12) * 0.1;
+      camera.position.x = Math.sin(motionTime * 0.15) * (compact ? 0.06 : 0.15);
+      camera.position.y = Math.cos(motionTime * 0.12) * (compact ? 0.04 : 0.1);
       camera.lookAt(0, 0, 0);
-
       renderer.render(scene, camera);
     }
 
     animate();
 
-    /* ── Mouse tracking ──────────────────────────────── */
-    function onMouseMove(e) {
+    function onPointerMove(e) {
+      const point = "touches" in e ? e.touches[0] : e;
+      if (!point) return;
+
       const rect = container.getBoundingClientRect();
-      mouseRef.current.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-      mouseRef.current.y = -(((e.clientY - rect.top) / rect.height) * 2 - 1);
+      mouseRef.current.x = ((point.clientX - rect.left) / rect.width) * 2 - 1;
+      mouseRef.current.y = -(((point.clientY - rect.top) / rect.height) * 2 - 1);
     }
 
-    function onTouchMove(e) {
-      if (e.touches.length > 0) {
-        const rect = container.getBoundingClientRect();
-        mouseRef.current.x =
-          ((e.touches[0].clientX - rect.left) / rect.width) * 2 - 1;
-        mouseRef.current.y =
-          -(((e.touches[0].clientY - rect.top) / rect.height) * 2 - 1);
-      }
-    }
-
-    window.addEventListener("mousemove", onMouseMove, { passive: true });
-    window.addEventListener("touchmove", onTouchMove, { passive: true });
-
-    /* ── Resize handler ──────────────────────────────── */
     function onResize() {
-      if (!container) return;
       const w = container.clientWidth;
       const h = container.clientHeight;
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
       renderer.setSize(w, h);
-      material.uniforms.uPixelRatio.value = Math.min(
-        window.devicePixelRatio,
-        2
-      );
+      material.uniforms.uPixelRatio.value = Math.min(window.devicePixelRatio, 2);
+    }
+
+    if (interactive) {
+      window.addEventListener("mousemove", onPointerMove, { passive: true });
+      window.addEventListener("touchmove", onPointerMove, { passive: true });
     }
     window.addEventListener("resize", onResize);
 
-    /* ── Cleanup ─────────────────────────────────────── */
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
-      window.removeEventListener("mousemove", onMouseMove);
-      window.removeEventListener("touchmove", onTouchMove);
+      if (interactive) {
+        window.removeEventListener("mousemove", onPointerMove);
+        window.removeEventListener("touchmove", onPointerMove);
+      }
       window.removeEventListener("resize", onResize);
       geometry.dispose();
       material.dispose();
@@ -269,7 +319,7 @@ export default function ThreeHeroCanvas() {
         container.removeChild(renderer.domElement);
       }
     };
-  }, []);
+  }, [compact, interactive, particleCount, speed]);
 
-  return <div ref={containerRef} className="ia-three-canvas" />;
+  return <div ref={containerRef} className={className} />;
 }

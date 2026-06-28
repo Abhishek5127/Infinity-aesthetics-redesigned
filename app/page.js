@@ -99,7 +99,7 @@ export default function Home() {
           <div className="ia-showcase-cards">
             <div className="ia-showcase-card ia-showcase-card--laser">
               <div className="ia-showcase-card-image">
-                <Image src="/laser-treatment.png" alt="Woman receiving gentle laser skin treatment at Infinity Aesthetics clinic" width={520} height={360} />
+                <Image src="/laser-treatment.png" alt="Woman receiving gentle laser skin treatment at Infinity Aesthetics clinic" width={520} height={360}/>
               </div>
               <div className="ia-showcase-card-body">
                 <div className="ia-showcase-card-icon">
@@ -136,26 +136,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-
-          {/* Stats + CTA */}
-          <div className="ia-showcase-footer">
-            <div className="ia-about-stats">
-              <div className="ia-stat-pill">
-                <span className="ia-stat-num">10+</span> Years
-              </div>
-              <div className="ia-stat-pill">
-                <span className="ia-stat-num">1000+</span> Treatments
-              </div>
-              <div className="ia-stat-pill">
-                <span className="ia-stat-num">500+</span> Happy Patients
-              </div>
-              <div className="ia-stat-pill">
-                Evidence-Based
-              </div>
-            </div>
-            <Link href="/contact" className="ia-btn ia-btn-gold">Book a Consultation — ₹85</Link>
           </div>
-        </div>
       </section>
 
       {/* SOCIAL PROOF */}
