@@ -49,15 +49,20 @@ function heartPoint(t, scale = 1) {
   };
 }
 
-function dnaPoint(index, total, scale = 1) {
+function dnaPoint(index, total, scale = 1, timeOffset = 0) {
   const strand = index % 2 === 0 ? 0 : Math.PI;
   const progress = index / Math.max(total - 1, 1);
-  const twist = progress * Math.PI * 5.5;
-  const x = Math.sin(twist + strand) * 0.72 * scale;
-  const y = (1 - progress * 2) * 2.05 * scale;
-  const z = Math.cos(twist + strand) * 0.34 * scale;
+  const twist = progress * Math.PI * 3.5 + timeOffset;
 
-  return { x, y, z };
+  // Base helix coordinates
+  const hx = Math.sin(twist + strand) * 0.72 * scale;
+  const hy = (1 - progress * 2) * 2.05 * scale;
+  const hz = Math.cos(twist + strand) * 0.34 * scale;
+
+  // 45° tilt around Z-axis
+  const c = 0.7071067811865476; // cos(π/4)
+  const s = 0.7071067811865476; // sin(π/4)
+  return { x: hx * c - hy * s, y: hx * s + hy * c, z: hz };
 }
 
 function smoothstep(value) {
@@ -159,6 +164,7 @@ export default function ThreeHeroCanvas({
       heart: new Float32Array(particleCount * 3),
       dna: new Float32Array(particleCount * 3),
     };
+    const dnaNoiseData = new Float32Array(particleCount * 3);
 
     for (let i = 0; i < particleCount; i += 1) {
       const t = (i / particleCount) * Math.PI * 2;
@@ -176,9 +182,13 @@ export default function ThreeHeroCanvas({
       targets.heart[i3 + 1] = heart.y + (Math.random() - 0.5) * 0.32;
       targets.heart[i3 + 2] = (Math.random() - 0.5) * DEPTH_RANGE;
 
-      targets.dna[i3] = dna.x + (Math.random() - 0.5) * 0.18;
-      targets.dna[i3 + 1] = dna.y + (Math.random() - 0.5) * 0.12;
-      targets.dna[i3 + 2] = dna.z + (Math.random() - 0.5) * 0.3;
+      dnaNoiseData[i3] = (Math.random() - 0.5) * 0.18;
+      dnaNoiseData[i3 + 1] = (Math.random() - 0.5) * 0.12;
+      dnaNoiseData[i3 + 2] = (Math.random() - 0.5) * 0.3;
+
+      targets.dna[i3] = dna.x + dnaNoiseData[i3];
+      targets.dna[i3 + 1] = dna.y + dnaNoiseData[i3 + 1];
+      targets.dna[i3 + 2] = dna.z + dnaNoiseData[i3 + 2];
 
       positions[i3] = targets.infinity[i3];
       positions[i3 + 1] = targets.infinity[i3 + 1];
@@ -240,6 +250,18 @@ export default function ThreeHeroCanvas({
       const elapsed = clock.getElapsedTime();
       const motionTime = elapsed * speed;
       const shapeMix = getShapeMix(elapsed);
+
+      // Spin DNA targets live when DNA is in play
+      if (shapeMix.from === 'dna' || shapeMix.to === 'dna') {
+        const dnaRotation = motionTime * 0.5;
+        for (let j = 0; j < particleCount; j += 1) {
+          const j3 = j * 3;
+          const dp = dnaPoint(j, particleCount, 1, dnaRotation);
+          targets.dna[j3] = dp.x + dnaNoiseData[j3];
+          targets.dna[j3 + 1] = dp.y + dnaNoiseData[j3 + 1];
+          targets.dna[j3 + 2] = dp.z + dnaNoiseData[j3 + 2];
+        }
+      }
       const posArr = geometry.attributes.position.array;
       const mx = mouseRef.current.x;
       const my = mouseRef.current.y;

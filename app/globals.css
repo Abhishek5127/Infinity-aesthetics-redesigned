@@ -238,6 +238,7 @@ h1, h2, h3, h4 {
   justify-content: space-between;
 }
 
+/* --- Brand --- */
 .ia-nav-brand {
   display: flex;
   align-items: center;
@@ -256,7 +257,7 @@ h1, h2, h3, h4 {
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  transition: transform 0.3s ease;
+  transition: width 0.35s ease, height 0.35s ease, transform 0.3s ease;
   overflow: hidden;
 }
 .ia-nav-logo-canvas {
@@ -276,55 +277,111 @@ h1, h2, h3, h4 {
 }
 .ia-nav-brand:hover .ia-nav-logo { transform: scale(1.06); }
 
+.ia-nav-brand-text {
+  transition: gap 0.35s ease;
+}
+
 .ia-nav-brand-name {
   font-family: var(--font-heading), serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 1.1;
+  transition: font-size 0.35s ease;
 }
 .ia-nav-brand-tag {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 1px;
   color: var(--text-muted);
   text-transform: uppercase;
+  transition: opacity 0.3s ease, font-size 0.3s ease, margin-top 0.3s ease;
+  margin-top: 2px;
 }
 
+/* Scroll compact mode */
+.ia-navbar.scrolled .ia-nav-logo {
+  width: 36px; height: 36px;
+}
+.ia-navbar.scrolled .ia-nav-brand-name {
+  font-size: 17px;
+}
+.ia-navbar.scrolled .ia-nav-brand-tag {
+  opacity: 0;
+  font-size: 0;
+  margin-top: 0;
+  pointer-events: none;
+}
+
+/* --- Nav Links --- */
 .ia-nav-links {
   display: flex;
   align-items: center;
-  gap: clamp(20px, 3vw, 40px);
+  gap: clamp(4px, 1.5vw, 8px);
 }
-.ia-nav-links a {
+.ia-nav-links > a,
+.ia-nav-links > .ia-nav-item {
   position: relative;
   font-size: 14px;
   font-weight: 500;
-  padding: 6px 0;
-  transition: color 0.2s ease;
+  padding: 7px 14px;
+  border-radius: 8px;
+  transition: color 0.2s ease, background 0.25s ease;
 }
-.ia-nav-links a::after {
+.ia-nav-links > a:hover,
+.ia-nav-links > .ia-nav-item:hover {
+  color: var(--accent-green);
+  background: color-mix(in srgb, var(--accent-green) 6%, transparent);
+}
+.ia-nav-links > a.active {
+  color: var(--accent-green);
+  font-weight: 600;
+  background: color-mix(in srgb, var(--accent-green) 10%, transparent);
+}
+.ia-nav-links > a.active::before {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 50%; right: 50%;
-  height: 2px;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px; height: 4px;
+  border-radius: 50%;
   background: var(--accent-gold);
-  border-radius: 1px;
-  transition: left 0.3s ease, right 0.3s ease;
 }
-.ia-nav-links a:hover::after,
-.ia-nav-links a.active::after {
-  left: 0; right: 0;
-}
-.ia-nav-links a:hover { color: var(--accent-green); }
-.ia-nav-links a.active { color: var(--accent-green); font-weight: 600; }
 
+
+/* --- Phone Link --- */
+.ia-nav-phone {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 8px 14px;
+  border-radius: 99px;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+}
+.ia-nav-phone:hover {
+  color: var(--accent-green);
+  border-color: var(--accent-green);
+  box-shadow: 0 0 0 4px var(--glow-green);
+}
+.ia-nav-phone svg {
+  width: 14px; height: 14px;
+  flex-shrink: 0;
+}
+
+/* --- Nav Actions --- */
 .ia-nav-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
 }
 
+/* --- Theme Toggle (animated crossfade) --- */
 .ia-theme-toggle {
   width: 40px; height: 40px;
   border-radius: 50%;
@@ -333,16 +390,65 @@ h1, h2, h3, h4 {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
 }
 .ia-theme-toggle:hover { transform: rotate(30deg) scale(1.1); box-shadow: var(--shadow-sm); }
-.ia-theme-toggle svg { width: 18px; height: 18px; }
-.ia-icon-sun { display: none; }
-.ia-icon-moon { display: block; }
-:root[data-theme="dark"] .ia-icon-sun { display: block; }
-:root[data-theme="dark"] .ia-icon-moon { display: none; }
+.ia-theme-toggle svg {
+  width: 18px; height: 18px;
+  position: absolute;
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease;
+}
+.ia-icon-sun {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+}
+.ia-icon-moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+:root[data-theme="dark"] .ia-icon-sun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+:root[data-theme="dark"] .ia-icon-moon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+}
 
 .ia-nav-cta { padding: 10px 24px; font-size: 14px; }
 
+/* --- Focus Visible (Accessibility) --- */
+.ia-nav-links > a:focus-visible,
+.ia-nav-links > .ia-nav-item:focus-visible,
+.ia-nav-item-label:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+.ia-theme-toggle:focus-visible {
+  outline: 2px solid var(--accent-green);
+  outline-offset: 3px;
+}
+.ia-nav-cta:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 3px;
+}
+.ia-nav-phone:focus-visible {
+  outline: 2px solid var(--accent-green);
+  outline-offset: 2px;
+}
+.ia-mobile-btn:focus-visible {
+  outline: 2px solid var(--accent-green);
+  outline-offset: 3px;
+}
+.ia-drawer a:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* --- Mobile Hamburger --- */
 .ia-mobile-btn {
   display: none;
   width: 44px; height: 44px;
@@ -366,7 +472,7 @@ h1, h2, h3, h4 {
 .ia-mobile-btn.open span:nth-child(2) { opacity: 0; }
 .ia-mobile-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* Mobile Drawer */
+/* --- Mobile Drawer --- */
 .ia-drawer-overlay {
   position: fixed; inset: 0;
   background: rgba(0,0,0,0.45);
@@ -380,15 +486,16 @@ h1, h2, h3, h4 {
 .ia-drawer {
   position: fixed;
   top: 0; right: 0; bottom: 0;
-  width: min(320px, 85vw);
+  width: min(340px, 88vw);
   background: var(--bg-primary);
   z-index: 95;
   transform: translateX(100%);
   transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
   display: flex;
   flex-direction: column;
-  padding: 80px 32px 32px;
-  box-shadow: -8px 0 32px rgba(0,0,0,0.1);
+  padding: 0;
+  box-shadow: -8px 0 32px rgba(0,0,0,0.12);
+  overflow-y: auto;
 }
 .ia-drawer.open { transform: translateX(0); }
 
@@ -401,17 +508,139 @@ h1, h2, h3, h4 {
   border: 1px solid var(--card-border);
   display: grid;
   place-items: center;
+  z-index: 5;
 }
 .ia-drawer-close svg { width: 18px; height: 18px; }
 
-.ia-drawer a {
-  display: block;
-  font-size: 20px;
-  padding: 16px 0;
+/* Drawer Brand Header */
+.ia-drawer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 28px 20px;
   border-bottom: 1px solid var(--border);
-  transition: color 0.2s ease, padding-left 0.25s ease;
 }
-.ia-drawer a:hover { color: var(--accent-green); padding-left: 8px; }
+.ia-drawer-brand .ia-nav-logo {
+  width: 40px; height: 40px;
+}
+.ia-drawer-brand-name {
+  font-family: var(--font-heading), serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.ia-drawer-brand-tag {
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+/* Drawer Links */
+.ia-drawer-nav {
+  flex: 1;
+  padding: 12px 20px;
+}
+.ia-drawer-nav > a,
+.ia-drawer-nav > .ia-drawer-expandable > button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 17px;
+  font-weight: 500;
+  padding: 14px 12px;
+  border-radius: 10px;
+  transition: color 0.2s ease, background 0.2s ease, padding-left 0.2s ease;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+.ia-drawer-nav > a:hover,
+.ia-drawer-nav > .ia-drawer-expandable > button:hover {
+  color: var(--accent-green);
+  background: color-mix(in srgb, var(--accent-green) 6%, transparent);
+}
+
+/* Drawer active state */
+.ia-drawer-nav > a.active {
+  color: var(--accent-green);
+  font-weight: 600;
+  background: color-mix(in srgb, var(--accent-green) 10%, transparent);
+  border-left: 3px solid var(--accent-green);
+  padding-left: 14px;
+}
+
+/* Drawer link icons */
+.ia-drawer-link-icon {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--accent-green) 8%, transparent);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  font-size: 15px;
+}
+
+
+/* Drawer Contact Bar */
+.ia-drawer-contact {
+  padding: 16px 20px 28px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+}
+.ia-drawer-contact a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+.ia-drawer-contact a svg {
+  width: 18px; height: 18px;
+  flex-shrink: 0;
+}
+.ia-drawer-contact .ia-drawer-phone {
+  background: color-mix(in srgb, var(--accent-green) 8%, transparent);
+  color: var(--accent-green);
+}
+.ia-drawer-contact .ia-drawer-phone:hover {
+  background: color-mix(in srgb, var(--accent-green) 14%, transparent);
+}
+.ia-drawer-contact .ia-drawer-whatsapp {
+  background: color-mix(in srgb, #25D366 10%, transparent);
+  color: #25D366;
+}
+.ia-drawer-contact .ia-drawer-whatsapp:hover {
+  background: color-mix(in srgb, #25D366 16%, transparent);
+}
+.ia-drawer-contact .ia-drawer-book {
+  /* Reuse gold button style */
+}
+
+/* Drawer staggered entrance */
+.ia-drawer.open .ia-drawer-nav > a,
+.ia-drawer.open .ia-drawer-nav > .ia-drawer-expandable > button {
+  animation: drawer-slide-in 0.35s ease both;
+}
+.ia-drawer.open .ia-drawer-nav > :nth-child(1) { animation-delay: 0.06s; }
+.ia-drawer.open .ia-drawer-nav > :nth-child(2) { animation-delay: 0.1s; }
+.ia-drawer.open .ia-drawer-nav > :nth-child(3) { animation-delay: 0.14s; }
+.ia-drawer.open .ia-drawer-nav > :nth-child(4) { animation-delay: 0.18s; }
+.ia-drawer.open .ia-drawer-nav > :nth-child(5) { animation-delay: 0.22s; }
+.ia-drawer.open .ia-drawer-nav > :nth-child(6) { animation-delay: 0.26s; }
+.ia-drawer.open .ia-drawer-nav > :nth-child(7) { animation-delay: 0.30s; }
+
+@keyframes drawer-slide-in {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
 
 
 /* =============================================
@@ -1574,7 +1803,7 @@ h1, h2, h3, h4 {
    RESPONSIVE
    ============================================= */
 @media (max-width: 1080px) {
-  .ia-nav-links, .ia-nav-cta { display: none; }
+  .ia-nav-links, .ia-nav-cta, .ia-nav-phone { display: none; }
   .ia-mobile-btn { display: flex; }
   .ia-services-grid { grid-template-columns: repeat(2, 1fr); }
   .ia-testimonial-grid { grid-template-columns: repeat(2, 1fr); }
