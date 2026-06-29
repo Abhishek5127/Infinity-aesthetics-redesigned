@@ -20,71 +20,7 @@ export default function GSAPAnimations() {
 
     const ctx = gsap.context(() => {
       /* ──────────────────────────────────────────────
-         1.  HERO SECTION — cinematic entrance
-         ────────────────────────────────────────────── */
-
-      // Eyebrow fade-in
-      gsap.from(".ia-hero-eyebrow", {
-        opacity: 0,
-        y: 20,
-        duration: 0.8,
-        delay: 0.1,
-        ease: "power3.out",
-      });
-
-      // Title words — 3D reveal stagger
-      gsap.from(".ia-hero-word", {
-        opacity: 0,
-        y: 60,
-        rotateX: 30,
-        stagger: 0.15,
-        duration: 1,
-        delay: 0.2,
-        ease: "power4.out",
-        transformOrigin: "left center",
-      });
-
-      // Subtitle slide
-      gsap.from(".ia-hero-subtitle", {
-        opacity: 0,
-        y: 30,
-        duration: 0.9,
-        delay: 0.6,
-        ease: "power3.out",
-      });
-
-      // CTA buttons
-      gsap.from(".ia-hero-ctas", {
-        opacity: 0,
-        y: 25,
-        duration: 0.8,
-        delay: 0.75,
-        ease: "power3.out",
-      });
-
-      // Hero badges — elastic pop-in
-      gsap.from(".ia-hero-badge", {
-        opacity: 0,
-        scale: 0.6,
-        filter: "blur(4px)",
-        stagger: 0.1,
-        duration: 0.7,
-        delay: 1.0,
-        ease: "back.out(2)",
-      });
-
-      // Hero visual (Three.js canvas container)
-      gsap.from(".ia-hero-visual", {
-        opacity: 0,
-        scale: 0.9,
-        y: 30,
-        duration: 1.2,
-        delay: 0.3,
-        ease: "power3.out",
-      });
-
-      /* ──────────────────────────────────────────────
-         2.  TRUST BAR — elastic slide-up
+         1.  TRUST BAR — elastic slide-up
          ────────────────────────────────────────────── */
       gsap.from(".ia-trust-headline", {
         scrollTrigger: {
@@ -111,7 +47,7 @@ export default function GSAPAnimations() {
       });
 
       /* ──────────────────────────────────────────────
-         3.  SERVICES — 3D tilt cards
+         2.  SERVICES — 3D tilt cards
          ────────────────────────────────────────────── */
       gsap.from(".ia-services-header .ia-eyebrow, .ia-services-header .ia-section-title, .ia-services-header .ia-section-text", {
         scrollTrigger: {
@@ -144,9 +80,8 @@ export default function GSAPAnimations() {
       });
 
       /* ──────────────────────────────────────────────
-         4.  SHOWCASE (ABOUT) — waves, cards, counter
+         3.  SHOWCASE (ABOUT) — header & cards
          ────────────────────────────────────────────── */
-      // Header entrance
       gsap.from(".ia-showcase-header > *", {
         scrollTrigger: {
           trigger: ".ia-showcase",
@@ -159,7 +94,6 @@ export default function GSAPAnimations() {
         ease: "power3.out",
       });
 
-      // Cards staggered entrance
       gsap.from(".ia-showcase-card", {
         scrollTrigger: {
           trigger: ".ia-showcase-cards",
@@ -172,66 +106,8 @@ export default function GSAPAnimations() {
         ease: "power3.out",
       });
 
-      // Parallax waves
-      gsap.to(".ia-wave-1", {
-        scrollTrigger: {
-          trigger: ".ia-showcase",
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1,
-        },
-        y: -150,
-        ease: "none",
-      });
-      gsap.to(".ia-wave-2", {
-        scrollTrigger: {
-          trigger: ".ia-showcase",
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1.5,
-        },
-        y: -200,
-        ease: "none",
-      });
-
-      // Stats and CTA entrance
-      gsap.from(".ia-stat-pill, .ia-showcase-footer .ia-btn", {
-        scrollTrigger: {
-          trigger: ".ia-showcase-footer",
-          start: "top 90%",
-        },
-        opacity: 0,
-        y: 20,
-        scale: 0.9,
-        stagger: 0.1,
-        duration: 0.6,
-        ease: "back.out(1.5)",
-      });
-
-      // Animate stat numbers (count up)
-      document.querySelectorAll(".ia-stat-num").forEach((el) => {
-        const raw = el.textContent || "";
-        const match = raw.match(/(\d+)/);
-        if (!match) return;
-        const target = parseInt(match[1], 10);
-        const suffix = raw.replace(match[1], "");
-        const obj = { val: 0 };
-        gsap.to(obj, {
-          val: target,
-          scrollTrigger: {
-            trigger: el,
-            start: "top 90%",
-          },
-          duration: 2,
-          ease: "power2.out",
-          onUpdate() {
-            el.textContent = Math.round(obj.val) + suffix;
-          },
-        });
-      });
-
       /* ──────────────────────────────────────────────
-         5.  TESTIMONIALS — multi-directional entrance
+         4.  TESTIMONIALS — multi-directional entrance
          ────────────────────────────────────────────── */
       gsap.from(".ia-sp-header .ia-eyebrow, .ia-sp-header .ia-section-title, .ia-sp-header .ia-section-text", {
         scrollTrigger: {
@@ -269,7 +145,7 @@ export default function GSAPAnimations() {
       });
 
       /* ──────────────────────────────────────────────
-         6.  CONTACT — sequential slide-up
+         5.  CONTACT — sequential slide-up
          ────────────────────────────────────────────── */
       gsap.from(".ia-contact-header .ia-eyebrow, .ia-contact-header .ia-section-title, .ia-contact-header .ia-section-text", {
         scrollTrigger: {
@@ -307,35 +183,7 @@ export default function GSAPAnimations() {
       });
 
       /* ──────────────────────────────────────────────
-         7.  PARALLAX — subtle depth on scroll
-         ────────────────────────────────────────────── */
-      // About image parallax
-      gsap.to(".ia-about-image .ia-placeholder", {
-        scrollTrigger: {
-          trigger: ".ia-about",
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1,
-        },
-        y: -40,
-        ease: "none",
-      });
-
-      // Hero glow parallax
-      gsap.to(".ia-hero-glow", {
-        scrollTrigger: {
-          trigger: ".ia-hero",
-          start: "top top",
-          end: "bottom top",
-          scrub: 1,
-        },
-        y: -80,
-        scale: 1.2,
-        ease: "none",
-      });
-
-      /* ──────────────────────────────────────────────
-         8.  FOOTER — staggered reveal
+         6.  FOOTER — staggered reveal
          ────────────────────────────────────────────── */
       gsap.from(".ia-footer-grid > div", {
         scrollTrigger: {
@@ -350,10 +198,10 @@ export default function GSAPAnimations() {
       });
 
       /* ──────────────────────────────────────────────
-         9.  MAGNETIC CURSOR on buttons & cards
+         7.  MAGNETIC CURSOR on buttons & cards
          ────────────────────────────────────────────── */
       const magneticElements = document.querySelectorAll(
-        ".ia-btn, .ia-service-card, .ia-theme-toggle, .ia-trust-item"
+        ".ia-btn, .ia-service-card, .ia-trust-item"
       );
 
       magneticElements.forEach((el) => {
@@ -382,20 +230,6 @@ export default function GSAPAnimations() {
             ease: "elastic.out(1, 0.4)",
           });
         });
-      });
-
-      /* ──────────────────────────────────────────────
-         10. NAVBAR scroll-triggered shrink animation
-         ────────────────────────────────────────────── */
-      gsap.from(".ia-nav-brand-text", {
-        scrollTrigger: {
-          trigger: ".ia-hero",
-          start: "top top",
-          end: "100px top",
-          scrub: 1,
-        },
-        opacity: 1,
-        ease: "none",
       });
     });
 
