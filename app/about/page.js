@@ -1,45 +1,130 @@
 import Image from "next/image";
 import Link from "next/link";
-import PageHero from "../../components/PageHero";
-import styles from "../page.module.css";
+import styles from "./about.module.css";
+import ClinicImg from "../assets/about/ClinicImg.webp";
+import DoctorImg from "../assets/about/DoctorImg.png";
+import DoctorImg2 from "../assets/about/DoctorImg2.webp";
 
 export const metadata = {
   title: "About | Infinity Aesthetics — Ajmer",
   description:
-    "Infinity Aesthetics combines clinical planning with patient comfort, focused on skin health, laser treatments, and hair care in Ajmer.",
+    "Infinity Aesthetics - Skin, Laser & Hair Clinic. Your trusted partner for glowing skin & strong, beautiful hair in Ajmer.",
 };
 
 export default function AboutPage() {
-  return (
-    <>
-      <PageHero
-        kicker="Skin-first, not trend-first"
-        title="A calm clinic for strategic skin renewal."
-        text="Every treatment starts with your barrier health, tolerance, and long-term goals so the path to better skin feels measured, personal, and sustainable."
-      />
+  const services = [
+    "HydraFacial",
+    "Chemical Peels",
+    "Acne Treatment",
+    "PRP",
+    "Hair Regrowth",
+    "Anti-Ageing",
+    "Laser hair removal",
+    "Laser",
+  ];
 
-      <section className={styles.aboutClinic} id="about">
-        <div>
-          <p className={styles.kicker}>Our approach</p>
-          <h2 className={styles.sectionTitle}>Spa-level comfort, clinical planning.</h2>
-          <p className={styles.richText}>
-            Infinity Aesthetics combines clinical precision with patient comfort. We avoid one-size-fits-all
-            protocols and instead tune every visit to your skin&apos;s response, downtime tolerance,
-            and the result you actually want.
-          </p>
-          <Link className={styles.sectionCta} href="/process">
-            See how your plan works
-          </Link>
+  return (
+    <div className={styles.aboutContainer}>
+      {/* Hero Section */}
+      <section className={styles.heroSection}>
+        <div className={styles.heroBackground}>
+          <Image src={ClinicImg} alt="Infinity Aesthetics Clinic" priority placeholder="blur" />
         </div>
-        <div className={styles.aboutImage}>
-          <Image
-            src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=900&q=82"
-            alt="Skin care oils and treatment tools on a clinic counter"
-            fill
-            sizes="(max-width: 900px) 100vw, 42vw"
-          />
+        <div className={styles.heroGradient}></div>
+        <div className={styles.heroContent}>
+          <span className={styles.sparkle}>✨</span>
+          <h1 className={styles.heroTitle}>Infinity Aesthetics <br/> Skin, Laser & Hair Clinic</h1>
+          <p className={styles.heroSubtitle}>
+            Your trusted partner for glowing skin & strong, beautiful hair.
+          </p>
         </div>
       </section>
-    </>
+
+      {/* Services Section */}
+      <section className={styles.contentSection}>
+        <div className={styles.grid}>
+          <div className={styles.textContent}>
+            <p className={styles.sectionEyebrow}>💆♀️ Our Expertise</p>
+            <h2 className={styles.sectionTitle}>Comprehensive Services</h2>
+            <p className={styles.heroSubtitle} style={{ marginLeft: 0 }}>
+              We offer a wide range of aesthetic treatments tailored to enhance your natural beauty and restore confidence.
+            </p>
+            <div className={styles.servicesList}>
+              {services.map((service, index) => (
+                <div key={index} className={styles.serviceTag}>
+                  {service}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className={styles.imageWrapper}>
+            <Image 
+              src={DoctorImg} 
+              alt="Cosmetologist performing treatment" 
+              fill
+              sizes="(max-width: 900px) 100vw, 50vw"
+              placeholder="blur"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className={styles.contentSection}>
+        <div className={styles.gridReverse}>
+          <div className={styles.imageWrapper}>
+            <Image 
+              src={DoctorImg2} 
+              alt="Advanced clinic technology and care" 
+              fill
+              sizes="(max-width: 900px) 100vw, 50vw"
+              placeholder="blur"
+            />
+          </div>
+          <div className={styles.textContent}>
+            <p className={styles.sectionEyebrow}>🌟 The Infinity Standard</p>
+            <h2 className={styles.sectionTitle}>Why Choose Us</h2>
+            <div className={styles.featuresList}>
+              <div className={styles.featureItem}>
+                <div className={styles.featureIcon}>🔹</div>
+                <div className={styles.featureText}>Personalized treatment plans</div>
+              </div>
+              <div className={styles.featureItem}>
+                <div className={styles.featureIcon}>🔹</div>
+                <div className={styles.featureText}>Certified cosmetologist & advanced tech</div>
+              </div>
+              <div className={styles.featureItem}>
+                <div className={styles.featureIcon}>🔹</div>
+                <div className={styles.featureText}>Safe, effective & visible results</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Call To Action */}
+      <section className={styles.ctaSection}>
+        <p className={styles.ctaEyebrow}>📅 Take the First Step</p>
+        <h2 className={styles.ctaTitle}>Ready for your transformation?</h2>
+        <p className={styles.ctaText}>
+          Get your consultation today and discover a customized approach to your skin and hair goals.
+        </p>
+        
+        <div className={styles.addressBox}>
+          <div className={styles.addressIcon}>📍</div>
+          <div>
+            <strong>Infinity Aesthetics</strong><br/>
+            Shop no. 48-49, 1st Floor, Ajmer Tower,<br/>
+            Kutchery Road, Ajmer, Rajasthan 305001, India
+          </div>
+        </div>
+
+        <div>
+          <Link href="/contact" className={styles.bookButton}>
+            Tap Message to Book Now
+          </Link>
+        </div>
+      </section>
+    </div>
   );
 }
