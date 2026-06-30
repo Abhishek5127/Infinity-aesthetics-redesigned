@@ -11,6 +11,7 @@ export default function ServiceCard({ title, text, icon, image, alt, slug, categ
           src={image}
           alt={alt}
           fill
+          style={{ objectFit: 'cover' }}
           sizes="(max-width: 640px) 100vw, (max-width: 1040px) 45vw, 240px"
         />
       </div>

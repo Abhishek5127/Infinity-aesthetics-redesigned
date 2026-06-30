@@ -854,30 +854,13 @@ h1, h2, h3, h4 {
   overflow: hidden;
   display: block;
   transform-style: preserve-3d;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-.ia-service-card:hover {
-  box-shadow: var(--shadow-lg);
 }
 
 .ia-service-card .ia-placeholder {
   position: absolute; inset: 0;
-  transition: transform 0.5s ease, filter 0.4s ease;
-}
-.ia-service-card:hover .ia-placeholder {
-  transform: scale(1.05);
-  filter: brightness(0.55) saturate(1.2);
 }
 
-/* Unique richer gradients per card */
-.ia-svc-1 .ia-placeholder { background: linear-gradient(135deg, #d4a88c 0%, #a8c4a0 50%, #e8cbb5 100%); }
-.ia-svc-2 .ia-placeholder { background: linear-gradient(150deg, #c9a86c 0%, #7ba88e 50%, #d4c4a0 100%); }
-.ia-svc-3 .ia-placeholder { background: linear-gradient(140deg, #8fb89a 0%, #c4a070 50%, #a0c4a8 100%); }
-.ia-svc-4 .ia-placeholder { background: linear-gradient(160deg, #d4b88c 0%, #6a9e84 50%, #c4b090 100%); }
-.ia-svc-5 .ia-placeholder { background: linear-gradient(130deg, #e0c0a0 0%, #88b498 50%, #d4c0a8 100%); }
-.ia-svc-6 .ia-placeholder { background: linear-gradient(145deg, #9cc4a8 0%, #c8a068 50%, #b8d0b0 100%); }
-.ia-svc-7 .ia-placeholder { background: linear-gradient(155deg, #b8a080 0%, #78b090 50%, #c4b898 100%); }
-.ia-svc-8 .ia-placeholder { background: linear-gradient(135deg, #80b89c 0%, #d0a870 50%, #98c0a8 100%); }
+/* Unique richer gradients per card (Removed as cards now use real images) */
 
 .ia-service-name {
   position: absolute;
@@ -888,21 +871,11 @@ h1, h2, h3, h4 {
   font-family: var(--font-heading), serif;
   font-size: 20px;
   font-weight: 600;
-  transition: opacity 0.3s ease;
 }
-.ia-service-card:hover .ia-service-name { opacity: 0; }
 
 .ia-service-overlay {
-  position: absolute; inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 32px 24px;
-  background: linear-gradient(to top, rgba(26,48,40,0.92) 0%, rgba(26,48,40,0.5) 60%, transparent 100%);
-  opacity: 0;
-  transition: opacity 0.35s ease;
+  display: none;
 }
-.ia-service-card:hover .ia-service-overlay { opacity: 1; }
 
 .ia-service-overlay h3 {
   color: #fff;
@@ -2697,18 +2670,7 @@ body::before {
   content: "";
 }
 
-.ia-svc-1 .ia-placeholder,
-.ia-svc-2 .ia-placeholder,
-.ia-svc-3 .ia-placeholder,
-.ia-svc-4 .ia-placeholder,
-.ia-svc-5 .ia-placeholder,
-.ia-svc-6 .ia-placeholder,
-.ia-svc-7 .ia-placeholder,
-.ia-svc-8 .ia-placeholder {
-  background:
-    linear-gradient(135deg, rgba(24,33,23,0.08), transparent 45%),
-    linear-gradient(145deg, var(--sage-green), var(--vanilla-cream));
-}
+/* Background removed as cards use images */
 
 .ia-service-overlay {
   background: linear-gradient(to top, rgba(24,33,23,0.92), rgba(24,33,23,0.52), transparent);

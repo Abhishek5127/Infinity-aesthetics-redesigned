@@ -5,12 +5,15 @@ import { useRef, useState } from "react";
 const CLINIC_WHATSAPP = "919460991160";
 
 const TREATMENT_LABELS = {
-  "skin-consultation": "Skin Consultation",
-  "hair-treatment": "Hair Treatment",
-  laser: "Laser",
-  "acne-program": "Acne Program",
-  "chemical-peel": "Chemical Peel",
-  "prp-therapy": "PRP Therapy",
+  "skin-consultation": "General Skin Consultation",
+  "skin-tightening": "Skin Tightening",
+  "acne-treatment": "Acne Treatment",
+  "hair-prp-therapy": "Hair PRP Therapy",
+  "hydra-facial": "Hydra Facial",
+  "medical-therapy": "Medical Therapy",
+  "pigmentation-correction": "Pigmentation Correction",
+  "tattoo-removal": "Tattoo Removal",
+  "microneedling": "Microneedling",
   other: "Other",
 };
 

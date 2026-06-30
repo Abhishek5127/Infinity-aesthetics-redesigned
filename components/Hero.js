@@ -143,10 +143,6 @@ export default function Hero() {
   return (
     <section className="ia-hero" id="home">
       <div className="ia-hero-frame">
-        <div className="ia-hero-kicker">
-          <span>Ajmer</span>
-          <span>Skin / Laser / Hair</span>
-        </div>
 
         <div
           className={`ia-hero-carousel ${isDragging ? "is-dragging" : ""}`}
