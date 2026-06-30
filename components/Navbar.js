@@ -94,7 +94,7 @@ export default function Navbar() {
               href="/results"
               className={isActive(pathname, "/results") ? "active" : ""}
             >
-              Reviews
+              Results
             </Link>
             <Link
               href="/contact"
@@ -232,8 +232,8 @@ export default function Navbar() {
             onClick={closeDrawer}
             className={isActive(pathname, "/results") ? "active" : ""}
           >
-            <span className="ia-drawer-link-icon">⭐</span>
-            Reviews
+            <span className="ia-drawer-link-icon">✨</span>
+            Results
           </Link>
           <Link
             href="/fees"
