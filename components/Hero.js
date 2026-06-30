@@ -187,21 +187,6 @@ export default function Hero() {
           <span>Infinity</span>
           <span>Aesthetics</span>
         </h1>
-
-        <div className="ia-hero-panel" aria-live="polite">
-          <p>{active.eyebrow}</p>
-          <h2>{active.title}</h2>
-        </div>
-
-        <div className="ia-hero-progress" aria-hidden="true">
-          <span>{String(realSlideIndex + 1).padStart(2, "0")}</span>
-          <div>
-            {slides.map((_, index) => (
-              <i className={realSlideIndex === index ? "is-active" : ""} key={index} />
-            ))}
-          </div>
-          <span>{String(slides.length).padStart(2, "0")}</span>
-        </div>
       </div>
     </section>
   );
