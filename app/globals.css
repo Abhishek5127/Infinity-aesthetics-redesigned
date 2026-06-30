@@ -6,6 +6,13 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body { min-height: 100vh; overflow-x: hidden; }
+
+/* ===== LENIS SMOOTH SCROLL ===== */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-smooth iframe { pointer-events: none; }
 a { color: inherit; text-decoration: none; }
 button { border: none; background: none; cursor: pointer; font: inherit; color: inherit; }
 ul, ol { list-style: none; }
@@ -1825,8 +1832,8 @@ h1, h2, h3, h4 {
 
 .ia-hero-frame {
   position: relative;
-  width: min(82vw, 1520px);
-  height: clamp(540px, 74vh, 860px);
+  width: min(98vw, 1824px);
+  height: clamp(648px, 88vh, 1032px);
   margin: 0 auto;
   overflow: visible;
 }
@@ -1902,8 +1909,8 @@ h1, h2, h3, h4 {
 
 @media (max-width: 1080px) {
   .ia-hero-frame {
-    width: min(90vw, 920px);
-    height: clamp(520px, 70vh, 740px);
+    width: min(100vw, 1104px);
+    height: clamp(624px, 84vh, 888px);
   }
 
   .ia-hero-title {
@@ -1920,8 +1927,8 @@ h1, h2, h3, h4 {
 
   .ia-hero-frame {
     width: calc(100vw - 28px);
-    height: min(72vh, 620px);
-    min-height: 480px;
+    height: min(86vh, 744px);
+    min-height: 576px;
   }
 
   .ia-hero-title {
@@ -1935,7 +1942,7 @@ h1, h2, h3, h4 {
 @media (max-width: 480px) {
   .ia-hero-frame {
     width: calc(100vw - 20px);
-    min-height: 430px;
+    min-height: 516px;
   }
 
   .ia-hero-title {
@@ -2489,8 +2496,8 @@ body::before {
 
 .ia-hero-frame {
   position: relative;
-  width: min(83vw, 1510px);
-  height: clamp(560px, 73vh, 820px);
+  width: min(99vw, 1812px);
+  height: clamp(672px, 87vh, 984px);
   margin: 0 auto;
   transform-style: preserve-3d;
 }
@@ -2758,7 +2765,7 @@ body::before {
 
 @media (max-width: 1080px) {
   .ia-hero-frame {
-    width: min(90vw, 980px);
+    width: min(100vw, 1176px);
   }
 
   .ia-hero-title {
@@ -2778,8 +2785,8 @@ body::before {
 
   .ia-hero-frame {
     width: calc(100vw - 22px);
-    height: min(72vh, 640px);
-    min-height: 500px;
+    height: min(86vh, 768px);
+    min-height: 600px;
   }
 
   .ia-hero-kicker {
@@ -2808,7 +2815,7 @@ body::before {
 
 @media (max-width: 480px) {
   .ia-hero-frame {
-    min-height: 470px;
+    min-height: 564px;
   }
 
   .ia-hero-kicker span:last-child {

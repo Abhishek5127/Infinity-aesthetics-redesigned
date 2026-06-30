@@ -3,34 +3,59 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
+import carouselImg1 from "../app/assets/hero/carouselImg1.png";
+import carouselImg2 from "../app/assets/hero/carouselImg2.png";
+import carouselImg3 from "../app/assets/hero/carouselImg3.png";
+import carouselImg4 from "../app/assets/hero/carouselImg4.png";
+
 const slides = [
   {
-    src: "/laser-treatment.png",
-    alt: "Laser skin treatment at Infinity Aesthetics",
+    src: carouselImg1,
+    alt: "Infinity Aesthetics Signature Care",
+    eyebrow: "Infinity Aesthetics",
+    title: "Signature Care",
+  },
+  {
+    src: carouselImg2,
+    alt: "Laser Dermatology",
     eyebrow: "Laser Dermatology",
     title: "Precision skin work",
   },
   {
-    src: "/facial-treatment.png",
-    alt: "Clinical facial treatment at Infinity Aesthetics",
+    src: carouselImg3,
+    alt: "Clinical Facials",
     eyebrow: "Clinical Facials",
     title: "Calm barrier repair",
   },
   {
-    src: "/hair-treatment.png",
-    alt: "Healthy hair treatment result at Infinity Aesthetics",
+    src: carouselImg4,
+    alt: "Hair Restoration",
     eyebrow: "Hair Restoration",
     title: "Density with softness",
   },
 ];
 
+const extendedSlides = [slides[slides.length - 1], ...slides, slides[0]];
+
 export default function Hero() {
-  const [activeSlide, setActiveSlide] = useState(0);
+  const [activeSlide, setActiveSlide] = useState(1);
   const [dragOffset, setDragOffset] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [titleProgress, setTitleProgress] = useState(0);
+  const [transitionEnabled, setTransitionEnabled] = useState(true);
+  
   const carouselRef = useRef(null);
   const dragRef = useRef({ pointerId: null, startX: 0, width: 1 });
+
+  // Infinite Auto-Scrolling
+  useEffect(() => {
+    if (isDragging) return;
+    const interval = setInterval(() => {
+      setTransitionEnabled(true);
+      setActiveSlide((current) => current + 1);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isDragging]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,10 +68,20 @@ export default function Hero() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const clampSlide = (value) => Math.max(0, Math.min(slides.length - 1, value));
-
   const handlePointerDown = (event) => {
     if (!carouselRef.current) return;
+
+    let currentSlide = activeSlide;
+    // Snap to real slides instantly before drag begins
+    if (activeSlide >= extendedSlides.length - 1) {
+      currentSlide = 1;
+      setTransitionEnabled(false);
+      setActiveSlide(currentSlide);
+    } else if (activeSlide <= 0) {
+      currentSlide = extendedSlides.length - 2;
+      setTransitionEnabled(false);
+      setActiveSlide(currentSlide);
+    }
 
     const width = carouselRef.current.getBoundingClientRect().width || 1;
     dragRef.current = {
@@ -69,7 +104,9 @@ export default function Hero() {
 
     const threshold = dragRef.current.width * 0.16;
     const direction = Math.abs(dragOffset) > threshold ? Math.sign(dragOffset) : 0;
-    setActiveSlide((current) => clampSlide(current - direction));
+    
+    setTransitionEnabled(true);
+    setActiveSlide((current) => current - direction);
     setDragOffset(0);
     setIsDragging(false);
 
@@ -78,19 +115,33 @@ export default function Hero() {
     }
   };
 
+  const handleTransitionEnd = () => {
+    if (activeSlide >= extendedSlides.length - 1) {
+      setTransitionEnabled(false);
+      setActiveSlide(1);
+    } else if (activeSlide <= 0) {
+      setTransitionEnabled(false);
+      setActiveSlide(extendedSlides.length - 2);
+    }
+  };
+
+  const getRealIndex = (index) => {
+    if (index === 0) return slides.length - 1;
+    if (index === extendedSlides.length - 1) return 0;
+    return index - 1;
+  };
+
+  const realSlideIndex = getRealIndex(activeSlide);
+  const active = slides[realSlideIndex] || slides[0];
+
   const translate = `calc(${-activeSlide * 100}% + ${dragOffset}px)`;
   const titleStyle = {
     opacity: Math.max(0, 1 - titleProgress * 1.35),
     transform: `translate3d(-50%, ${titleProgress * 120}px, 0)`,
   };
-  const active = slides[activeSlide];
 
   return (
     <section className="ia-hero" id="home">
-      <div className="ia-hero-backdrop" aria-hidden="true">
-        <span>Infinity</span>
-        <span>Aesthetics</span>
-      </div>
       <div className="ia-hero-frame">
         <div className="ia-hero-kicker">
           <span>Ajmer</span>
@@ -106,22 +157,33 @@ export default function Hero() {
           onPointerCancel={finishDrag}
           aria-label="Featured Infinity Aesthetics treatments"
         >
-          <div className="ia-hero-track" style={{ transform: `translate3d(${translate}, 0, 0)` }}>
-            {slides.map((slide, index) => (
-              <div
-                className={`ia-hero-slide ${activeSlide === index ? "is-active" : ""}`}
-                key={slide.src}
-                aria-hidden={activeSlide !== index}
-              >
-                <Image
-                  src={slide.src}
-                  alt={slide.alt}
-                  fill
-                  sizes="(max-width: 768px) 94vw, 82vw"
-                  priority={index === 0}
-                />
-              </div>
-            ))}
+          <div 
+            className="ia-hero-track" 
+            style={{ 
+              transform: `translate3d(${translate}, 0, 0)`,
+              transition: !transitionEnabled ? "none" : undefined
+            }}
+            onTransitionEnd={handleTransitionEnd}
+          >
+            {extendedSlides.map((slide, index) => {
+              const isSlideActive = realSlideIndex === getRealIndex(index);
+              return (
+                <div
+                  className={`ia-hero-slide ${isSlideActive ? "is-active" : ""}`}
+                  key={index}
+                  aria-hidden={!isSlideActive}
+                >
+                  <Image
+                    src={slide.src}
+                    alt={slide.alt}
+                    fill
+                    sizes="(max-width: 768px) 94vw, 82vw"
+                    priority={index === 1}
+                    placeholder="blur"
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
 
@@ -136,10 +198,10 @@ export default function Hero() {
         </div>
 
         <div className="ia-hero-progress" aria-hidden="true">
-          <span>{String(activeSlide + 1).padStart(2, "0")}</span>
+          <span>{String(realSlideIndex + 1).padStart(2, "0")}</span>
           <div>
-            {slides.map((slide, index) => (
-              <i className={activeSlide === index ? "is-active" : ""} key={slide.src} />
+            {slides.map((_, index) => (
+              <i className={realSlideIndex === index ? "is-active" : ""} key={index} />
             ))}
           </div>
           <span>{String(slides.length).padStart(2, "0")}</span>

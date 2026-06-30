@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
+import SmoothScroll from "../components/SmoothScroll";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -34,6 +35,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${playfair.variable} ${outfit.variable} ${jetbrains.variable}`}>
       <body>
+        <SmoothScroll />
         <Navbar />
         <main>{children}</main>
         <FloatingWhatsApp />
