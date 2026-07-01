@@ -247,9 +247,8 @@ export default function Home() {
               <div className="ia-reveal ia-desktop-only" style={{ marginTop: '32px' }}>
                 <div style={{ width: '300px', height: '300px', position: 'relative', overflow: 'hidden', margin: '0 auto' }}>
                   <ThreeHeroCanvas
-                    compact
                     interactive={true}
-                    particleCount={400}
+                    particleCount={1500}
                     speed={1.5}
                   />
                 </div>
