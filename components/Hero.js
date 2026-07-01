@@ -141,7 +141,6 @@ export default function Hero() {
   };
 
   const realSlideIndex = getRealIndex(activeSlide);
-  const active = slides[realSlideIndex] || slides[0];
 
   const translate = `calc(${-activeSlide * 100}% + ${dragOffset}px)`;
   const titleStyle = {
