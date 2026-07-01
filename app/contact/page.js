@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ContactForm from "../../components/ContactForm";
 import PageHero from "../../components/PageHero";
 import styles from "../page.module.css";
 
@@ -56,6 +57,10 @@ export default function ContactPage() {
             Explore Services
           </Link>
         </div>
+      </section>
+
+      <section id="contact-form" style={{ scrollMarginTop: "120px", margin: "0 auto 64px", maxWidth: "1100px", padding: "0 24px" }}>
+        <ContactForm />
       </section>
     </>
   );

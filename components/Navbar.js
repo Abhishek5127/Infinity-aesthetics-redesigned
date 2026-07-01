@@ -131,7 +131,7 @@ export default function Navbar() {
 
             {/* CTA */}
             <Link
-              href="/contact"
+              href="/contact#contact-form"
               className="ia-btn ia-btn-gold ia-nav-cta"
             >
               Book Now
@@ -284,7 +284,7 @@ export default function Navbar() {
             WhatsApp Us
           </a>
           <Link
-            href="/contact"
+            href="/contact#contact-form"
             className="ia-btn ia-btn-gold ia-drawer-book"
             onClick={closeDrawer}
             style={{ width: "100%", marginTop: "4px" }}
