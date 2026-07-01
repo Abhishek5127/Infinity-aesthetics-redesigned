@@ -64,7 +64,6 @@ export default function AboutPage() {
               alt="Cosmetologist performing treatment" 
               fill
               sizes="(max-width: 900px) 100vw, 50vw"
-              placeholder="blur"
             />
           </div>
         </div>
@@ -79,7 +78,6 @@ export default function AboutPage() {
               alt="Advanced clinic technology and care" 
               fill
               sizes="(max-width: 900px) 100vw, 50vw"
-              placeholder="blur"
             />
           </div>
           <div className={styles.textContent}>
