@@ -3,6 +3,7 @@ import Image from "next/image";
 import Hero from "../components/Hero";
 import ContactForm from "../components/ContactForm";
 import GSAPAnimations from "../components/GSAPAnimations";
+import ThreeHeroCanvas from "../components/ThreeHeroCanvas";
 import { clinicServices } from "../lib/services";
 
 export default function Home() {
@@ -30,8 +31,8 @@ export default function Home() {
           </div>
 
           <div className="ia-services-grid ia-stagger">
-            {clinicServices.slice(0, 3).map((service, index) => (
-              <Link href={`/services#${service.slug}`} className={`ia-service-card ia-svc-${index + 1} ia-reveal`} key={service.slug}>
+            {clinicServices.map((service, index) => (
+              <Link href={`/services#${service.slug}`} className={`ia-service-card ia-svc-${index + 1} ia-reveal ${index >= 3 ? 'ia-mobile-hidden-card' : ''}`} key={service.slug}>
                 <div className="ia-placeholder">
                   <Image src={service.image} alt={service.alt} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 33vw" />
                 </div>
@@ -49,7 +50,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="ia-reveal" style={{ textAlign: "center", marginTop: "48px" }}>
+          <div className="ia-reveal ia-mobile-only-btn" style={{ textAlign: "center", marginTop: "48px" }}>
             <Link href="/services" className="ia-btn ia-btn-ghost">
               Check all treatments →
             </Link>
@@ -242,6 +243,16 @@ export default function Home() {
 
               <div className="ia-lgbtq-badge ia-reveal">
                 LGBTQ+ friendly clinic
+              </div>
+              <div className="ia-reveal" style={{ marginTop: '32px' }}>
+                <div style={{ width: '120px', height: '120px', position: 'relative', borderRadius: '50%', overflow: 'hidden', background: 'var(--card-bg)', border: '1px solid var(--card-border)' }}>
+                  <ThreeHeroCanvas
+                    compact
+                    interactive={true}
+                    particleCount={400}
+                    speed={1.5}
+                  />
+                </div>
               </div>
             </div>
 

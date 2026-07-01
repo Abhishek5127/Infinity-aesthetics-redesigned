@@ -2820,3 +2820,16 @@ body::before {
     font-size: 24px;
   }
 }
+
+.ia-mobile-only-btn {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .ia-mobile-hidden-card {
+    display: none !important;
+  }
+  .ia-mobile-only-btn {
+    display: block !important;
+  }
+}
