@@ -2851,17 +2851,13 @@ body::before {
 }
 
 @media (max-width: 1080px) {
-  .ia-navbar .ia-container {
-    position: relative;
-  }
   .ia-nav-brand {
-    gap: 0;
+    flex: 1;
   }
   .ia-nav-brand-text {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: 0 auto;
     text-align: center;
+    white-space: normal;
   }
   .ia-nav-brand-tag {
     display: none;
