@@ -30,7 +30,7 @@ export default function Home() {
           </div>
 
           <div className="ia-services-grid ia-stagger">
-            {clinicServices.map((service, index) => (
+            {clinicServices.slice(0, 3).map((service, index) => (
               <Link href={`/services#${service.slug}`} className={`ia-service-card ia-svc-${index + 1} ia-reveal`} key={service.slug}>
                 <div className="ia-placeholder">
                   <Image src={service.image} alt={service.alt} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 33vw" />
@@ -47,6 +47,12 @@ export default function Home() {
                 </div>
               </Link>
             ))}
+          </div>
+
+          <div className="ia-reveal" style={{ textAlign: "center", marginTop: "48px" }}>
+            <Link href="/services" className="ia-btn ia-btn-ghost">
+              Check all treatments →
+            </Link>
           </div>
         </div>
       </section>
