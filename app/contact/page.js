@@ -50,8 +50,8 @@ export default function ContactPage() {
         </div>
         <div className={styles.contactPanel}>
           <p>Consultation</p>
-          <strong>₹85</strong>
-          <span>Applied toward select same-day treatments.</span>
+          <strong>Free</strong>
+          <span>No commitment required. Come discuss your goals.</span>
           <Link className={styles.navButton} href="/services">
             Explore Services
           </Link>

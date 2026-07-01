@@ -104,9 +104,9 @@ export default function ContactForm() {
   return (
     <div className="ia-contact-form-wrap ia-reveal">
       <div className="ia-consult-card">
-        <p className="ia-consult-label">First consultation fee</p>
-        <p className="ia-consult-price">₹85</p>
-        <p className="ia-consult-note">Credited toward your treatment if you book same day</p>
+        <p className="ia-consult-label">First consultation</p>
+        <p className="ia-consult-price">Free</p>
+        <p className="ia-consult-note">No commitment required. Come discuss your goals.</p>
       </div>
 
       <form onSubmit={handleSubmit} ref={formRef} noValidate>
