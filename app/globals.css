@@ -1542,9 +1542,15 @@ h1, h2, h3, h4 {
 
 .ia-footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  grid-template-columns: 1.4fr 2fr 1.2fr;
   gap: 48px;
   margin-bottom: 60px;
+}
+
+.ia-footer-navs-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
 }
 
 .ia-footer-brand .ia-nav-brand { margin-bottom: 20px; }
@@ -2831,5 +2837,33 @@ body::before {
   }
   .ia-mobile-only-btn {
     display: block !important;
+  }
+}
+
+.ia-desktop-only {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .ia-desktop-only {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1080px) {
+  .ia-navbar .ia-container {
+    position: relative;
+  }
+  .ia-nav-brand {
+    gap: 0;
+  }
+  .ia-nav-brand-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+  .ia-nav-brand-tag {
+    display: none;
   }
 }

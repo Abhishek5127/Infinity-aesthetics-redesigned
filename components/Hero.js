@@ -188,7 +188,6 @@ export default function Hero() {
                     style={{ objectFit: "cover", objectPosition: "center" }}
                     sizes="(max-width: 768px) 0vw, 82vw"
                     priority={index === 1}
-                    placeholder="blur"
                   />
                   <Image
                     className="ia-hero-img-portrait"
@@ -198,7 +197,6 @@ export default function Hero() {
                     style={{ objectFit: "cover", objectPosition: "center" }}
                     sizes="(max-width: 768px) 94vw, 0vw"
                     priority={index === 1}
-                    placeholder="blur"
                   />
                 </div>
               );

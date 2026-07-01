@@ -235,7 +235,7 @@ export default function Home() {
                     <div className="ia-ci-label">Location</div>
                     <div className="ia-ci-value">
                       Ajmer Tower, Kutchery Road<br />Ajmer, Rajasthan 305001<br />
-                      <a href="https://maps.google.com/?q=Infinity+Aesthetics+Ajmer" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-gold)', fontSize: '14px', display: 'inline-block', marginTop: '6px' }}>Get Directions →</a>
+                      <a href="https://maps.app.goo.gl/uccX19z8wcXrQ2HF8" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-gold)', fontSize: '14px', display: 'inline-block', marginTop: '6px' }}>Get Directions →</a>
                     </div>
                   </div>
                 </div>
@@ -244,8 +244,8 @@ export default function Home() {
               <div className="ia-lgbtq-badge ia-reveal">
                 LGBTQ+ friendly clinic
               </div>
-              <div className="ia-reveal" style={{ marginTop: '32px' }}>
-                <div style={{ width: '120px', height: '120px', position: 'relative', borderRadius: '50%', overflow: 'hidden', background: 'var(--card-bg)', border: '1px solid var(--card-border)' }}>
+              <div className="ia-reveal ia-desktop-only" style={{ marginTop: '32px' }}>
+                <div style={{ width: '300px', height: '300px', position: 'relative', overflow: 'hidden', margin: '0 auto' }}>
                   <ThreeHeroCanvas
                     compact
                     interactive={true}
