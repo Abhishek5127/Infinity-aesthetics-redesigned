@@ -340,7 +340,8 @@ h1, h2, h3, h4 {
   font-size: 13px;
   font-weight: 600;
   color: var(--text-muted);
-  padding: 8px 14px;
+  padding: 10px 14px;
+  min-height: 44px;
   border-radius: 99px;
   border: 1px solid var(--card-border);
   background: var(--card-bg);
@@ -446,7 +447,7 @@ h1, h2, h3, h4 {
 .ia-drawer-close {
   position: absolute;
   top: 20px; right: 20px;
-  width: 40px; height: 40px;
+  width: 44px; height: 44px;
   border-radius: 50%;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
@@ -1409,6 +1410,7 @@ h1, h2, h3, h4 {
 .ia-form-field textarea {
   width: 100%;
   padding: 16px 0 10px;
+  min-height: 48px;
   border: none;
   border-bottom: 2px solid var(--border);
   background: transparent;
@@ -1512,6 +1514,23 @@ h1, h2, h3, h4 {
   color: var(--text-muted);
 }
 
+.ia-hero-img-landscape {
+  display: block;
+}
+
+.ia-hero-img-portrait {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .ia-hero-img-landscape {
+    display: none;
+  }
+  .ia-hero-img-portrait {
+    display: block;
+  }
+}
+
 
 /* =============================================
    FOOTER
@@ -1545,7 +1564,7 @@ h1, h2, h3, h4 {
 
 .ia-footer-socials { display: flex; gap: 12px; }
 .ia-footer-social {
-  width: 40px; height: 40px;
+  width: 44px; height: 44px;
   border-radius: 50%;
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.08);
@@ -1787,7 +1806,8 @@ h1, h2, h3, h4 {
   .ia-testimonial-grid { grid-template-columns: 1fr; }
   .ia-testimonial-card:nth-child(3) { max-width: none; }
   .ia-contact-grid { grid-template-columns: 1fr; gap: 48px; }
-  .ia-form-row { grid-template-columns: 1fr; gap: 0; }
+  .ia-form-row { grid-template-columns: 1fr; gap: 16px; }
+  .ia-btn-submit { width: 100%; }
   .ia-footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .ia-footer-bottom { flex-direction: column; text-align: center; }
   .ia-mobile-cta { display: grid; }
@@ -1857,7 +1877,7 @@ h1, h2, h3, h4 {
   position: absolute;
   inset: 0;
   width: 100%;
-  height: 90%;
+  height: 100%;
   object-fit: cover;
   object-position: center;
   pointer-events: none;

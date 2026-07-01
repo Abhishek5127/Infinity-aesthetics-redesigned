@@ -665,7 +665,7 @@
 .testimonialGrid,
 .detailGrid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 2fr));
   gap: 18px;
 }
 
@@ -701,12 +701,89 @@
 }
 
 .processGrid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.processIntroCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  margin-bottom: 28px;
+  padding: 28px 32px;
+  border-radius: 24px;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.96), rgba(248, 241, 234, 0.94));
+  box-shadow: 0 20px 44px rgba(63, 48, 42, 0.08);
+}
+
+.sectionTitle {
+  margin: 8px 0 10px;
+  color: #263238;
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: clamp(1.8rem, 2.4vw, 2.45rem);
+  line-height: 1.2;
+}
+
+.sectionTextLarge {
+  max-width: 700px;
+  margin: 0;
+  color: rgba(38, 50, 56, 0.74);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.processCtaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: 999px;
+  background: #77856a;
+  color: #fffdfb;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 14px 28px rgba(76, 83, 66, 0.16);
+  white-space: nowrap;
 }
 
 .processCard {
+  display: flex;
   min-height: 220px;
-  padding: 26px;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px;
+  background: rgba(255, 253, 250, 0.88);
+}
+
+.processVideoWrap {
+  flex: 0 0 210px;
+  width: 210px;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  background: #efe2d8;
+}
+
+.processVideo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+
+.processEyebrow {
+  margin: 0 0 8px;
+  color: #b47d6f;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
 }
 
 .processCard span,
@@ -716,7 +793,7 @@
 }
 
 .processCard h3 {
-  margin: 20px 0 12px;
+  margin: 0 0 10px;
   color: #263238;
   font-family: var(--font-playfair), Georgia, serif;
   font-size: 1.45rem;
@@ -730,6 +807,28 @@
   color: rgba(38, 50, 56, 0.72);
   font-size: 14px;
   line-height: 1.65;
+}
+
+.processBullets {
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.processBullets li {
+  position: relative;
+  padding-left: 16px;
+  color: rgba(38, 50, 56, 0.74);
+  font-size: 13px;
+}
+
+.processBullets li::before {
+  position: absolute;
+  left: 0;
+  color: #77856a;
+  content: "•";
 }
 
 .feeList,
@@ -2754,4 +2853,21 @@
   animation-duration: 7s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
+}
+
+/* --- Mobile Responsiveness Fixes --- */
+@media (max-width: 768px) {
+  .resultGrid,
+  .processGrid,
+  .testimonialGrid,
+  .detailGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .aboutClinic,
+  .contactSection,
+  .detailHero,
+  .detailCta {
+    grid-template-columns: 1fr;
+  }
 }
