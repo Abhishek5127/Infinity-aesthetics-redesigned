@@ -1,22 +1,22 @@
-import { Playfair_Display, Outfit, JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono, Bricolage_Grotesque, Genos } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
 import SmoothScroll from "../components/SmoothScroll";
 
-const playfair = Playfair_Display({
+const bricolage_Grotesque = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-heading",
+  variable: "--font-body",
   display: "swap",
   weight: ["400", "500", "600", "700"],
 });
 
-const outfit = Outfit({
+const genos = Genos({
   subsets: ["latin"],
-  variable: "--font-body",
+  variable: "--font-genos",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const jetbrains = JetBrains_Mono({
@@ -33,7 +33,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${outfit.variable} ${jetbrains.variable}`}>
+    <html lang="en" className={`${bricolage_Grotesque.variable} ${jetbrains.variable} ${genos.variable}`}>
       <body>
         <SmoothScroll />
         <Navbar />

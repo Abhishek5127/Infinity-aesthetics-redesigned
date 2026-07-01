@@ -136,8 +136,10 @@ export default function Hero() {
 
   const translate = `calc(${-activeSlide * 100}% + ${dragOffset}px)`;
   const titleStyle = {
-    opacity: Math.max(0, 1 - titleProgress * 1.35),
-    transform: `translate3d(-50%, ${titleProgress * 120}px, 0)`,
+    opacity: 1,
+    transform: `translate3d(-50%, ${titleProgress * 204}px, 0) scale(${1 - titleProgress * 0.8})`,
+    fontFamily: "var(--font-genos), var(--font-body), sans-serif",
+    fontWeight: 700,
   };
 
   return (
@@ -173,6 +175,7 @@ export default function Hero() {
                     src={slide.src}
                     alt={slide.alt}
                     fill
+                    style={{ objectFit: "cover", objectPosition: "center" }}
                     sizes="(max-width: 768px) 94vw, 82vw"
                     priority={index === 1}
                     placeholder="blur"

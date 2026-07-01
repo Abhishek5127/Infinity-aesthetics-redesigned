@@ -30,6 +30,7 @@ input, select, textarea { font: inherit; color: inherit; }
 :root {
   --sage-green: #87a172;
   --vanilla-cream: #f1ebd5;
+  --font-heading: var(--font-body);
   --bg-primary: var(--vanilla-cream);
   --bg-secondary: color-mix(in srgb, var(--vanilla-cream) 78%, var(--sage-green));
   --bg-dark: #182117;
@@ -57,7 +58,7 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: var(--font-heading), serif;
+  font-family: var(--font-body), sans-serif;
   font-weight: 600;
   line-height: 1.1;
 }
@@ -776,7 +777,7 @@ h1, h2, h3, h4 {
    ============================================= */
 .ia-trust-bar {
   background: var(--bg-dark);
-  padding: 56px 0;
+  padding: 10px;
   color: #EDE8E0;
   border-top: 1px solid rgba(255,255,255,0.05);
   border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -787,7 +788,7 @@ h1, h2, h3, h4 {
   font-size: 16px;
   font-weight: 500;
   color: rgba(237,232,224,0.9);
-  margin-bottom: 28px;
+
 }
 .ia-trust-headline strong { color: var(--accent-gold); font-weight: 700; }
 
@@ -1853,6 +1854,10 @@ h1, h2, h3, h4 {
 }
 
 .ia-hero-slide img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 90%;
   object-fit: cover;
   object-position: center;
   pointer-events: none;
@@ -1875,7 +1880,7 @@ h1, h2, h3, h4 {
   max-width: 112vw;
   margin: 0;
   color: #fff;
-  font-family: var(--font-body), sans-serif;
+  font-family: var(--font-genos), var(--font-body), sans-serif !important;
   font-size: clamp(72px, 8.6vw, 150px);
   font-weight: 800;
   line-height: 0.9;
@@ -2510,12 +2515,7 @@ body::before {
 }
 
 .ia-hero-carousel::before {
-  position: absolute;
-  inset: 16px;
-  z-index: 3;
-  border: 1px solid rgba(241,235,213,0.46);
-  pointer-events: none;
-  content: "";
+  display: none;
 }
 
 .ia-hero-carousel::after {
@@ -2546,8 +2546,9 @@ body::before {
   flex-direction: column;
   align-items: center;
   color: var(--vanilla-cream);
+  font-family: var(--font-genos), var(--font-body), sans-serif !important;
   font-size: clamp(78px, 9.4vw, 164px);
-  font-weight: 900;
+  font-weight: 700;
   line-height: 0.78;
   text-transform: none;
   text-shadow: 0 22px 48px rgba(24,33,23,0.22);
