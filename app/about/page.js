@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./about.module.css";
-import ClinicImg from "../assets/about/ClinicImg.webp";
-import DoctorImg from "../assets/about/DoctorImg.png";
-import DoctorImg2 from "../assets/about/DoctorImg2.webp";
+
+const clinicImg = "/about/ClinicImg.webp";
+const doctorImg = "/about/DoctorImg.png";
+const doctorImg2 = "/about/DoctorImg2.webp";
 
 export const metadata = {
   title: "About | Infinity Aesthetics — Ajmer",
@@ -28,7 +29,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className={styles.heroSection}>
         <div className={styles.heroBackground}>
-          <Image src={ClinicImg} alt="Infinity Aesthetics Clinic" priority placeholder="blur" />
+          <Image src={clinicImg} alt="Infinity Aesthetics Clinic" priority width={1200} height={800} />
         </div>
         <div className={styles.heroGradient}></div>
         <div className={styles.heroContent}>
@@ -59,7 +60,7 @@ export default function AboutPage() {
           </div>
           <div className={styles.imageWrapper}>
             <Image 
-              src={DoctorImg} 
+              src={doctorImg} 
               alt="Cosmetologist performing treatment" 
               fill
               sizes="(max-width: 900px) 100vw, 50vw"
@@ -74,7 +75,7 @@ export default function AboutPage() {
         <div className={styles.gridReverse}>
           <div className={styles.imageWrapper}>
             <Image 
-              src={DoctorImg2} 
+              src={doctorImg2} 
               alt="Advanced clinic technology and care" 
               fill
               sizes="(max-width: 900px) 100vw, 50vw"
