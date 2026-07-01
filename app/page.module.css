@@ -755,8 +755,23 @@
   min-height: 220px;
   width: 100%;
   overflow: hidden;
-  padding: 10px;
-  background: rgba(255, 253, 250, 0.88);
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.04);
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(63,48,42,0.04);
+  gap: 32px;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.processCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(63,48,42,0.08);
+}
+
+.processCardBody {
+  flex: 1;
 }
 
 .processVideoWrap {
@@ -765,6 +780,7 @@
   aspect-ratio: 9 / 16;
   overflow: hidden;
   background: #efe2d8;
+  border-radius: 12px;
 }
 
 .processVideo {
@@ -807,6 +823,27 @@
   color: rgba(38, 50, 56, 0.72);
   font-size: 14px;
   line-height: 1.65;
+}
+
+.processMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 20px 0 12px;
+  padding: 12px 18px;
+  background: rgba(119, 133, 106, 0.08);
+  border-radius: 10px;
+}
+
+.processMetaItem {
+  font-size: 13.5px;
+  color: rgba(38, 50, 56, 0.85);
+}
+
+.processMetaItem strong {
+  color: #77856a;
+  margin-right: 6px;
+  font-weight: 700;
 }
 
 .processBullets {
@@ -2869,5 +2906,17 @@
   .detailHero,
   .detailCta {
     grid-template-columns: 1fr;
+  }
+  
+  .processCard {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .processVideoWrap {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
   }
 }

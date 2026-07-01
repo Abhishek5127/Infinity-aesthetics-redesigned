@@ -2852,10 +2852,9 @@ body::before {
 
 @media (max-width: 1080px) {
   .ia-nav-brand {
-    flex: 1;
+    display: contents;
   }
   .ia-nav-brand-text {
-    margin: 0 auto;
     text-align: center;
     white-space: normal;
   }

@@ -46,23 +46,27 @@ export default function Navbar() {
       <header className={`ia-navbar ${scrolled ? "scrolled" : ""}`} id="navbar">
         <div className="ia-container">
           {/* ── Brand ── */}
-          <Link href="/" className="ia-nav-brand">
-            <div className="ia-nav-logo ia-nav-logo-canvas" aria-hidden="true">
-              <ThreeHeroCanvas
-                className="ia-nav-logo-animation"
-                compact
-                interactive={false}
-                particleCount={260}
-                speed={1.5}
-              />
-            </div>
-            <div className="ia-nav-brand-text">
-              <span className="ia-nav-brand-name">Infinity Aesthetics</span>
-              <span className="ia-nav-brand-tag">
-                Skin, Laser &amp; Hair Clinic
-              </span>
-            </div>
-          </Link>
+          <div className="ia-nav-brand">
+            <Link href="/" aria-label="Home">
+              <div className="ia-nav-logo ia-nav-logo-canvas" aria-hidden="true">
+                <ThreeHeroCanvas
+                  className="ia-nav-logo-animation"
+                  compact
+                  interactive={false}
+                  particleCount={260}
+                  speed={1.5}
+                />
+              </div>
+            </Link>
+            <Link href="/" style={{ textDecoration: 'none' }}>
+              <div className="ia-nav-brand-text">
+                <span className="ia-nav-brand-name">Infinity Aesthetics</span>
+                <span className="ia-nav-brand-tag">
+                  Skin, Laser &amp; Hair Clinic
+                </span>
+              </div>
+            </Link>
+          </div>
 
           {/* ── Desktop Nav Links ── */}
           <nav className="ia-nav-links">
