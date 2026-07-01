@@ -50,7 +50,6 @@ export default async function ServicePage({ params }) {
   const localFaqs = seo.faqs || [];
   const faqs = [...localFaqs, ...(service.faqs || [])].slice(0, 5);
   const relatedServices = clinicServices.filter((item) => item.slug !== service.slug).slice(0, 3);
-  const startingFee = service.fees?.[0];
   const servicePath = `/services/${service.slug}`;
 
   return (
@@ -88,12 +87,8 @@ export default async function ServicePage({ params }) {
           </div>
           <div className={styles.glanceRows}>
             <div>
-              <span>Starts at</span>
-              <strong>{startingFee?.price || "Consultation"}</strong>
-            </div>
-            <div>
               <span>First visit</span>
-              <strong>{startingFee?.duration || service.duration}</strong>
+              <strong>{service.duration}</strong>
             </div>
             <div>
               <span>Plan style</span>
@@ -159,29 +154,7 @@ export default async function ServicePage({ params }) {
         </div>
       </section>
 
-      {service.fees && service.fees.length > 0 && (
-        <section className={styles.detailBand} aria-labelledby="fees-heading">
-          <div className={styles.sectionIntroLeft}>
-            <p className={styles.kicker}>Fees</p>
-            <h2 className={styles.sectionTitle} id="fees-heading">
-              Clear service pricing.
-            </h2>
-            <p className={styles.richText}>
-              Pricing is confirmed before treatment begins. Packages are available when a series is
-              the better route for your goal.
-            </p>
-          </div>
-          <div className={styles.pricingTableStrong}>
-            {service.fees.map((fee) => (
-              <div className={styles.pricingRowStrong} key={fee.label}>
-                <span>{fee.label}</span>
-                <small>{fee.duration}</small>
-                <strong>{fee.price}</strong>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
+
 
       {faqs.length > 0 && (
         <section className={styles.detailBand} aria-labelledby="faq-heading">

@@ -101,6 +101,12 @@ export default function Navbar() {
               Results
             </Link>
             <Link
+              href="/blog"
+              className={isActive(pathname, "/blog") ? "active" : ""}
+            >
+              Blog
+            </Link>
+            <Link
               href="/contact"
               className={isActive(pathname, "/contact") ? "active" : ""}
             >
@@ -240,12 +246,12 @@ export default function Navbar() {
             Results
           </Link>
           <Link
-            href="/fees"
+            href="/blog"
             onClick={closeDrawer}
-            className={isActive(pathname, "/fees") ? "active" : ""}
+            className={isActive(pathname, "/blog") ? "active" : ""}
           >
-            <span className="ia-drawer-link-icon">💰</span>
-            Fees
+            <span className="ia-drawer-link-icon">📖</span>
+            Blog
           </Link>
           <Link
             href="/contact"

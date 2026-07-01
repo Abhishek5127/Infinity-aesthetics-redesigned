@@ -25,7 +25,7 @@ export default function ContactPage() {
       <section className={styles.contactSection} id="contact">
         <div>
           <p className={styles.kicker}>Visit</p>
-          <h2 className={styles.sectionTitle}>We're ready when you are.</h2>
+          <h2 className={styles.sectionTitle}>We&apos;re ready when you are.</h2>
           <ul className={styles.contactList}>
             <li>
               <span>Phone</span>
