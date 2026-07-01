@@ -9,18 +9,18 @@ const TREATMENT_LABELS = {
   "skin-tightening": "Skin Tightening",
   "acne-treatment": "Acne Treatment",
   "hair-prp-therapy": "Hair PRP Therapy",
-  "hydra-facial": "Hydra Facial",
+  "hydra-facial": "HydraFacial",
   "medical-therapy": "Medical Therapy",
   "pigmentation-correction": "Pigmentation Correction",
   "tattoo-removal": "Tattoo Removal",
-  "microneedling": "Microneedling",
+  microneedling: "Microneedling",
   other: "Other",
 };
 
 const TIME_LABELS = {
-  morning: "Morning (9–12)",
-  afternoon: "Afternoon (12–4)",
-  evening: "Evening (4–8)",
+  morning: "Morning (9-12)",
+  afternoon: "Afternoon (12-4)",
+  evening: "Evening (4-8)",
 };
 
 export default function ContactForm() {
@@ -44,7 +44,7 @@ export default function ContactForm() {
     const treatment = TREATMENT_LABELS[data.treatment] || data.treatment;
     const time = TIME_LABELS[data.time] || "";
     const lines = [
-      "Hi Infinity Aesthetics, I'd like to book a consultation.",
+      "Hi Infinity Aesthetics, I'd like to book a consultation in Ajmer.",
       "",
       `Name: ${data.name}`,
       `Phone: ${data.phone}`,
@@ -73,14 +73,13 @@ export default function ContactForm() {
     setErrors(nextErrors);
 
     if (Object.keys(nextErrors).length > 0) {
-      const firstField = ["name", "phone", "treatment"].find((f) => nextErrors[f]);
+      const firstField = ["name", "phone", "treatment"].find((field) => nextErrors[field]);
       formRef.current?.querySelector(`[name="${firstField}"]`)?.focus();
       return;
     }
 
     setStatus("submitting");
 
-    // Hand the lead straight to the clinic's WhatsApp with a prefilled message.
     const message = buildWhatsappMessage(data);
     const waUrl = `https://wa.me/${CLINIC_WHATSAPP}?text=${encodeURIComponent(message)}`;
     window.open(waUrl, "_blank", "noopener,noreferrer");
@@ -160,13 +159,14 @@ export default function ContactForm() {
               aria-describedby={errors.treatment ? "err-treatment" : undefined}
               onChange={() => clearError("treatment")}
             >
-              <option value="" disabled>Select…</option>
+              <option value="" disabled>Select...</option>
               <option value="skin-consultation">Skin Consultation</option>
-              <option value="hair-treatment">Hair Treatment</option>
-              <option value="laser">Laser</option>
-              <option value="acne-program">Acne Program</option>
-              <option value="chemical-peel">Chemical Peel</option>
-              <option value="prp-therapy">PRP Therapy</option>
+              <option value="acne-treatment">Acne Treatment</option>
+              <option value="hair-prp-therapy">Hair PRP Therapy</option>
+              <option value="hydra-facial">HydraFacial</option>
+              <option value="pigmentation-correction">Pigmentation Correction</option>
+              <option value="tattoo-removal">Laser Tattoo Removal</option>
+              <option value="microneedling">Microneedling</option>
               <option value="other">Other</option>
             </select>
             <label htmlFor="treatment">Treatment Interest</label>
@@ -177,10 +177,10 @@ export default function ContactForm() {
 
           <div className="ia-form-field ia-select-field">
             <select id="time" name="time" defaultValue="">
-              <option value="" disabled>Select…</option>
-              <option value="morning">Morning (9–12)</option>
-              <option value="afternoon">Afternoon (12–4)</option>
-              <option value="evening">Evening (4–8)</option>
+              <option value="" disabled>Select...</option>
+              <option value="morning">Morning (9-12)</option>
+              <option value="afternoon">Afternoon (12-4)</option>
+              <option value="evening">Evening (4-8)</option>
             </select>
             <label htmlFor="time">Preferred Time</label>
           </div>
@@ -192,12 +192,12 @@ export default function ContactForm() {
         </div>
 
         <button type="submit" className="ia-btn ia-btn-submit" disabled={status === "submitting"}>
-          {status === "submitting" ? "Opening WhatsApp…" : "Request Appointment →"}
+          {status === "submitting" ? "Opening WhatsApp..." : "Request Appointment in Ajmer"}
         </button>
 
         <div className={`ia-form-success ${status === "success" ? "show" : ""}`} role="status">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
-          Opened in WhatsApp — just hit send and we&apos;ll reply within 2 hours ✓
+          Opened in WhatsApp - just hit send and we'll reply within 2 hours.
         </div>
       </form>
     </div>

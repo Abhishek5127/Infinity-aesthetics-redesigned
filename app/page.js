@@ -4,18 +4,28 @@ import Hero from "../components/Hero";
 import ContactForm from "../components/ContactForm";
 import GSAPAnimations from "../components/GSAPAnimations";
 import ThreeHeroCanvas from "../components/ThreeHeroCanvas";
+import JsonLd from "../components/JsonLd";
 import { clinicServices } from "../lib/services";
+import { clinicSchema, createMetadata } from "../lib/seo";
+
+export const metadata = createMetadata({
+  title: "Skin Clinic Ajmer | Infinity Aesthetics",
+  description:
+    "Infinity Aesthetics is a skin clinic in Ajmer for acne care, PRP hair treatment, peels, facials, pigmentation, and laser consultation.",
+  path: "/",
+});
 
 export default function Home() {
   return (
     <>
+      <JsonLd data={clinicSchema("/")} />
       <GSAPAnimations />
       <Hero />
 
       {/* TRUST BAR */}
       <section className="ia-trust-bar">
         <div className="">
-          <p className="ia-trust-headline">Flawless Beauty, Fearless Confidence. <strong>Ajmer&apos;s most trusted medical aesthetics team.</strong></p>
+          <p className="ia-trust-headline">Flawless Beauty, Fearless Confidence. <strong>A consultation-led skin clinic in Ajmer for skin, laser, and hair care.</strong></p>
         </div>
       </section>
 

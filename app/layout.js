@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
 import SmoothScroll from "../components/SmoothScroll";
+import { createMetadata, SITE_URL } from "../lib/seo";
 
 const bricolage_Grotesque = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -27,8 +28,13 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: "Infinity Aesthetics | Skin, Laser & Hair Clinic — Ajmer",
-  description: "Ajmer's leading skin and laser clinic offering personalized aesthetic treatments.",
+  metadataBase: new URL(SITE_URL),
+  ...createMetadata({
+    title: "Skin Clinic Ajmer | Infinity Aesthetics",
+    description:
+      "Infinity Aesthetics is a skin, laser, and hair clinic in Ajmer offering consultation-led acne, PRP, peel, facial, and laser care.",
+    path: "/",
+  }),
 };
 
 export default function RootLayout({ children }) {

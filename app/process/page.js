@@ -1,5 +1,7 @@
 import PageHero from "../../components/PageHero";
+import JsonLd from "../../components/JsonLd";
 import styles from "../page.module.css";
+import { breadcrumbSchema, createMetadata } from "../../lib/seo";
 
 const carbonLaserVideo = "/process/CarbonLaserTreatment.mp4";
 const hairPrpVideo = "/process/hairPRPtreatment.mp4";
@@ -13,10 +15,10 @@ const treatments = [
     title: "Carbon Laser Facial",
     eyebrow: "Glow & refine",
     description:
-      "A gentle yet powerful resurfacing treatment that helps brighten the skin, reduce pigmentation, and smooth uneven texture for a polished, healthy look.",
+      "A gentle resurfacing treatment that helps brighten the skin, reduce pigmentation, and smooth uneven texture for a polished, healthy look.",
     video: carbonLaserVideo,
     points: ["Reduces active acne and unclogs pores", "Fades pigmentation and evens skin tone", "Stimulates collagen for long-term radiance", "Painless with no peeling"],
-    meta: { duration: "45 mins", downtime: "None" }
+    meta: { duration: "45 mins", downtime: "None" },
   },
   {
     title: "Hair PRP Therapy",
@@ -25,7 +27,7 @@ const treatments = [
       "A clinically guided Platelet-Rich Plasma approach to support thicker, healthier hair growth and strengthen the scalp for long-term confidence.",
     video: hairPrpVideo,
     points: ["Utilizes your own growth factors for natural repair", "Slows down hair thinning and shedding", "Strengthens hair follicles at the root", "Ideal for early stages of hair loss"],
-    meta: { duration: "60 mins", downtime: "Minimal (12 hrs)" }
+    meta: { duration: "60 mins", downtime: "Minimal (12 hrs)" },
   },
   {
     title: "Medical Peels",
@@ -34,7 +36,7 @@ const treatments = [
       "Medical-grade peels designed to refresh dull skin, calm active breakouts, and improve tone with expert aftercare and a calm recovery plan.",
     video: mediPeelsVideo,
     points: ["Customized strength based on skin type", "Deeply exfoliates dead skin layers", "Softens fine lines and mild scarring", "Improves overall skin texture"],
-    meta: { duration: "30 mins", downtime: "3-5 Days (Flaking)" }
+    meta: { duration: "30 mins", downtime: "3-5 Days (Flaking)" },
   },
   {
     title: "Tattoo Removal",
@@ -43,23 +45,25 @@ const treatments = [
       "A precise, step-by-step removal journey using advanced laser technology to lighten unwanted ink gradually while prioritizing comfort and skin safety.",
     video: tattooRemovalVideo,
     points: ["Breaks down ink particles safely", "Requires multiple sessions for full removal", "Cooling technology ensures maximum comfort", "Effective on a variety of ink colors"],
-    meta: { duration: "Varies", downtime: "7-10 Days (Healing)" }
+    meta: { duration: "Varies", downtime: "7-10 Days (Healing)" },
   },
 ];
 
-export const metadata = {
-  title: "Process | Infinity Aesthetics — Ajmer",
+export const metadata = createMetadata({
+  title: "Skin Treatment Process Ajmer | Infinity Aesthetics",
   description:
-    "Explore the treatment journey at Infinity Aesthetics, from skin analysis and facial treatments to hair regrowth and tattoo removal care.",
-};
+    "See the consultation-led treatment process at Infinity Aesthetics Ajmer for skin analysis, laser care, peels, PRP hair therapy, and aftercare.",
+  path: "/process",
+});
 
 export default function ProcessPage() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Process", path: "/process" }])} />
       <PageHero
         kicker="Process"
-        title="A treatment journey designed around you."
-        text="Every step is tailored to your skin goals, comfort, and pace — from consultation to visible transformation."
+        title="Treatment process at our skin clinic in Ajmer."
+        text="Every step is tailored to your skin goals, comfort, and pace, from consultation to visible transformation."
       />
 
       <section className={styles.processSection} aria-label="Treatment process">
@@ -79,7 +83,6 @@ export default function ProcessPage() {
         <div className={styles.processGrid}>
           {treatments.map((item) => (
             <article className={styles.processCard} key={item.title}>
-             
               <div className={styles.processCardBody}>
                 <p className={styles.processEyebrow}>{item.eyebrow}</p>
                 <h3>{item.title}</h3>
@@ -98,7 +101,7 @@ export default function ProcessPage() {
                   ))}
                 </ul>
               </div>
-               <div className={styles.processVideoWrap}>
+              <div className={styles.processVideoWrap}>
                 <video
                   className={styles.processVideo}
                   src={item.video}
@@ -106,6 +109,7 @@ export default function ProcessPage() {
                   muted
                   loop
                   playsInline
+                  aria-label={`${item.title} treatment video at Infinity Aesthetics Ajmer`}
                 />
               </div>
             </article>
