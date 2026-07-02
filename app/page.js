@@ -40,9 +40,10 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="ia-services-grid ia-stagger">
+          {/* DESKTOP GRID */}
+          <div className="ia-services-grid ia-services-grid-desktop ia-stagger">
             {clinicServices.map((service, index) => (
-              <Link href={`/services#${service.slug}`} className={`ia-service-card ia-svc-${index + 1} ia-reveal ${index >= 3 ? 'ia-mobile-hidden-card' : ''}`} key={service.slug}>
+              <Link href={`/services#${service.slug}`} className={`ia-service-card ia-svc-${index + 1} ia-reveal`} key={service.slug}>
                 <div className="ia-placeholder">
                   <Image src={service.image} alt={service.alt} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 33vw" />
                 </div>
@@ -58,6 +59,27 @@ export default function Home() {
                 </div>
               </Link>
             ))}
+          </div>
+
+          {/* MOBILE GRID */}
+          <div className="ia-services-grid-mobile ia-stagger">
+            {clinicServices.slice(0, 4).map((service, index) => (
+              <Link href={`/services#${service.slug}`} className={`ia-product-card ia-reveal`} key={service.slug}>
+                <div className="ia-product-card-img-wrap">
+                  <Image src={service.image} alt={service.alt} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 75vw, 25vw" />
+                </div>
+                <div className="ia-product-card-content">
+                  <div className="ia-product-card-category">{service.category}</div>
+                  <h3 className="ia-product-card-title">{service.name}</h3>
+                  <div className="ia-btn ia-product-card-btn">Consult</div>
+                </div>
+              </Link>
+            ))}
+            <Link href="/services" className="ia-product-card ia-see-more-card ia-reveal">
+              <div className="ia-see-more-content">
+                See more &gt;
+              </div>
+            </Link>
           </div>
 
           <div className="ia-reveal ia-mobile-only-btn" style={{ textAlign: "center", marginTop: "48px" }}>
