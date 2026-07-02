@@ -1366,6 +1366,12 @@ h1, h2, h3, h4 {
   box-shadow: var(--shadow-md);
 }
 
+@media (max-width: 768px) {
+  .ia-contact-form-wrap {
+    padding: 24px;
+  }
+}
+
 .ia-consult-card {
   position: relative;
   background: var(--nav-bg);
@@ -1486,7 +1492,7 @@ h1, h2, h3, h4 {
 
 .ia-form-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
 }
 
