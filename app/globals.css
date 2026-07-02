@@ -1645,6 +1645,7 @@ h1, h2, h3, h4 {
 .ia-footer {
   background: var(--bg-dark);
   padding: 72px 0 0;
+  overflow: hidden;
 }
 
 .ia-footer-grid {
@@ -1952,6 +1953,7 @@ h1, h2, h3, h4 {
   .ia-hero-title { font-size: clamp(40px, 13vw, 56px); }
   .ia-hero-badges { flex-direction: column; align-items: center; }
   .ia-trust-row { flex-direction: column; align-items: center; }
+  .ia-footer-navs-wrapper { grid-template-columns: 1fr; gap: 24px; }
 }
 
 /* =============================================
