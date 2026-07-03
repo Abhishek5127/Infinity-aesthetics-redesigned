@@ -28,26 +28,43 @@ input, select, textarea { font: inherit; color: inherit; }
 
 /* ===== VARIABLES & THEME ===== */
 :root {
-  --sage-green: #87a172;
-  --vanilla-cream: #f1ebd5;
+  /* ===== Dusty-blue + navy palette — single source of truth =====
+     Change these six values to re-tune the whole site. Everything below
+     is derived from them so the theme stays centrally controllable. */
+  --color-bg-primary: #B6DFE6;    /* main light-blue background sections   */
+  --color-bg-secondary: #FAFAF8;  /* white / cream content cards           */
+  --color-text-primary: #1C2B39;  /* dark navy body & heading text         */
+  --color-accent: #4F8A99;        /* muted teal — icons, borders, fills    */
+  --color-accent-dark: #16242E;   /* navy — primary buttons, nav, footer   */
+  --color-border: #DCEBEE;        /* subtle dividers / borders             */
+  /* Darker teal reserved for small accent TEXT so it clears WCAG AA on
+     light surfaces (the nominal accent is too light for 11–14px text). */
+  --color-accent-strong: #35707F;
+
+  /* Primitives kept for backwards-compat, now mapped onto the palette */
+  --sage-green: var(--color-accent);
+  --vanilla-cream: var(--color-bg-secondary);
   --font-heading: var(--font-body);
-  --bg-primary: var(--vanilla-cream);
-  --bg-secondary: color-mix(in srgb, var(--vanilla-cream) 78%, var(--sage-green));
-  --bg-dark: #182117;
-  --text-primary: #182117;
-  --text-muted: color-mix(in srgb, var(--bg-dark) 62%, var(--sage-green));
-  --accent-green: var(--sage-green);
-  --accent-gold: var(--sage-green);
-  --accent-blush: color-mix(in srgb, var(--vanilla-cream) 72%, var(--sage-green));
-  --border: rgba(24,33,23,0.13);
-  --card-bg: color-mix(in srgb, var(--vanilla-cream) 74%, white);
-  --card-border: rgba(24,33,23,0.1);
-  --nav-bg: color-mix(in srgb, var(--vanilla-cream) 88%, transparent);
-  --shadow-sm: 0 2px 8px rgba(31,38,28,0.07);
-  --shadow-md: 0 8px 32px rgba(31,38,28,0.09);
-  --shadow-lg: 0 18px 60px rgba(31,38,28,0.16);
-  --glow-green: rgba(135,161,114,0.2);
-  --glow-gold: rgba(135,161,114,0.14);
+
+  /* Semantic tokens */
+  --bg-primary: var(--color-bg-primary);
+  --bg-secondary: var(--color-bg-secondary);
+  --bg-dark: var(--color-accent-dark);
+  --text-primary: var(--color-text-primary);
+  --text-muted: color-mix(in srgb, var(--color-text-primary) 68%, var(--color-accent));
+  --text-secondary: var(--text-muted);
+  --accent-green: var(--color-accent-strong);
+  --accent-gold: var(--color-accent-strong);
+  --accent-blush: color-mix(in srgb, var(--color-bg-primary) 68%, var(--color-accent));
+  --border: var(--color-border);
+  --card-bg: var(--color-bg-secondary);
+  --card-border: var(--color-border);
+  --nav-bg: color-mix(in srgb, var(--color-bg-secondary) 88%, transparent);
+  --shadow-sm: 0 2px 8px rgba(28,43,57,0.07);
+  --shadow-md: 0 8px 32px rgba(28,43,57,0.09);
+  --shadow-lg: 0 18px 60px rgba(28,43,57,0.16);
+  --glow-green: rgba(79,138,153,0.2);
+  --glow-gold: rgba(79,138,153,0.14);
 }
 
 /* ===== BASE ===== */
@@ -2981,11 +2998,18 @@ body::before {
 
 @media (max-width: 1080px) {
   .ia-nav-brand {
-    display: contents;
+    /* Keep the logo + name grouped as one flex unit pinned to the left.
+       (Was `display: contents`, which split them into separate flex
+       items of the nav bar so `space-between` scattered the name to
+       the middle — and the collapsing tagline made it drift on scroll.) */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
   }
   .ia-nav-brand-text {
-    text-align: center;
     white-space: normal;
+    min-width: 0;
   }
   .ia-nav-brand-tag {
     display: none;
