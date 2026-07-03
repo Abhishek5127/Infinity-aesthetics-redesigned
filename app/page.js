@@ -114,14 +114,14 @@ export default function Home() {
           <div className="ia-showcase-cards">
             <div className="ia-showcase-card ia-showcase-card--laser">
               <div className="ia-showcase-card-image">
-                <Image src="/laser-treatment.png" alt="Woman receiving gentle laser skin treatment at Infinity Aesthetics clinic" width={520} height={360} />
+                <Image src="/laser-treatment.png" alt="Laser tattoo removal session at Infinity Aesthetics clinic Ajmer" width={520} height={360} />
               </div>
               <div className="ia-showcase-card-body">
                 <div className="ia-showcase-card-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="5" /><line x1="12" y1="1" x2="12" y2="3" /><line x1="12" y1="21" x2="12" y2="23" /><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" /><line x1="1" y1="12" x2="3" y2="12" /><line x1="21" y1="12" x2="23" y2="12" /><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" /></svg>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /><line x1="22" y1="12" x2="18" y2="12" /><line x1="6" y1="12" x2="2" y2="12" /><line x1="12" y1="6" x2="12" y2="2" /><line x1="12" y1="22" x2="12" y2="18" /></svg>
                 </div>
-                <h3 className="ia-showcase-card-title">Laser Skin Therapy</h3>
-                <p className="ia-showcase-card-desc">Precision light for flawless, glowing skin without downtime</p>
+                <h3 className="ia-showcase-card-title">Laser Tattoo Removal</h3>
+                <p className="ia-showcase-card-desc">Advanced Q-switch laser fades unwanted ink safely with minimal scarring</p>
               </div>
             </div>
 
