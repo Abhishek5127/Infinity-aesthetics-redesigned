@@ -60,15 +60,32 @@
 
 .sliderGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Landscape position, side-by-side */
-  gap: 60px; /* Gapped between each */
+  grid-template-columns: repeat(3, 1fr); /* 3 side-by-side on desktop */
+  gap: 48px;
   align-items: start;
+}
+
+/* Show slider 2 wrapper on tablet/desktop, hide on mobile */
+.desktopOnly {
+  display: contents; /* transparent wrapper — child fills the grid cell */
 }
 
 @media (max-width: 1024px) {
   .sliderGrid {
-    grid-template-columns: 1fr; /* Stack on smaller screens */
+    grid-template-columns: 1fr 1fr; /* 2 columns on tablets */
+    gap: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sliderGrid {
+    grid-template-columns: 1fr; /* Stack on mobile */
     gap: 40px;
+  }
+
+  /* Hide slider 2 on mobile — slider 3 takes its place */
+  .desktopOnly {
+    display: none;
   }
 }
 

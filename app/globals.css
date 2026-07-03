@@ -3034,3 +3034,295 @@ body::before {
     display: none;
   }
 }
+
+/* =============================================
+   VISIBLE TRANSFORMATIONS — Homepage Results Section
+   ============================================= */
+
+.ia-results-preview {
+  position: relative;
+  background: var(--bg-dark);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Ambient glows */
+.ia-results-preview-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.ia-results-preview-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.12;
+}
+
+.ia-results-preview-glow--left {
+  top: -100px;
+  left: -200px;
+  background: var(--accent-green);
+}
+
+.ia-results-preview-glow--right {
+  bottom: -100px;
+  right: -200px;
+  background: var(--accent-gold);
+}
+
+.ia-results-preview .ia-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+.ia-results-preview-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 48px;
+}
+
+.ia-results-preview-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 20px;
+}
+
+.ia-results-preview-dot {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-gold) 28%, transparent);
+  animation: ia-pulse-dot 2.4s ease-in-out infinite;
+}
+
+@keyframes ia-pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-gold) 28%, transparent); }
+  50%       { box-shadow: 0 0 0 8px color-mix(in srgb, var(--accent-gold) 8%, transparent); }
+}
+
+.ia-results-preview-title {
+  font-family: var(--font-body), sans-serif;
+  font-size: clamp(36px, 5.5vw, 68px);
+  font-weight: 800;
+  line-height: 1.02;
+  color: #EDE8E0;
+  letter-spacing: -0.02em;
+  margin: 0 0 18px;
+}
+
+.ia-results-preview-title-em {
+  font-style: italic;
+  font-weight: 800;
+  background: linear-gradient(
+    115deg,
+    var(--accent-gold) 0%,
+    color-mix(in srgb, var(--accent-green) 70%, var(--accent-gold)) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ia-results-preview-sub {
+  font-size: clamp(15px, 1.6vw, 18px);
+  color: rgba(237, 232, 224, 0.56);
+  line-height: 1.65;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* ── Stats strip ── */
+.ia-results-preview-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 0 auto 60px;
+  max-width: 680px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 24px 40px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.ia-results-preview-stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.ia-results-preview-stat strong {
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 800;
+  font-family: var(--font-body), sans-serif;
+  color: #EDE8E0;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.ia-results-preview-stat span {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(237, 232, 224, 0.46);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.ia-results-preview-stat-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+  margin: 0 24px;
+}
+
+/* ── Sliders grid ── */
+.ia-results-preview-sliders {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+  align-items: start;
+  margin-bottom: 48px;
+}
+
+/* Slider 2 — hidden on mobile, slider 3 takes its place */
+.ia-results-slider--desktop-only {
+  display: flex; /* same as .ia-results-preview-slider-wrap */
+}
+
+.ia-results-preview-slider-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+/* Badge above each slider */
+.ia-results-preview-slider-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: rgba(237, 232, 224, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.ia-results-preview-slider-badge::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  flex-shrink: 0;
+}
+
+/* Override slider container width & shape for the homepage section —
+   keep the same 70% width and square ratio from BeforeAfterSlider.module.css */
+.ia-results-preview-slider-wrap :global(.container) {
+  border-radius: 24px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255,255,255,0.06);
+}
+
+/* ── CTA ── */
+.ia-results-preview-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.ia-results-preview-disclaimer {
+  font-size: 12px;
+  color: rgba(237, 232, 224, 0.3);
+  letter-spacing: 0.3px;
+  text-align: center;
+  max-width: 420px;
+}
+
+.ia-results-preview-btn {
+  border-color: rgba(237, 232, 224, 0.18) !important;
+  color: #EDE8E0 !important;
+  padding: 12px 36px;
+}
+
+.ia-results-preview-btn:hover {
+  border-color: var(--accent-gold) !important;
+  color: var(--accent-gold) !important;
+  background: color-mix(in srgb, var(--accent-gold) 8%, transparent) !important;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .ia-results-preview-sliders {
+    grid-template-columns: 1fr 1fr; /* 2 columns on tablet */
+    gap: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ia-results-preview-sliders {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Swap: hide slider 2, show slider 3 on mobile */
+  .ia-results-slider--desktop-only {
+    display: none;
+  }
+
+  .ia-results-preview-stats {
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px 28px;
+  }
+
+  .ia-results-preview-stat-divider {
+    width: 40px;
+    height: 1px;
+    margin: 0;
+  }
+
+  .ia-results-preview-glow {
+    width: 300px;
+    height: 300px;
+    opacity: 0.09;
+  }
+}
+
+@media (max-width: 480px) {
+  .ia-results-preview-sliders {
+    max-width: 100%;
+  }
+}

@@ -8,6 +8,8 @@ import treatment1Before from "../assets/results/Treatment1Before.png";
 import treatment1After from "../assets/results/Treatment1After.png";
 import treatment2Before from "../assets/results/Treatment2Before.png";
 import treatment2After from "../assets/results/Treatment2After.png";
+import treatment3Before from "../assets/results/treatment3Before.jpeg";
+import treatment3After from "../assets/results/treatment3After.png";
 
 export const metadata = createMetadata({
   title: "Skin Treatment Results Ajmer | Infinity Aesthetics",
@@ -15,21 +17,6 @@ export const metadata = createMetadata({
     "View Infinity Aesthetics Ajmer treatment result examples and before-after sliders for personalized skin rejuvenation and brightening care.",
   path: "/results",
 });
-
-const resultsData = [
-  {
-    id: 1,
-    title: "Skin Rejuvenation",
-    beforeImage: treatment1Before,
-    afterImage: treatment1After,
-  },
-  {
-    id: 2,
-    title: "Skin Tightening & Brightening",
-    beforeImage: treatment2Before,
-    afterImage: treatment2After,
-  },
-];
 
 export default function ResultsPage() {
   return (
@@ -46,14 +33,26 @@ export default function ResultsPage() {
 
       <section className={styles.gallerySection}>
         <div className={styles.sliderGrid}>
-          {resultsData.map((item) => (
+          {/* Slider 1 — always visible */}
+          <BeforeAfterSlider
+            title="Skin Rejuvenation"
+            beforeImage={treatment1Before}
+            afterImage={treatment1After}
+          />
+          {/* Slider 2 — desktop/tablet only, hidden on mobile */}
+          <div className={styles.desktopOnly}>
             <BeforeAfterSlider
-              key={item.id}
-              title={item.title}
-              beforeImage={item.beforeImage}
-              afterImage={item.afterImage}
+              title="Skin Tightening & Brightening"
+              beforeImage={treatment2Before}
+              afterImage={treatment2After}
             />
-          ))}
+          </div>
+          {/* Slider 3 — always visible; swaps in place of slider 2 on mobile */}
+          <BeforeAfterSlider
+            title="Skin Clarity"
+            beforeImage={treatment3Before}
+            afterImage={treatment3After}
+          />
         </div>
       </section>
 

@@ -7,6 +7,13 @@ import ThreeHeroCanvas from "../components/ThreeHeroCanvas";
 import JsonLd from "../components/JsonLd";
 import { clinicServices } from "../lib/services";
 import { clinicSchema, createMetadata } from "../lib/seo";
+import BeforeAfterSlider from "../components/BeforeAfterSlider";
+import treatment1Before from "./assets/results/Treatment1Before.png";
+import treatment1After from "./assets/results/Treatment1After.png";
+import treatment2Before from "./assets/results/Treatment2Before.png";
+import treatment2After from "./assets/results/Treatment2After.png";
+import treatment3Before from "./assets/results/treatment3Before.jpeg";
+import treatment3After from "./assets/results/treatment3After.png";
 
 export const metadata = createMetadata({
   title: "Skin Clinic Ajmer | Infinity Aesthetics",
@@ -214,6 +221,86 @@ export default function Home() {
                 Verified Google Review
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* VISIBLE TRANSFORMATIONS — Results */}
+      <section className="ia-results-preview ia-section-pad" id="results">
+        <div className="ia-results-preview-bg" aria-hidden="true">
+          <div className="ia-results-preview-glow ia-results-preview-glow--left" />
+          <div className="ia-results-preview-glow ia-results-preview-glow--right" />
+        </div>
+
+        <div className="ia-container">
+          {/* Header */}
+          <div className="ia-results-preview-header ia-reveal">
+            <div className="ia-results-preview-label">
+              <span className="ia-results-preview-dot" />
+              Real Patient Outcomes
+            </div>
+            <h2 className="ia-results-preview-title">
+              Visible&nbsp;
+              <em className="ia-results-preview-title-em">Transformations</em>
+            </h2>
+            <p className="ia-results-preview-sub">
+              Drag the slider to reveal before & after. Every result is real — achieved through a personalised, consultation-led plan.
+            </p>
+          </div>
+
+          {/* Stats strip */}
+          <div className="ia-results-preview-stats ia-reveal">
+            <div className="ia-results-preview-stat">
+              <strong>500+</strong>
+              <span>Treatments completed</span>
+            </div>
+            <div className="ia-results-preview-stat-divider" aria-hidden="true" />
+            <div className="ia-results-preview-stat">
+              <strong>4.9★</strong>
+              <span>Average patient rating</span>
+            </div>
+            <div className="ia-results-preview-stat-divider" aria-hidden="true" />
+            <div className="ia-results-preview-stat">
+              <strong>100%</strong>
+              <span>Consultation-led care</span>
+            </div>
+          </div>
+
+          {/* Sliders */}
+          <div className="ia-results-preview-sliders ia-stagger">
+            <div className="ia-results-preview-slider-wrap ia-reveal">
+              <div className="ia-results-preview-slider-badge">Skin Rejuvenation</div>
+              <BeforeAfterSlider
+                beforeImage={treatment1Before}
+                afterImage={treatment1After}
+              />
+            </div>
+            {/* Slider 2 — visible on tablet/desktop, hidden on mobile */}
+            <div className="ia-results-preview-slider-wrap ia-reveal ia-results-slider--desktop-only">
+              <div className="ia-results-preview-slider-badge">Skin Tightening &amp; Brightening</div>
+              <BeforeAfterSlider
+                beforeImage={treatment2Before}
+                afterImage={treatment2After}
+              />
+            </div>
+            {/* Slider 3 — always visible on desktop, swaps in on mobile */}
+            <div className="ia-results-preview-slider-wrap ia-reveal">
+              <div className="ia-results-preview-slider-badge">Skin Clarity</div>
+              <BeforeAfterSlider
+                beforeImage={treatment3Before}
+                afterImage={treatment3After}
+              />
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="ia-results-preview-cta ia-reveal">
+            <p className="ia-results-preview-disclaimer">
+              Individual results vary based on skin type, concern severity, and aftercare.
+            </p>
+            <Link href="/results" className="ia-btn ia-btn-ghost ia-results-preview-btn">
+              View All Results →
+            </Link>
           </div>
         </div>
       </section>
