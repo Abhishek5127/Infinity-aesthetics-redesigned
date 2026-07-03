@@ -58,7 +58,8 @@ export default function Navbar() {
                 />
               </div>
             </Link>
-            <Link href="/" style={{ textDecoration: 'none' }}>
+          </div>
+          <Link href="/" style={{ textDecoration: 'none' }}>
               <div className="ia-nav-brand-text">
                 <span className="ia-nav-brand-name">Infinity Aesthetics</span>
                 <span className="ia-nav-brand-tag">
@@ -66,7 +67,6 @@ export default function Navbar() {
                 </span>
               </div>
             </Link>
-          </div>
 
           {/* ── Desktop Nav Links ── */}
           <nav className="ia-nav-links">
