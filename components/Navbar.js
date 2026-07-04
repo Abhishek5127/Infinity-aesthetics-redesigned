@@ -3,13 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
-
-// The particle logo pulls in three.js (~150 KB). Defer it off the initial
-// bundle and render it client-side only — it's purely decorative.
-const ThreeHeroCanvas = dynamic(() => import("./ThreeHeroCanvas"), {
-  ssr: false,
-});
+import Image from "next/image";
+import navLogo from "../app/assets/navbar/nav-logo.png";
 
 /* ── helpers ── */
 function isActive(pathname, href) {
@@ -48,25 +43,19 @@ export default function Navbar() {
           {/* ── Brand ── */}
           <div className="ia-nav-brand">
             <Link href="/" aria-label="Home">
-              <div className="ia-nav-logo ia-nav-logo-canvas" aria-hidden="true">
-                <ThreeHeroCanvas
-                  className="ia-nav-logo-animation"
-                  compact
-                  interactive={false}
-                  particleCount={260}
-                  speed={1.5}
-                />
+              <div className="ia-nav-logo" aria-hidden="true" style={{ background: 'transparent' }}>
+                <Image src={navLogo} alt="Infinity Aesthetics Logo" width={44} height={44} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
               </div>
             </Link>
           </div>
           <Link href="/" style={{ textDecoration: 'none' }}>
-              <div className="ia-nav-brand-text">
-                <span className="ia-nav-brand-name">Infinity Aesthetics</span>
-                <span className="ia-nav-brand-tag">
-                  Skin, Laser &amp; Hair Clinic
-                </span>
-              </div>
-            </Link>
+            <div className="ia-nav-brand-text">
+              <span className="ia-nav-brand-name">Infinity Aesthetics</span>
+              <span className="ia-nav-brand-tag">
+                Skin, Laser &amp; Hair Clinic
+              </span>
+            </div>
+          </Link>
 
           {/* ── Desktop Nav Links ── */}
           <nav className="ia-nav-links">
@@ -182,16 +171,8 @@ export default function Navbar() {
 
         {/* Drawer Brand */}
         <div className="ia-drawer-brand">
-          <div className="ia-nav-logo ia-nav-logo-canvas" aria-hidden="true">
-            {open && (
-              <ThreeHeroCanvas
-                className="ia-nav-logo-animation"
-                compact
-                interactive={false}
-                particleCount={180}
-                speed={1.2}
-              />
-            )}
+          <div className="ia-nav-logo" aria-hidden="true" style={{ background: 'transparent' }}>
+            <Image src={navLogo} alt="Infinity Aesthetics Logo" width={40} height={40} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
           </div>
           <div>
             <div className="ia-drawer-brand-name">Infinity Aesthetics</div>

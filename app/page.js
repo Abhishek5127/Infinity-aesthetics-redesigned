@@ -319,7 +319,7 @@ export default function Home() {
           <div className="ia-contact-grid">
             <div className="ia-contact-info ia-reveal">
               <h3 className="ia-clinic-name">Infinity Aesthetics</h3>
-              <p className="ia-clinic-hindi">इनफिनिटी एस्थेटिक्स- स्किन, लेजर & हेयर क्लिनिक</p>
+              <p className="ia-clinic-hindi">Skin-Hair-Laser</p>
 
               <div className="ia-contact-details">
                 <div className="ia-contact-item">
