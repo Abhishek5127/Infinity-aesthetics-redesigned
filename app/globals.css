@@ -1348,6 +1348,11 @@ h1, h2, h3, h4 {
     transition: ease-in 0.1s;
     color:white
   }
+
+  .ia-testi-author{
+    transition: ease-in 0.1s;
+    color:white
+  }
 }
 .ia-testimonial-card:nth-child(2) { transform: translateY(20px); }
 .ia-testimonial-card:nth-child(2):hover { transform: translateY(14px); }
@@ -1365,7 +1370,7 @@ h1, h2, h3, h4 {
 }
 
 
-.ia-testi-author { font-weight: 600; color: #EDE8E0; margin-bottom: 4px; }
+.ia-testi-author { font-weight: 600; color: #6a6a6a; margin-bottom: 4px; }
 .ia-testi-treatment { font-size: 13px; color: var(--accent-gold); margin-bottom: 12px; }
 
 .ia-testi-verified {

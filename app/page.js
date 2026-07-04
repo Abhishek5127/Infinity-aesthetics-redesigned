@@ -161,70 +161,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SOCIAL PROOF */}
-      <section className="ia-social-proof ia-section-pad" id="reviews">
-        <div className="ia-container">
-          <div className="ia-sp-header ia-reveal">
-            <div className="ia-eyebrow">Patient Reviews</div>
-            <h2 className="ia-section-title">What Our Patients Say</h2>
-            <p className="ia-section-text">4.9★ from 113 verified Google reviews</p>
-          </div>
-
-          <div className="ia-testimonial-grid ia-stagger">
-            <div className="ia-testimonial-card ia-reveal">
-              <div className="ia-stars">
-                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
-
-                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
-              </div>
-              <p className="ia-testi-quote">&quot;I struggled with acne for years. The team at Infinity Aesthetics created a treatment plan that finally worked. My skin has never been this clear — I feel confident again.&quot;</p>
-              <p className="ia-testi-author">Priya M.</p>
-              <p className="ia-testi-treatment">Acne Clarity Program</p>
-              <div className="ia-testi-verified">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
-                Verified Google Review
-              </div>
-            </div>
-
-            <div className="ia-testimonial-card ia-reveal">
-              <div className="ia-stars">
-                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
-              </div>
-              <p className="ia-testi-quote">&quot;The laser treatment for pigmentation was gentle yet effective. The staff explains everything clearly and the clinic feels premium yet welcoming. Highly recommend to anyone in Ajmer.&quot;</p>
-              <p className="ia-testi-author">Rahul S.</p>
-              <p className="ia-testi-treatment">Laser Glow Therapy</p>
-              <div className="ia-testi-verified">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
-                Verified Google Review
-              </div>
-            </div>
-
-            <div className="ia-testimonial-card ia-reveal">
-              <div className="ia-stars">
-                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
-              </div>
-              <p className="ia-testi-quote">&quot;Best skin clinic in Ajmer! The consultation was thorough and the chemical peel results were visible within a week. The free consultation is amazing value.&quot;</p>
-              <p className="ia-testi-author">Ananya K.</p>
-              <p className="ia-testi-treatment">Chemical Peel Series</p>
-              <div className="ia-testi-verified">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
-                Verified Google Review
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* VISIBLE TRANSFORMATIONS — Results */}
       <section className="ia-results-preview ia-section-pad" id="results">
         <div className="ia-results-preview-bg" aria-hidden="true">
@@ -304,6 +240,79 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* SOCIAL PROOF */}
+      <section className="ia-social-proof ia-section-pad" id="reviews">
+        <div className="ia-container">
+          <div className="ia-sp-header ia-reveal">
+            <div className="ia-eyebrow">Patient Reviews</div>
+            <h2 className="ia-section-title">What Our Patients Say</h2>
+            <p className="ia-section-text">4.9★ from 113 verified Google reviews</p>
+          </div>
+
+          <div className="ia-testimonial-grid ia-stagger">
+            <div className="ia-testimonial-card ia-reveal">
+              <div className="ia-stars">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+              </div>
+              <p className="ia-testi-quote">&quot;Nice clinic very best service thankyou gyss meri yha se laser ki sitting chal rhii h bhyt schi services hai sach m aap log bhi aap or service lo.&quot;</p>
+              <p className="ia-testi-author">Riya Rana</p>
+              <p className="ia-testi-treatment">Acne Clarity Program</p>
+              <a href="https://maps.app.goo.gl/tUSSDaTc8wacxw3H9">
+                <div className="ia-testi-verified">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+                  Verified Google Review
+                </div>
+              </a>
+            </div>
+
+            <div className="ia-testimonial-card ia-reveal">
+              <div className="ia-stars">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+              </div>
+              <p className="ia-testi-quote">&quot;Mene tha se skin laser treatment liya mujhe kafi acha lga growth phele se bhtt Kum ho gyii aap log bhi yha aao or yha se treatment lo yha ke sir and staff kafi acha haii.&quot;</p>
+              <p className="ia-testi-author">Gayatri</p>
+              <p className="ia-testi-treatment">Laser Glow Therapy</p>
+              <a href="https://maps.app.goo.gl/cNsfHK77rCw6uxyj9">
+                <div className="ia-testi-verified">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+                  Verified Google Review
+                </div>
+              </a>
+            </div>
+
+            <div className="ia-testimonial-card ia-reveal">
+              <div className="ia-stars">
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
+              </div>
+              <p className="ia-testi-quote">&quot;Excellent services in very reasonable price, Abhay sir have such a deep knowledge about laser and skin.
+                My laser hair removal of hands have great results, and I like the services and behaviour of staff.
+                Thank you so much for the lovely services♥️♥️🎊🎉&quot;</p>
+              <p className="ia-testi-author">Ashok Kumar</p>
+              <p className="ia-testi-treatment">Chemical Peel Series</p>
+              <a href="https://maps.app.goo.gl/zGGHiw4TzSf2hX5V9">
+                <div className="ia-testi-verified">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+                  Verified Google Review
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* CONTACT */}
       <section className="ia-contact ia-section-pad" id="contact">
