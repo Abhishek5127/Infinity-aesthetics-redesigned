@@ -33,7 +33,7 @@ export default function ContactPage() {
             </li>
             <li>
               <span>Website</span>
-              <a href="https://infinityaestheticsajmer.in" target="_blank" rel="noopener noreferrer">infinityaestheticsajmer.in</a>
+              <a href="https://infinityaestheticsajmer.com" target="_blank" rel="noopener noreferrer">infinityaestheticsajmer.com</a>
             </li>
             <li>
               <span>Clinic</span>
