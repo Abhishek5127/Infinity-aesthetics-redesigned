@@ -87,7 +87,7 @@ export default function Footer() {
         </div>
 
         <div className="ia-footer-bottom">
-          <span>Copyright {new Date().getFullYear()} Infinity Aesthetics - Ajmer - <a href="https://infinityaestheticsajmer.in" target="_blank" rel="noopener noreferrer">infinityaestheticsajmer.in</a></span>
+          <span>Copyright {new Date().getFullYear()} Infinity Aesthetics - Ajmer - <a href="https://infinityaestheticsajmer.com" target="_blank" rel="noopener noreferrer">infinityaestheticsajmer.com</a></span>
           <Link href="#">Privacy Policy</Link>
         </div>
       </div>
