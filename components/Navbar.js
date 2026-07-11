@@ -44,7 +44,7 @@ export default function Navbar() {
           <div className="ia-nav-brand">
             <Link href="/" aria-label="Home">
               <div className="ia-nav-logo" aria-hidden="true" style={{ background: 'transparent' }}>
-                <Image src={navLogo} alt="Infinity Aesthetics Logo" width={44} height={44} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                <Image src={navLogo} alt="Infinity Aesthetics Logo" width={74} height={74} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
               </div>
             </Link>
           </div>

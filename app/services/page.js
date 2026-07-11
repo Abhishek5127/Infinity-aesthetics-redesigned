@@ -19,7 +19,7 @@ export default function ServicesPage() {
       <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }])} />
       <PageHero
         kicker="Treatments"
-        title="Skin clinic services in Ajmer."
+        title="Clinical Treatments in Ajmer"
         text="Evidence-informed treatments for glow, clarity, texture, acne care, hair support, pigmentation, and long-term skin health. Each plan is shaped around your barrier health, Ajmer's climate, and your goals."
       />
 

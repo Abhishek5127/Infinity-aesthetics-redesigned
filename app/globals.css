@@ -257,12 +257,12 @@ h1, h2, h3, h4 {
 .ia-nav-brand:hover { transform: translateY(-1px); }
 
 .ia-nav-logo {
-  width: 53px; height: 53px;
+  width: 74px; height: 74px;
   border-radius: 12px;
   background: transparent;
   border: none;
   box-shadow: none;
-  margin-top: -15px;
+  margin-top: 0;
   color: #fff;
   display: grid;
   place-items: center;
@@ -312,7 +312,7 @@ h1, h2, h3, h4 {
 
 /* Scroll compact mode */
 .ia-navbar.scrolled .ia-nav-logo {
-  width: 43px; height: 43px;
+  width: 60px; height: 60px;
 }
 .ia-navbar.scrolled .ia-nav-brand-name {
   font-size: 17px;

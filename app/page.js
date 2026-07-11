@@ -221,7 +221,7 @@ export default function Home() {
             </div>
             {/* Slider 3 — always visible on desktop, swaps in on mobile */}
             <div className="ia-results-preview-slider-wrap ia-reveal">
-              <div className="ia-results-preview-slider-badge">Skin Clarity</div>
+              <div className="ia-results-preview-slider-badge">Laser Tattoo Removal</div>
               <BeforeAfterSlider
                 beforeImage={treatment3Before}
                 afterImage={treatment3After}

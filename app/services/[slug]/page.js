@@ -98,18 +98,6 @@ export default async function ServicePage({ params }) {
         </aside>
       </section>
 
-      <section className={styles.detailBand} aria-labelledby="local-heading">
-        <div className={styles.sectionIntroLeft}>
-          <p className={styles.kicker}>Ajmer context</p>
-          <h2 className={styles.sectionTitle} id="local-heading">
-            Why this matters in Ajmer.
-          </h2>
-        </div>
-        <p className={styles.richText}>
-          {seo.localDriver || "Ajmer's sun, dust, dry air, and hard water can influence skin and hair comfort. A consultation helps tailor treatment timing and aftercare to your routine."}
-        </p>
-      </section>
-
       <section className={styles.detailBand} aria-labelledby="results-heading">
         <div className={styles.sectionIntroLeft}>
           <p className={styles.kicker}>Benefits</p>
