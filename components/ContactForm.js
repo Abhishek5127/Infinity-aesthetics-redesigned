@@ -2,19 +2,26 @@
 
 import { useRef, useState } from "react";
 
-const CLINIC_WHATSAPP = "919460991160";
+const CLINIC_WHATSAPP = "917788991101";
 
 const TREATMENT_LABELS = {
   "skin-consultation": "General Skin Consultation",
-  "skin-tightening": "Skin Tightening",
+  "hydra-facial": "Hydra Facial",
+  "photo-facial": "Photo Facial",
+  "laser-hair-removal": "Laser Hair Removal",
+  "chemical-peel": "Chemical Peel",
+  "hifu": "HIFU",
+  "hair-prp": "Hair PRP",
+  "hair-prp-gfc": "Hair PRP (GFC)",
+  "face-prp": "Face PRP",
+  "glutathione-iv": "Glutathione IV",
+  "carbon-laser": "Carbon Laser",
+  "ipl-treatment": "IPL Treatment",
+  "oxygeneo-treatment": "Oxygeneo Treatment",
+  "scar-treatment": "Scar Treatment",
   "acne-treatment": "Acne Treatment",
-  "hair-prp-therapy": "Hair PRP Therapy",
-  "hydra-facial": "HydraFacial",
-  "medical-therapy": "Medical Therapy",
-  "pigmentation-correction": "Pigmentation Correction",
-  "tattoo-removal": "Tattoo Removal",
-  microneedling: "Microneedling",
-  other: "Other",
+  "pigmentation-treatment": "Pigmentation Treatment",
+  "other": "Other",
 };
 
 const TIME_LABELS = {
@@ -44,8 +51,8 @@ export default function ContactForm() {
     const treatment = TREATMENT_LABELS[data.treatment] || data.treatment;
     const time = TIME_LABELS[data.time] || "";
     const lines = [
-      "Hi Infinity Aesthetics, I'd like to book a consultation in Ajmer.",
-      "",
+      "Hi Infinity Aesthetics,",
+      "I'd like to book a consultation in Ajmer.",
       `Name: ${data.name}`,
       `Phone: ${data.phone}`,
       data.email ? `Email: ${data.email}` : null,
@@ -160,13 +167,22 @@ export default function ContactForm() {
               onChange={() => clearError("treatment")}
             >
               <option value="" disabled>Select...</option>
-              <option value="skin-consultation">Skin Consultation</option>
+              <option value="skin-consultation">General Skin Consultation</option>
+              <option value="hydra-facial">Hydra Facial</option>
+              <option value="photo-facial">Photo Facial</option>
+              <option value="laser-hair-removal">Laser Hair Removal</option>
+              <option value="chemical-peel">Chemical Peel</option>
+              <option value="hifu">HIFU</option>
+              <option value="hair-prp">Hair PRP</option>
+              <option value="hair-prp-gfc">Hair PRP (GFC)</option>
+              <option value="face-prp">Face PRP</option>
+              <option value="glutathione-iv">Glutathione IV</option>
+              <option value="carbon-laser">Carbon Laser</option>
+              <option value="ipl-treatment">IPL Treatment</option>
+              <option value="oxygeneo-treatment">Oxygeneo Treatment</option>
+              <option value="scar-treatment">Scar Treatment</option>
               <option value="acne-treatment">Acne Treatment</option>
-              <option value="hair-prp-therapy">Hair PRP Therapy</option>
-              <option value="hydra-facial">HydraFacial</option>
-              <option value="pigmentation-correction">Pigmentation Correction</option>
-              <option value="tattoo-removal">Laser Tattoo Removal</option>
-              <option value="microneedling">Microneedling</option>
+              <option value="pigmentation-treatment">Pigmentation Treatment</option>
               <option value="other">Other</option>
             </select>
             <label htmlFor="treatment">Treatment Interest</label>

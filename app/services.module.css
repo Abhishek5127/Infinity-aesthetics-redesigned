@@ -205,3 +205,156 @@
     font-size: 2.2rem;
   }
 }
+
+/* =============================================
+   FILTERABLE CARD GRID STYLES
+   ============================================= */
+.categoryTabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.tabButton {
+  padding: 10px 24px;
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid rgba(119, 133, 106, 0.2);
+  color: #555;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tabButton.active,
+.tabButton:hover {
+  background: #77856a;
+  color: #fff;
+  border-color: #77856a;
+  box-shadow: 0 4px 12px rgba(119, 133, 106, 0.15);
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+.serviceCard {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.serviceCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(119, 133, 106, 0.12);
+  border-color: rgba(119, 133, 106, 0.15);
+}
+
+.cardImageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+}
+
+.cardContent {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardCategory {
+  color: #b47d6f;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.cardTitle {
+  color: #1f3328;
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 12px;
+}
+
+.cardDesc {
+  color: rgba(38, 50, 56, 0.72);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.cardMeta {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 16px;
+  margin-bottom: 24px;
+  font-size: 13px;
+}
+
+.cardMetaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cardMetaItem strong {
+  color: #263238;
+  font-weight: 600;
+}
+
+.cardMetaItem span {
+  color: #77856a;
+  font-weight: 600;
+}
+
+.cardLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  background: #77856a;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.cardLink:hover {
+  background: #616f56;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .servicesGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .categoryTabs {
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+  .tabButton {
+    padding: 8px 18px;
+    font-size: 13px;
+  }
+}

@@ -64,7 +64,7 @@ export default async function ServicePage({ params }) {
             Back to all treatments
           </Link>
           <p className={styles.kicker}>{service.category}</p>
-          <h1 className={styles.detailTitle}>{seo.h1 || `${service.name} in Ajmer`}</h1>
+          <h1 className={styles.detailTitle}>{seo.h1 || service.name}</h1>
           <p className={styles.detailLead}>
             {service.description} At Infinity Aesthetics in Ajmer, your treatment plan is shaped around your skin type, lifestyle, downtime comfort, and realistic goals.
           </p>

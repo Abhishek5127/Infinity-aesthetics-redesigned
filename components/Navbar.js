@@ -107,7 +107,7 @@ export default function Navbar() {
           <div className="ia-nav-actions">
             {/* Phone */}
             <a
-              href="tel:+919460991160"
+              href="tel:+917788991101"
               className="ia-nav-phone"
               aria-label="Call us"
             >
@@ -121,7 +121,7 @@ export default function Navbar() {
               >
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
               </svg>
-              94609 91160
+              77889 91101
             </a>
 
             {/* CTA */}
@@ -246,7 +246,7 @@ export default function Navbar() {
 
         {/* Drawer Contact Bar */}
         <div className="ia-drawer-contact">
-          <a href="tel:+919460991160" className="ia-drawer-phone">
+          <a href="tel:+917788991101" className="ia-drawer-phone">
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -257,10 +257,10 @@ export default function Navbar() {
             >
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
             </svg>
-            Call — 094609 91160
+            Call — 77889 91101
           </a>
           <a
-            href="https://wa.me/919460991160"
+            href="https://wa.me/917788991101"
             target="_blank"
             rel="noopener noreferrer"
             className="ia-drawer-whatsapp"

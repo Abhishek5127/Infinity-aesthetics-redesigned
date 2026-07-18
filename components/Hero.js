@@ -11,7 +11,7 @@ import carouselImg4Land from "../app/assets/hero/carouselLandscapeImgs/carouselI
 import carouselImg1Port from "../app/assets/hero/carouselPortraitImgs/carouselImg1.png";
 import carouselImg2Port from "../app/assets/hero/carouselPortraitImgs/carouselImg2.png";
 import carouselImg3Port from "../app/assets/hero/carouselPortraitImgs/carouselImg3.png";
-import carouselImg4Port from "../app/assets/hero/carouselPortraitImgs/carouselImg4.webp";
+import carouselImg4Port from "../app/assets/hero/carouselPortraitImgs/carouselImg4.png";
 
 const slides = [
   {

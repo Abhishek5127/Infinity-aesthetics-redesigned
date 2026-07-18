@@ -940,10 +940,12 @@
   border-radius: 18px;
   background: rgba(255, 253, 250, 0.76);
   box-shadow: 0 18px 38px rgba(63, 48, 42, 0.12);
+  text-align: center;
 }
 
 .contactPanel p,
 .contactPanel span {
+  display: block;
   margin: 0;
   color: rgba(38, 50, 56, 0.64);
   font-size: 14px;

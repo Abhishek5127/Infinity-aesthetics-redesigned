@@ -8,12 +8,12 @@ import JsonLd from "../components/JsonLd";
 import { clinicServices } from "../lib/services";
 import { clinicSchema, createMetadata } from "../lib/seo";
 import BeforeAfterSlider from "../components/BeforeAfterSlider";
-import treatment1Before from "./assets/results/Treatment1Before.png";
-import treatment1After from "./assets/results/Treatment1After.png";
-import treatment2Before from "./assets/results/Treatment2Before.png";
-import treatment2After from "./assets/results/Treatment2After.png";
-import treatment3Before from "./assets/results/treatment3Before.jpeg";
-import treatment3After from "./assets/results/treatment3After.png";
+import treatment1Before from "./assets/results/HydrafacialBefore.png";
+import treatment1After from "./assets/results/HydrafacialAfter.png";
+import treatment2Before from "./assets/results/HIFUbefore.png";
+import treatment2After from "./assets/results/HIFUafter.png";
+import treatment3Before from "./assets/results/LaserTattooRemovalBefore.jpeg";
+import treatment3After from "./assets/results/LaserTattooRemovalAfter.png";
 
 export const metadata = createMetadata({
   title: "Skin Clinic Ajmer | Infinity Aesthetics",
@@ -121,40 +121,31 @@ export default function Home() {
           <div className="ia-showcase-cards">
             <div className="ia-showcase-card ia-showcase-card--laser">
               <div className="ia-showcase-card-image">
-                <Image src="/laser-treatment.png" alt="Laser tattoo removal session at Infinity Aesthetics clinic Ajmer" width={520} height={360} />
+                <Image src="/laser-treatment.png" alt="Laser hair removal session at Infinity Aesthetics clinic Ajmer" width={520} height={360} />
               </div>
               <div className="ia-showcase-card-body">
-                <div className="ia-showcase-card-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /><line x1="22" y1="12" x2="18" y2="12" /><line x1="6" y1="12" x2="2" y2="12" /><line x1="12" y1="6" x2="12" y2="2" /><line x1="12" y1="22" x2="12" y2="18" /></svg>
-                </div>
-                <h3 className="ia-showcase-card-title">Laser Tattoo Removal</h3>
-                <p className="ia-showcase-card-desc">Advanced Q-switch laser fades unwanted ink safely with minimal scarring</p>
+                <h3 className="ia-showcase-card-title">Laser Hair Removal</h3>
+                <p className="ia-showcase-card-desc">Advanced medical lasers targeting hair follicles to deliver permanent hair reduction safely</p>
               </div>
             </div>
 
             <div className="ia-showcase-card ia-showcase-card--reverse ia-showcase-card--facial">
               <div className="ia-showcase-card-image">
-                <Image src="/facial-treatment.png" alt="Woman receiving a luxurious clinical facial at Infinity Aesthetics" width={520} height={360} />
+                <Image src="/facial-treatment.png" alt="Woman receiving a luxurious HydraFacial at Infinity Aesthetics Ajmer" width={520} height={360} />
               </div>
               <div className="ia-showcase-card-body">
-                <div className="ia-showcase-card-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg>
-                </div>
-                <h3 className="ia-showcase-card-title">Advanced Facials &amp; Peels</h3>
-                <p className="ia-showcase-card-desc">Clinical-grade serums meet spa-level comfort for instant radiance</p>
+                <h3 className="ia-showcase-card-title">HydraFacial &amp; Peels</h3>
+                <p className="ia-showcase-card-desc">Medical-grade facials, Oxygeneo, and customized peels for deep hydration and instant glow</p>
               </div>
             </div>
 
             <div className="ia-showcase-card ia-showcase-card--hair">
               <div className="ia-showcase-card-image">
-                <Image src="/hair-treatment.png" alt="Woman with thick healthy hair after PRP treatment at Infinity Aesthetics" width={520} height={360} />
+                <Image src="/hairPRP-treatment.png" alt="Woman with thick healthy hair after GFC hair treatment at Infinity Aesthetics" width={520} height={360} />
               </div>
               <div className="ia-showcase-card-body">
-                <div className="ia-showcase-card-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
-                </div>
-                <h3 className="ia-showcase-card-title">PRP Hair Revival</h3>
-                <p className="ia-showcase-card-desc">Your body&apos;s own growth factors, amplified for thicker, healthier hair</p>
+                <h3 className="ia-showcase-card-title">PRP &amp; GFC Hair Therapies</h3>
+                <p className="ia-showcase-card-desc">Natural growth factors and concentrated GFC serums to stimulate follicles and restore scalp volume</p>
               </div>
             </div>
           </div>
@@ -221,7 +212,7 @@ export default function Home() {
             </div>
             {/* Slider 3 — always visible on desktop, swaps in on mobile */}
             <div className="ia-results-preview-slider-wrap ia-reveal">
-              <div className="ia-results-preview-slider-badge">Laser Tattoo Removal</div>
+              <div className="ia-results-preview-slider-badge">Tattoo Removal</div>
               <BeforeAfterSlider
                 beforeImage={treatment3Before}
                 afterImage={treatment3After}
@@ -256,13 +247,13 @@ export default function Home() {
                 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
                 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
                 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
-
+                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
                 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
               </div>
-              <p className="ia-testi-quote">&quot;Nice clinic very best service thankyou gyss meri yha se laser ki sitting chal rhii h bhyt schi services hai sach m aap log bhi aap or service lo.&quot;</p>
-              <p className="ia-testi-author">Riya Rana</p>
-              <p className="ia-testi-treatment">Acne Clarity Program</p>
-              <a href="https://maps.app.goo.gl/tUSSDaTc8wacxw3H9">
+              <p className="ia-testi-quote">&quot;Really effective result very good treatment I got even receptionist mam treatment also very polite. Recommend to other best experience you should absolutely visit here. Worth of money spend.&quot;</p>
+              <p className="ia-testi-author">Monika Nagrani</p>
+              <p className="ia-testi-treatment">Clinical Treatment</p>
+              <a href="https://maps.app.goo.gl/Zcn4ZYNg5WPZ41LH9" target="_blank" rel="noopener noreferrer">
                 <div className="ia-testi-verified">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
                   Verified Google Review
@@ -278,10 +269,10 @@ export default function Home() {
                 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
                 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
               </div>
-              <p className="ia-testi-quote">&quot;Mene tha se skin laser treatment liya mujhe kafi acha lga growth phele se bhtt Kum ho gyii aap log bhi yha aao or yha se treatment lo yha ke sir and staff kafi acha haii.&quot;</p>
-              <p className="ia-testi-author">Gayatri</p>
-              <p className="ia-testi-treatment">Laser Glow Therapy</p>
-              <a href="https://maps.app.goo.gl/cNsfHK77rCw6uxyj9">
+              <p className="ia-testi-quote">&quot;Getting micro blading for eyebrows, having amazing result, totally professional, hygiene and thank you for great service&quot;</p>
+              <p className="ia-testi-author">Divya Sahu</p>
+              <p className="ia-testi-treatment">Eyebrow Microblading</p>
+              <a href="https://maps.app.goo.gl/un9UrGZjudWCMEfh9" target="_blank" rel="noopener noreferrer">
                 <div className="ia-testi-verified">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
                   Verified Google Review
@@ -337,7 +328,11 @@ export default function Home() {
                   </div>
                   <div>
                     <div className="ia-ci-label">Call to Book</div>
-                    <div className="ia-ci-value ia-phone-value"><a href="tel:+919460991160">094609 91160</a></div>
+                    <div className="ia-ci-value ia-phone-value">
+                      <a href="tel:+917788991101">77889 91101</a>
+                      <br />
+                      <a href="tel:+919460991160">94609 91160</a>
+                    </div>
                   </div>
                 </div>
 
@@ -362,8 +357,8 @@ export default function Home() {
                   <div>
                     <div className="ia-ci-label">Location</div>
                     <div className="ia-ci-value">
-                      Ajmer Tower, Kutchery Road<br />Ajmer, Rajasthan 305001<br />
-                      <a href="https://maps.app.goo.gl/uccX19z8wcXrQ2HF8" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-gold)', fontSize: '14px', display: 'inline-block', marginTop: '6px' }}>Get Directions →</a>
+                      48-49, Ajmer Tower, Kutchery Road<br />Ajmer, Rajasthan 305001<br />
+                      <a href="https://www.google.com/maps/search/?api=1&query=Infinity+Aesthetics-+Skin,+Laser+%26+Hair+Clinic&query_place_id=ChIJ2yUZNu_nuzkR3kUmvPRirXU" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-gold)', fontSize: '14px', display: 'inline-block', marginTop: '6px' }}>Get Directions →</a>
                     </div>
                   </div>
                 </div>

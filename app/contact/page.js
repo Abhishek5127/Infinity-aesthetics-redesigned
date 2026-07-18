@@ -8,7 +8,7 @@ import { areasServed, breadcrumbSchema, createMetadata } from "../../lib/seo";
 export const metadata = createMetadata({
   title: "Skin Clinic Contact Ajmer | Infinity Aesthetics",
   description:
-    "Contact Infinity Aesthetics in Ajmer for skin, laser, acne, pigmentation, PRP hair, HydraFacial, and peel consultations at Ajmer Tower.",
+    "Contact Infinity Aesthetics in Ajmer for skin, laser, acne, pigmentation, PRP hair, HydraFacial, and peel consultations at 48-49, Ajmer Tower.",
   path: "/contact",
 });
 
@@ -29,7 +29,11 @@ export default function ContactPage() {
           <ul className={styles.contactList}>
             <li>
               <span>Phone</span>
-              <a href="tel:+919460991160">094609 91160</a>
+              <div>
+                <a href="tel:+917788991101">77889 91101</a>
+                <br />
+                <a href="tel:+919460991160">94609 91160</a>
+              </div>
             </li>
             <li>
               <span>Website</span>
@@ -37,7 +41,7 @@ export default function ContactPage() {
             </li>
             <li>
               <span>Clinic</span>
-              <p>Ajmer Tower, Kutchery Road, Ajmer, Rajasthan 305001</p>
+              <p>48-49, Ajmer Tower, Kutchery Road, Ajmer, Rajasthan 305001</p>
             </li>
             <li>
               <span>Hours</span>
@@ -76,7 +80,7 @@ export default function ContactPage() {
               rel="noopener noreferrer"
               key={area}
             >
-              <span>Ajmer</span>
+              <span>Serving</span>
               <strong>{area}</strong>
               <small>Get directions to Infinity Aesthetics from {area}.</small>
             </a>
@@ -87,21 +91,21 @@ export default function ContactPage() {
       <section className={styles.detailBand} aria-labelledby="map-heading">
         <div className={styles.sectionIntroLeft}>
           <p className={styles.kicker}>Map</p>
-          <h2 className={styles.sectionTitle} id="map-heading">Find us at Ajmer Tower.</h2>
+          <h2 className={styles.sectionTitle} id="map-heading">Find us at 48-49, Ajmer Tower.</h2>
           <p className={styles.richText}>
-            Infinity Aesthetics is located at Ajmer Tower, Kutchery Road, Ajmer, Rajasthan 305001.
+            Infinity Aesthetics is located at 48-49, Ajmer Tower, Kutchery Road, Ajmer, Rajasthan 305001.
           </p>
         </div>
         <div style={{ minHeight: 320, overflow: "hidden", borderRadius: 16 }}>
           <iframe
             title="Infinity Aesthetics Ajmer map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.1837568571866!2d74.63660507629574!3d26.482029976906232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396be71e069818ab%3A0xc6226ec4f9b8c2fc!2sInfinity%20Aesthetics%20Ajmer!5e0!3m2!1sen!2sin!4v1709669527014!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.8660282050882!2d74.63414207520799!3d26.46004707691985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396be7ef361925eb%3A0x75ad62f4bc2645de!2sInfinity%20Aesthetics-%20Skin%2C%20Laser%20%26%20Hair%20Clinic!5e0!3m2!1sen!2sin!4v1783759882721!5m2!1sen!2sin"
             width="100%"
             height="320"
             style={{ border: 0 }}
             allowFullScreen=""
             loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
+            referrerPolicy="strict-origin-when-cross-origin"
           />
         </div>
       </section>

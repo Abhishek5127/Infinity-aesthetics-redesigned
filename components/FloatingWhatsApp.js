@@ -1,5 +1,5 @@
 const WHATSAPP_URL =
-  "https://wa.me/919460991160?text=" +
+  "https://wa.me/917788991101?text=" +
   encodeURIComponent("Hi Infinity Aesthetics, I'd like to know more about your treatments.");
 
 export default function FloatingWhatsApp() {
