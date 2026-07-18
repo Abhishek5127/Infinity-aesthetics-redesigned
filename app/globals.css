@@ -1745,6 +1745,12 @@ h1, h2, h3, h4 {
 }
 .ia-footer-links a:hover { color: var(--accent-gold); padding-left: 4px; }
 
+.ia-footer-treatments-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 16px;
+}
+
 .ia-footer-ci {
   display: flex;
   align-items: flex-start;
