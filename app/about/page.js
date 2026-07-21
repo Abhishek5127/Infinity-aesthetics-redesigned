@@ -5,8 +5,8 @@ import JsonLd from "../../components/JsonLd";
 import { breadcrumbSchema, clinicSchema, createMetadata } from "../../lib/seo";
 
 const clinicImg = "/about/ClinicImg.webp";
-const doctorImg = "/about/DoctorImg.png";
-const doctorImg2 = "/about/DoctorImg2.webp";
+const doctorImg = "/about/DoctorImg2.webp";
+const doctorImg2 = "/about/DoctorImg.png";
 
 export const metadata = createMetadata({
   title: "About Us | Skin, Laser & Hair Clinic Ajmer | Infinity Aesthetics",
@@ -92,19 +92,25 @@ export default function AboutPage() {
           <div className={styles.textContent}>
             <span className={styles.sectionEyebrow}>Our Philosophy</span>
             <h2 className={styles.sectionTitle}>Becoming Your Most Confident Self</h2>
-            
+
             <p className={styles.paragraph}>
               Founded by Abhay Sen, Infinity Aesthetics was created with a simple philosophy: every patient deserves honest guidance, exceptional care, and treatment plans tailored to their unique skin and hair concerns.
             </p>
-            <p className={styles.paragraph}>
-              Rather than offering one-size-fits-all solutions, we focus on understanding your goals and creating a personalized journey that prioritizes both safety and long-term results.
-            </p>
+            <div className={styles.imageWrapperMobile}>
+              <Image
+                src={doctorImg}
+                alt="Founding vision and clinical consultation space at Infinity Aesthetics"
+                fill
+                sizes="100vw"
+                priority
+              />
+            </div>
 
             <blockquote className={styles.philosophyQuote}>
               &ldquo;We don&apos;t believe in changing who you are—we believe in helping you become the most confident version of yourself. Healthy skin, naturally beautiful results, and patient trust remain at the heart of everything we do.&rdquo;
             </blockquote>
           </div>
-          
+
           <div className={styles.imageWrapper}>
             <Image
               src={doctorImg}

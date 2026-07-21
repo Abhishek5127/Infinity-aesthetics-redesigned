@@ -128,6 +128,10 @@
   margin: 0 auto;
 }
 
+.imageWrapperMobile {
+  display: none;
+}
+
 @media (max-width: 1024px) {
   .grid, .gridReverse {
     grid-template-columns: 1fr;
@@ -135,6 +139,26 @@
   }
   .gridReverse .textContent {
     order: -1;
+  }
+  .grid .imageWrapper {
+    display: none !important;
+  }
+  .imageWrapperMobile {
+    display: block;
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    aspect-ratio: 4/5;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    margin: 30px auto;
+    max-width: 600px;
+    width: 100%;
+  }
+  .imageWrapperMobile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 

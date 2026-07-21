@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import navLogo from "../app/assets/navbar/nav-logo.png";
+import navLogoFont from "../app/assets/navbar/navLogoFont.png";
 
 /* ── helpers ── */
 function isActive(pathname, href) {
@@ -50,7 +51,9 @@ export default function Navbar() {
           </div>
           <Link href="/" style={{ textDecoration: 'none' }}>
             <div className="ia-nav-brand-text">
-              <span className="ia-nav-brand-name">Infinity Aesthetics</span>
+              <span className="ia-nav-brand-name">
+                <Image src={navLogoFont} alt="Infinity Aesthetics" priority />
+              </span>
               <span className="ia-nav-brand-tag">
                 Skin, Laser &amp; Hair Clinic
               </span>
@@ -175,7 +178,9 @@ export default function Navbar() {
             <Image src={navLogo} alt="Infinity Aesthetics Logo" width={40} height={40} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
           </div>
           <div>
-            <div className="ia-drawer-brand-name">Infinity Aesthetics</div>
+            <div className="ia-drawer-brand-name">
+              <Image src={navLogoFont} alt="Infinity Aesthetics" />
+            </div>
             <div className="ia-drawer-brand-tag">
               Skin, Laser &amp; Hair Clinic
             </div>

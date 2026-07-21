@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Link from "next/link";
 import styles from "./results.module.css";
 import BeforeAfterSlider from "../../components/BeforeAfterSlider";
@@ -79,12 +80,14 @@ export default function ResultsPage() {
       <section className={styles.gallerySection}>
         <div className={styles.sliderGrid}>
           {resultSliders.map((slider) => (
-            <BeforeAfterSlider
-              key={slider.title}
-              title={slider.title}
-              beforeImage={slider.before}
-              afterImage={slider.after}
-            />
+            <Fragment key={slider.title}>
+              <BeforeAfterSlider
+                title={slider.title}
+                beforeImage={slider.before}
+                afterImage={slider.after}
+              />
+              <hr className={styles.divider} />
+            </Fragment>
           ))}
         </div>
       </section>
