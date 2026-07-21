@@ -250,10 +250,12 @@ export default function Home() {
                 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
                 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
               </div>
-              <p className="ia-testi-quote">&quot;Really effective result very good treatment I got even receptionist mam treatment also very polite. Recommend to other best experience you should absolutely visit here. Worth of money spend.&quot;</p>
-              <p className="ia-testi-author">Monika Nagrani</p>
-              <p className="ia-testi-treatment">Clinical Treatment</p>
-              <a href="https://maps.app.goo.gl/Zcn4ZYNg5WPZ41LH9" target="_blank" rel="noopener noreferrer">
+              <p className="ia-testi-quote">&quot;Excellent services in very reasonable price, Abhay sir have such a deep knowledge about laser and skin.
+                My laser hair removal of hands have great results, and I like the services and behaviour of staff.
+                Thank you so much for the lovely services♥️♥️🎊🎉&quot;</p>
+              <p className="ia-testi-author">Ashok Kumar</p>
+              <p className="ia-testi-treatment">Chemical Peel Series</p>
+              <a href="https://maps.app.goo.gl/zGGHiw4TzSf2hX5V9">
                 <div className="ia-testi-verified">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
                   Verified Google Review
@@ -288,12 +290,10 @@ export default function Home() {
                 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
                 <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
               </div>
-              <p className="ia-testi-quote">&quot;Excellent services in very reasonable price, Abhay sir have such a deep knowledge about laser and skin.
-                My laser hair removal of hands have great results, and I like the services and behaviour of staff.
-                Thank you so much for the lovely services♥️♥️🎊🎉&quot;</p>
-              <p className="ia-testi-author">Ashok Kumar</p>
-              <p className="ia-testi-treatment">Chemical Peel Series</p>
-              <a href="https://maps.app.goo.gl/zGGHiw4TzSf2hX5V9">
+              <p className="ia-testi-quote">&quot;Really effective result very good treatment I got even receptionist mam treatment also very polite. Recommend to other best experience you should absolutely visit here. Worth of money spend.&quot;</p>
+              <p className="ia-testi-author">Monika Nagrani</p>
+              <p className="ia-testi-treatment">Clinical Treatment</p>
+              <a href="https://maps.app.goo.gl/Zcn4ZYNg5WPZ41LH9" target="_blank" rel="noopener noreferrer">
                 <div className="ia-testi-verified">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
                   Verified Google Review
